@@ -9,4 +9,4 @@ dir=$(readlink -f $1)
 
 # .tmux.conf
 mv ~/.tmux.conf ~/.tmux.conf.bak
-ln ${dir}/.bashrc ~/.bashrc --symbolic
+ln ${dir}/.tmux.conf ~/.tmux.conf --symbolic
