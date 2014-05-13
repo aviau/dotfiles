@@ -10,3 +10,7 @@ dir=$(readlink -f $1)
 # .tmux.conf
 mv ~/.tmux.conf ~/.tmux.conf.bak
 ln ${dir}/.tmux.conf ~/.tmux.conf --symbolic
+
+# .atom
+mv ~/.atom ~/.atom.bak
+ln ${dir}/.atom ~/.atom --symbolic
