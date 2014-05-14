@@ -1,0 +1,3 @@
+[dotfiles]
+prefix = .
+repository = ~/git/dotfiles
