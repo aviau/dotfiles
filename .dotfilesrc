@@ -1,4 +1,4 @@
 [dotfiles]
 prefix = .
 repository = ~/git/dotfiles
-packages = ['.config']
+packages = ['config']
