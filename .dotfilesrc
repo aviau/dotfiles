@@ -6,4 +6,6 @@ packages = ['config']
 ignore = [
     '.git',
     '.gitignore',
-    '*.swp']
+    '*.swp',
+    'lnmaker.sh',
+    'README.md']
