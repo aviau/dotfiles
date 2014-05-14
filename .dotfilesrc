@@ -2,3 +2,8 @@
 prefix = .
 repository = ~/git/dotfiles
 packages = ['config']
+
+ignore = [
+    '.git',
+    '.gitignore',
+    '*.swp']
