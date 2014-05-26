@@ -1,0 +1,268 @@
+--[[
+
+     Blackburn Awesome WM config 3.0
+     github.com/copycat-killer
+
+--]]
+
+-- {{{ Required libraries
+local gears     = require("gears")
+local awful     = require("awful")
+awful.rules     = require("awful.rules")
+require("awful.autofocus")
+local wibox     = require("wibox")
+local beautiful = require("beautiful")
+local naughty   = require("naughty")
+local lain      = require("lain")
+-- }}}
+
+-- Error handling
+require("stock.errors")
+
+-- STARTUP apps
+require("settings.startup")
+
+-- {{{ Variable definitions
+-- beautiful init
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/blackburn/theme.lua")
+
+-- variables
+require("settings.variables")
+
+-- Tags and layouts
+require("settings.tags")
+-- }}}
+
+-- {{{ Wallpaper
+require("stock.wallpaper")
+-- }}}
+
+-- {{{ Menu
+require("third-party/freedesktop/freedesktop")
+-- }}}
+
+-- {{{ Wibox
+markup = lain.util.markup
+gray   = "#9E9C9A"
+
+-- Textclock
+mytextclock = awful.widget.textclock(" %H:%M ")
+
+-- Calendar
+lain.widgets.calendar:attach(mytextclock)
+
+--[[ Mail IMAP check
+-- commented because it needs to be set before use
+mailwidget = lain.widgets.imap({
+    timeout  = 180,
+    server   = "server",
+    mail     = "mail",
+    password = "keyring get mail",
+    settings = function()
+        mail  = ""
+        count = ""
+
+        if mailcount > 0 then
+            mail = "Mail "
+            count = mailcount .. " "
+        end
+
+        widget:set_markup(markup(gray, mail) .. count)
+    end
+})
+]]
+
+-- MPD
+mpdwidget = lain.widgets.mpd({
+    settings = function()
+        artist = mpd_now.artist .. " "
+        title  = mpd_now.title  .. "  "
+
+        if mpd_now.state == "pause" then
+            artist = "mpd "
+            title  = "paused  "
+        elseif mpd_now.state == "stop" then
+            artist = ""
+            title  = ""
+        end
+
+        widget:set_markup(markup(gray, artist) .. title)
+    end
+})
+
+-- /home fs
+fshome = lain.widgets.fs({
+    partition = "/home",
+    settings  = function()
+        fs_header = ""
+        fs_p      = ""
+
+        if fs_now.used >= 90 then
+            fs_header = " Hdd "
+            fs_p      = fs_now.used
+        end
+
+        widget:set_markup(markup(gray, fs_header) .. fs_p)
+    end
+})
+
+-- Battery
+batwidget = lain.widgets.bat({
+    settings = function()
+        bat_header = " Bat "
+        bat_p      = bat_now.perc .. " "
+
+        if bat_now.status == "Not present" then
+            bat_header = ""
+            bat_p      = ""
+        end
+
+        widget:set_markup(markup(gray, bat_header) .. bat_p)
+    end
+})
+
+-- ALSA volume
+volumewidget = lain.widgets.alsa({
+    settings = function()
+        header = " Vol "
+        level  = volume_now.level
+
+        if volume_now.status == "off" then
+            level = level .. "M "
+        else
+            level = level .. " "
+        end
+
+        widget:set_markup(markup(gray, header) .. level)
+    end
+})
+
+-- Weather
+yawn = lain.widgets.yawn(123456,
+{
+    settings = function()
+        widget:set_markup(" " .. units .. " ")
+    end
+})
+
+-- Separators
+first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
+arrl_pre = wibox.widget.imagebox()
+arrl_pre:set_image(beautiful.arrl_lr_pre)
+arrl_post = wibox.widget.imagebox()
+arrl_post:set_image(beautiful.arrl_lr_post)
+
+-- Create a wibox for each screen and add it
+mywibox = {}
+mypromptbox = {}
+mylayoutbox = {}
+require("stock.taglist")
+require("stock.tasklist")
+
+for s = 1, screen.count() do
+    -- Create a promptbox for each screen
+    mypromptbox[s] = awful.widget.prompt()
+    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
+    -- We need one layoutbox per screen.
+    mylayoutbox[s] = awful.widget.layoutbox(s)
+    mylayoutbox[s]:buttons(awful.util.table.join(
+                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
+                           awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+    -- Create a taglist widget
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+
+    -- Create a tasklist widget
+    mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
+
+    -- Create the wibox
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 18 })
+
+    -- Widgets that are aligned to the left
+    local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(first)
+    left_layout:add(mytaglist[s])
+    left_layout:add(arrl_pre)
+    left_layout:add(mylayoutbox[s])
+    left_layout:add(arrl_post)
+    left_layout:add(mypromptbox[s])
+    left_layout:add(first)
+
+    -- Widgets that are aligned to the right
+    local right_layout = wibox.layout.fixed.horizontal()
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(first)
+    right_layout:add(mpdwidget)
+    --right_layout:add(mailwidget)
+    right_layout:add(yawn.icon)
+    right_layout:add(yawn.widget)
+    right_layout:add(fshome)
+    right_layout:add(batwidget)
+    right_layout:add(volumewidget)
+    right_layout:add(mytextclock)
+
+    -- Now bring it all together (with the tasklist in the middle)
+    local layout = wibox.layout.align.horizontal()
+    layout:set_left(left_layout)
+    layout:set_middle(mytasklist[s])
+    layout:set_right(right_layout)
+
+    mywibox[s]:set_widget(layout)
+
+    -- Set proper background, instead of beautiful.bg_normal
+    mywibox[s]:set_bg(beautiful.topbar_path .. screen[mouse.screen].workarea.width .. ".png")
+end
+-- }}}
+
+-- Bindings
+require("settings.binds")
+
+-- {{{ Key bindings
+globalkeys = awful.util.table.join(globalkeys,
+    -- Show/Hide Wibox
+    awful.key({ modkey }, "b", function ()
+        mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+    end),
+
+    -- On the fly useless gaps change
+    awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end),
+    awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end),
+
+    -- Widgets popups
+    awful.key({ altkey            }, "c", function () lain.widgets.calendar:show(7) end),
+    awful.key({ altkey            }, "h", function () fshome.show(7) end),
+    awful.key({ altkey            }, "w", function () yawn.show(7) end),
+
+    -- ALSA volume control
+    awful.key({ altkey }, "Up",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%+")
+            volumewidget.update()
+        end),
+    awful.key({ altkey }, "Down",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%-")
+            volumewidget.update()
+        end),
+    awful.key({ altkey }, "m",
+        function ()
+            awful.util.spawn("amixer -q set Master playback toggle")
+            volumewidget.update()
+        end),
+    awful.key({ altkey, "Control" }, "m",
+        function ()
+            awful.util.spawn("amixer -q set Master playback 100%")
+            volumewidget.update()
+        end)
+)
+
+-- Set keys
+root.keys(globalkeys)
+-- }}}
+
+-- Rules
+require("settings.rules")
+
+-- Signals
+require("stock.signals")
