@@ -17,18 +17,13 @@ layouts = {
 
 
 tags = {
-   names = { 1, 2, 3, 4, 5, 6, 7, 8, 9 },  -- default
-   -- names = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }, -- blackburn/dremora
+   names = { "WEB", "TERMINAL", "FILES", "OTHER" },  -- default
+
    layout = {
      layouts[1],
      layouts[2],
      layouts[3],
      layouts[4],
-     layouts[5],
-     layouts[6],
-     layouts[7],
-     layouts[8],
-     layouts[9],
    }
 }
 
