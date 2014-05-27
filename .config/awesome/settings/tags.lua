@@ -8,22 +8,17 @@ layouts = {
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
 }
 
 
 tags = {
-   names = { "WEB", "TERMINAL", "FILES", "OTHER" },  -- default
+   names = { "WEB", "TERMINAL", "FILES", "CHAT" },  -- default
 
    layout = {
      layouts[1],
      layouts[2],
-     layouts[3],
-     layouts[4],
+     layouts[2],
+     layouts[2],
    }
 }
 
