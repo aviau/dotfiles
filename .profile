@@ -27,4 +27,4 @@ export EDITOR="vim"
 #-------------------
 # Personnal Aliases
 #-------------------
-alias lock='xscreensaver-command -lock &'
+alias lock='xscreensaver ; xscreensaver-command -lock &'
