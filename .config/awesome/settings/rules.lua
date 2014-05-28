@@ -18,7 +18,7 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-    { rule = { class = "Dwb" },
+    { rule = { class = "hexchat" },
           properties = { tag = tags[1][1] } },
 
     { rule = { class = "Iron" },
