@@ -25,7 +25,7 @@ ln -s ${dir}/.config/awesome ~/.config/awesome
 
 # .profile
 mv ~/.profile ~/.profile.bak
-ln ${dir}/.profile ~/.profile
+ln -s ${dir}/.profile ~/.profile
 
 # .config/autostart
 mv ~/.config/autostart ~/.config/autostart.bak
