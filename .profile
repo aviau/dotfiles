@@ -28,5 +28,3 @@ export EDITOR="vim"
 # Personnal Aliases
 #-------------------
 alias lock='xscreensaver ; xscreensaver-command -lock &'
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
