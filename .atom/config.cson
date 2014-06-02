@@ -1,5 +1,4 @@
 'editor':
-  'fontSize': 16
   'preferredLineLength': 79
   'tabLength': 4
   'softWrap': true

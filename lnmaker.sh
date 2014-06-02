@@ -9,20 +9,24 @@ dir=$(readlink -f $1)
 
 # .tmux.conf
 mv ~/.tmux.conf ~/.tmux.conf.bak
-ln ${dir}/.tmux.conf ~/.tmux.conf --symbolic
+ln -s ${dir}/.tmux.conf ~/.tmux.conf
 
 # .atom
 mv ~/.atom ~/.atom.bak
-ln ${dir}/.atom ~/.atom --symbolic
+ln -s ${dir}/.atom ~/.atom
 
 # .bin
 mv ~/bin ~/.bin.bak
-ln ${dir}/bin ~/bin --symbolic
+ln -s ${dir}/bin ~/bin
 
 # awesome
 mv ~/.config/awesome ~/.config/awesome.bak
-ln ${dir}/.config/awesome ~/.config/awesome --symbolic
+ln -s ${dir}/.config/awesome ~/.config/awesome
 
 # .profile
 mv ~/.profile ~/.profile.bak
-ln ${dir}/.profile ~/.profile --symbolic
+ln ${dir}/.profile ~/.profile
+
+# .config/autostart
+mv ~/.config/autostart ~/.config/autostart.bak
+ln -s ${dir}/.config/autostart ~/.config/autostart
