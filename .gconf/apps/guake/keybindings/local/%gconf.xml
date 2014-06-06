@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="new_tab" mtime="1402020572" type="string">
+		<stringvalue>&lt;Primary&gt;t</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1402020517" type="string">
+		<stringvalue>&lt;Primary&gt;Right</stringvalue>
+	</entry>
+	<entry name="previous_tab" mtime="1402020515" type="string">
+		<stringvalue>&lt;Primary&gt;Left</stringvalue>
+	</entry>
+</gconf>
