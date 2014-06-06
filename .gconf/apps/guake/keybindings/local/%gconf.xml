@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <gconf>
+	<entry name="quit" mtime="1402020868" type="string">
+		<stringvalue>&lt;Primary&gt;q</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1402020855" type="string">
+		<stringvalue>&lt;Primary&gt;w</stringvalue>
+	</entry>
 	<entry name="new_tab" mtime="1402020572" type="string">
 		<stringvalue>&lt;Primary&gt;t</stringvalue>
 	</entry>
