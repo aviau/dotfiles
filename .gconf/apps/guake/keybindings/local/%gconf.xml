@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="quit" mtime="1402020868" type="string">
+		<stringvalue>&lt;Primary&gt;q</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1402020855" type="string">
+		<stringvalue>&lt;Primary&gt;w</stringvalue>
+	</entry>
+	<entry name="new_tab" mtime="1402020572" type="string">
+		<stringvalue>&lt;Primary&gt;t</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1402020517" type="string">
+		<stringvalue>&lt;Primary&gt;Right</stringvalue>
+	</entry>
+	<entry name="previous_tab" mtime="1402020515" type="string">
+		<stringvalue>&lt;Primary&gt;Left</stringvalue>
+	</entry>
+</gconf>
