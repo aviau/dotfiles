@@ -7,6 +7,7 @@
   'disabledPackages': [
     'linter-pep8'
   ]
+  'useReactEditor': true
 'exception-reporting':
   'userId': 'd5ed7e45-af6a-2729-48ee-4b691b0fde1c'
 'release-notes':
