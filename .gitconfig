@@ -1,0 +1,26 @@
+[user]
+	name = aviau
+	email = alexandre.viau@savoirfairelinux.com
+[push]
+	default = simple
+[core]
+	excludesfile = /home/aviau/.gitignore_global
+[gitreview]
+	username = reazem
+[color]
+	ui = auto
+[color "branch"]
+	current = red
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = cyan
+	frag = magenta
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[alias]
+	st = status

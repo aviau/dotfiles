@@ -34,3 +34,7 @@ ln -s ${dir}/.config/autostart ~/.config/autostart
 # .gconf/apps/guake
 mv ~/.gconf/apps/guake ~/.gconf/apps/guake.bak
 ln -s ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
+
+# .gitconfig
+mv ~/.gitconfig ~/.gitconfig
+ln -s ${dir}/.gitconfig ~/.gitconfig
