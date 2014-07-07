@@ -36,5 +36,8 @@ mv ~/.gconf/apps/guake ~/.gconf/apps/guake.bak
 ln -s ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
 
 # .gitconfig
-mv ~/.gitconfig ~/.gitconfig
+mv ~/.gitconfig ~/.gitconfig.bak
 ln -s ${dir}/.gitconfig ~/.gitconfig
+
+# .pyrc
+ln -sf ${dir}/.pyrc ~/.pyrc

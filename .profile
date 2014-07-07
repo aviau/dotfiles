@@ -23,6 +23,7 @@ fi
 
 #Set variables
 export EDITOR="vim"
+export PYTHONSTARTUP="$HOME/.pyrc"
 
 #-------------------
 # Personnal Aliases
