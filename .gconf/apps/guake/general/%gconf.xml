@@ -2,7 +2,7 @@
 <gconf>
 	<entry name="start_fullscreen" mtime="1399666263" type="bool" value="false"/>
 	<entry name="open_tab_cwd" mtime="1399666122" type="bool" value="true"/>
-	<entry name="window_height" mtime="1403283403" type="int" value="83"/>
+	<entry name="window_height" mtime="1406643715" type="int" value="58"/>
 	<entry name="use_login_shell" mtime="1398456600" type="bool" value="false"/>
 	<entry name="compat_delete" mtime="1403112997" type="string">
 		<stringvalue>delete-sequence</stringvalue>
