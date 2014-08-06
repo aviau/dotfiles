@@ -29,3 +29,4 @@ export PYTHONSTARTUP="$HOME/.pyrc"
 # Personnal Aliases
 #-------------------
 alias lock='xscreensaver ; xscreensaver-command -lock &'
+alias docker='sudo docker'
