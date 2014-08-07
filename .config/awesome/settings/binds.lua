@@ -44,7 +44,7 @@ globalkeys = awful.util.table.join(globalkeys,
   awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
   -- Dropdown terminal
-  awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+  awful.key({ modkey,	          }, "z",      function () drop("guake") end),
 
   -- Take a screenshot
   -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
