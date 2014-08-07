@@ -99,6 +99,9 @@ globalkeys = awful.util.table.join(globalkeys,
           mymainmenu:show({ keygrabber = true })
       end),
 
+  -- Keyboard layout
+  awful.key({ "Shift" }, "Tab", function () kbdcfg.switch() end),
+
   -- MPD control
   awful.key({ altkey, "Control" }, "Up",
       function ()

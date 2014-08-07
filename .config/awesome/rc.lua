@@ -226,6 +226,20 @@ networkwidget = wibox.widget.background()
 networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
 
+-- Keyboard map indicator and changer
+kbdcfg = {}
+kbdcfg.cmd = "setxkbmap"
+kbdcfg.layout = { { "us", "" }, { "ca", "" } }
+kbdcfg.current = 1  -- us is our default layout
+kbdcfg.widget = wibox.widget.textbox()
+kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][1] .. " ")
+kbdcfg.switch = function ()
+  kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
+  local t = kbdcfg.layout[kbdcfg.current]
+  kbdcfg.widget:set_text(" " .. t[1] .. " ")
+  os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
+end
+
 -- Weather
 yawn = lain.widgets.yawn(123456)
 
@@ -290,6 +304,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     --right_layout:add(mailwidget)
+    right_layout:add(kbdcfg.widget)
     right_layout:add(batwidget)
     right_layout:add(spr_right)
     right_layout:add(prev_icon)
