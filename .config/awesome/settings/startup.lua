@@ -16,6 +16,6 @@ end
 
 -- {{{ Autostart applications
 
--- run_once("urxvtd")
+run_once("nm-applet")
 
 -- }}}
