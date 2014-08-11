@@ -4,7 +4,7 @@ os.setlocale(os.getenv("LANG"))
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "gnome-terminal" or "xterm"
+terminal   = "xfce4-terminal" or "xterm"
 editor     = "vim" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
