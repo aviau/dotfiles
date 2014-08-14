@@ -44,7 +44,7 @@ globalkeys = awful.util.table.join(globalkeys,
   awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
   -- Dropdown terminal
-  awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+  awful.key({ modkey,	          }, "z",      function () drop("guake") end),
 
   -- Take a screenshot
   -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
@@ -56,8 +56,8 @@ globalkeys = awful.util.table.join(globalkeys,
   awful.key({ modkey }, "Escape", awful.tag.history.restore),
 
   -- Non-empty tag browsing
-  awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
-  awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
+  -- awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
+  -- awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
 
   -- Default client focus
   awful.key({ altkey }, "k",
@@ -72,22 +72,22 @@ globalkeys = awful.util.table.join(globalkeys,
       end),
 
   -- By direction client focus
-  awful.key({ modkey }, "j",
+  awful.key({ modkey, "Control" }, "Down",
       function()
           awful.client.focus.bydirection("down")
           if client.focus then client.focus:raise() end
       end),
-  awful.key({ modkey }, "k",
+  awful.key({ modkey, "Control" }, "Up",
       function()
           awful.client.focus.bydirection("up")
           if client.focus then client.focus:raise() end
       end),
-  awful.key({ modkey }, "h",
+  awful.key({ modkey, "Control" }, "Left",
       function()
           awful.client.focus.bydirection("left")
           if client.focus then client.focus:raise() end
       end),
-  awful.key({ modkey }, "l",
+  awful.key({ modkey, "Control" }, "Right",
       function()
           awful.client.focus.bydirection("right")
           if client.focus then client.focus:raise() end
@@ -98,6 +98,9 @@ globalkeys = awful.util.table.join(globalkeys,
       function ()
           mymainmenu:show({ keygrabber = true })
       end),
+
+  -- Keyboard layout
+  awful.key({ "Shift" }, "Tab", function () kbdcfg.switch() end),
 
   -- MPD control
   awful.key({ altkey, "Control" }, "Up",
@@ -125,20 +128,20 @@ globalkeys = awful.util.table.join(globalkeys,
   awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
 
   -- User programs
-  awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-  awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
-  awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
-  awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
+  -- awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
+  -- awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
+  -- awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+  -- awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
   -- Prompt
-  awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
-  awful.key({ modkey }, "x",
-            function ()
-                awful.prompt.run({ prompt = "Run Lua code: " },
-                mypromptbox[mouse.screen].widget,
-                awful.util.eval, nil,
-                awful.util.getdir("cache") .. "/history_eval")
-            end)
+  awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end)
+--  awful.key({ modkey }, "x",
+--            function ()
+--                awful.prompt.run({ prompt = "Run Lua code: " },
+--                mypromptbox[mouse.screen].widget,
+--                awful.util.eval, nil,
+--                awful.util.getdir("cache") .. "/history_eval")
+--            end)
 )
 
 -- Bind all key numbers to tags.
