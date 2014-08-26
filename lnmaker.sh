@@ -11,6 +11,9 @@ dir=$(readlink -f $1)
 mv ~/.tmux.conf ~/.tmux.conf.bak
 ln -s ${dir}/.tmux.conf ~/.tmux.conf
 
+# .vimrc
+ln -sf ${dir}/.vimrc ~/.vimrc
+
 # .atom
 mv ~/.atom ~/.atom.bak
 ln -s ${dir}/.atom ~/.atom
