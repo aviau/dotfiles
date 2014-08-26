@@ -14,6 +14,10 @@ ln -s ${dir}/.tmux.conf ~/.tmux.conf
 # .vimrc
 ln -sf ${dir}/.vimrc ~/.vimrc
 
+# .vim
+mv ~/.vim ~/.vim.bak
+ln -sf ${dir}/.vim ~/.vim
+
 # .atom
 mv ~/.atom ~/.atom.bak
 ln -s ${dir}/.atom ~/.atom

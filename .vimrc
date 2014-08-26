@@ -1,19 +1,13 @@
+execute pathogen#infect()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme desert
 " set background=dark
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+" colorscheme solarized
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -68,4 +62,8 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " Always show the status line
 set laststatus=2
 
+""""""""""""""""""""""""""""""
+" => Other
+"""""""""""""""""""""""""""""
 set mouse=a
+set number
