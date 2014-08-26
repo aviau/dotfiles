@@ -65,5 +65,4 @@ set laststatus=2
 """"""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""
-set mouse=a
 set number
