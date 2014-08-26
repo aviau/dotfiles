@@ -17,5 +17,6 @@ end
 -- {{{ Autostart applications
 
 run_once("nm-applet")
+run_once("insync start")
 
 -- }}}
