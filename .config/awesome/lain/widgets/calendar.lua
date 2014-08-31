@@ -12,7 +12,7 @@ local awful        = require("awful")
 local beautiful    = require("beautiful")
 local naughty      = require("naughty")
 
-local io           = io
+local io           = { popen = io.popen }
 local os           = { date = os.date }
 local tonumber     = tonumber
 
@@ -45,7 +45,7 @@ function calendar:show(t_out, inc_offset)
     then -- current month showing, today highlighted
         if today >= 10
         then
-           init_t = calendar.cal .. ' | sed -r -e "s/(^| )('
+           init_t = calendar.cal .. ' | sed -r -e "s/_\\x08//g" | sed -r -e "s/(^| )('
         end
 
         calendar.offset = 0
@@ -88,7 +88,7 @@ function calendar:show(t_out, inc_offset)
              .. calendar.font_size .. "'><b>"
              .. f:read() .. "</b>\n\n"
              .. f:read() .. "\n"
-             .. f:read("*all"):gsub("\n*$", "")
+             .. f:read("*a"):gsub("\n*$", "")
              .. "</span></tt>"
     f:close()
 
@@ -98,7 +98,8 @@ function calendar:show(t_out, inc_offset)
         position = calendar.position,
         fg = calendar.fg,
         bg = calendar.bg,
-        timeout = tims
+        timeout = tims,
+        screen = client.focus and client.focus.screen or 1
     })
 end
 

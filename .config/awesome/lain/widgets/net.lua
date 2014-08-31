@@ -13,7 +13,7 @@ local notify_fg    = require("beautiful").fg_focus
 local naughty      = require("naughty")
 local wibox        = require("wibox")
 
-local io           = io
+local io           = { popen  = io.popen }
 local tostring     = tostring
 local string       = { format = string.format,
                        gsub   = string.gsub }
@@ -29,7 +29,7 @@ local net = {
 
 function net.get_device()
     f = io.popen("ip link show | cut -d' ' -f2,9")
-    ws = f:read("*all")
+    ws = f:read("*a")
     f:close()
     ws = ws:match("%w+: UP")
     if ws ~= nil then
@@ -87,7 +87,8 @@ local function worker(args)
                     timeout  = 7,
                     position = "top_left",
                     icon     = helpers.icons_dir .. "no_net.png",
-                    fg       = notify_fg or "#FFFFFF"
+                    fg       = notify_fg or "#FFFFFF",
+                    screen = client.focus and client.focus.screen or 1
                 })
                 helpers.set_map(iface, false)
             end
