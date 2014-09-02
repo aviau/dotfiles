@@ -10,7 +10,7 @@ local newtimer     = require("lain.helpers").newtimer
 
 local wibox        = require("wibox")
 
-local io           = io
+local io           = { open = io.open }
 local tonumber     = tonumber
 
 local setmetatable = setmetatable
@@ -31,7 +31,7 @@ local function worker(args)
         local f = io.open(tempfile)
         if f ~= nil
         then
-            coretemp_now = tonumber(f:read("*all")) / 1000
+            coretemp_now = tonumber(f:read("*a")) / 1000
             f:close()
         else
             coretemp_now = "N/A"

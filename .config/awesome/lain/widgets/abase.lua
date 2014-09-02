@@ -7,34 +7,36 @@
 --]]
 
 local newtimer     = require("lain.helpers").newtimer
+local async        = require("lain.asyncshell")
 local wibox        = require("wibox")
 
-local io           = { popen = io.popen }
 local setmetatable = setmetatable
 
--- Basic template for custom widgets
--- lain.widgets.base
+-- Basic template for custom widgets 
+-- Asynchronous version
+-- lain.widgets.abase
 
 local function worker(args)
-    local base     = {}
+    local abase    = {}
     local args     = args or {}
     local timeout  = args.timeout or 5
     local cmd      = args.cmd or ""
     local settings = args.settings or function() end
 
-    base.widget = wibox.widget.textbox('')
+    abase.widget = wibox.widget.textbox('')
 
-    function base.update()
-        local f = assert(io.popen(cmd))
-        output = f:read("*a")
-        f:close()
-        widget = base.widget
-        settings()
+    function abase.update()
+        async.request(cmd, function(f)
+            output = f:read("*a")
+            f:close()
+            widget = abase.widget
+            settings()
+        end)
     end
 
-    newtimer(cmd, timeout, base.update)
+    newtimer(cmd, timeout, abase.update)
 
-    return setmetatable(base, { __index = base.widget })
+    return setmetatable(abase, { __index = abase.widget })
 end
 
 return setmetatable({}, { __call = function(_, ...) return worker(...) end })
