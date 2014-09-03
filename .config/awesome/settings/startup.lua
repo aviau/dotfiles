@@ -16,6 +16,7 @@ end
 
 -- {{{ Autostart applications
 
+run_once("xscreensaver")
 run_once("nm-applet")
 run_once("insync start")
 
