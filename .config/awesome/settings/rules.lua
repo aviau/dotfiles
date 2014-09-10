@@ -10,29 +10,16 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
+
+                    -- Ensure windows never start maiximized
+                    maximized_vertical   = false,
+                    maximized_horizontal = false,
+
                      buttons = clientbuttons,
                      size_hints_honor = false } },
-    { rule = { class = "URxvt" },
-          properties = { opacity = 0.99 } },
 
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
-
-    { rule = { class = "hexchat" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "Iron" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { instance = "plugin-container" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "Gimp" },
-           properties = { tag = tags[1][4] } },
-
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized_horizontal = true,
-                         maximized_vertical = true } },
 }
 
 -- }}}
