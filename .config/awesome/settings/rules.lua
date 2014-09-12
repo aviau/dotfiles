@@ -16,10 +16,7 @@ awful.rules.rules = {
                     maximized_horizontal = false,
 
                      buttons = clientbuttons,
-                     size_hints_honor = false } },
-
-    { rule = { class = "MPlayer" },
-          properties = { floating = true } },
+                     size_hints_honor = false } }
 }
 
 -- }}}
