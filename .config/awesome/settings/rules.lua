@@ -16,7 +16,9 @@ awful.rules.rules = {
                     maximized_horizontal = false,
 
                      buttons = clientbuttons,
-                     size_hints_honor = false } }
+                     size_hints_honor = false } },
+      { rule = { class = "Guake" },
+        properties = { floating = true } }
 }
 
 -- }}}
