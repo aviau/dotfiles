@@ -14,7 +14,7 @@ local beautiful    = require("beautiful")
 local wibox        = require("wibox")
 local naughty      = require("naughty")
 
-local io           = io
+local io           = { popen  = io.popen }
 local pairs        = pairs
 local string       = { match  = string.match,
                        format = string.format }
@@ -40,13 +40,14 @@ function fs:show(t_out)
     fs:hide()
 
     local f = io.popen(helpers.scripts_dir .. "dfs")
-    ws = f:read("*all"):gsub("\n*$", "")
+    ws = f:read("*a"):gsub("\n*$", "")
     f:close()
 
     notification = naughty.notify({
         preset = fs_notification_preset,
         text = ws,
-      	timeout = t_out
+        timeout = t_out,
+        screen = client.focus and client.focus.screen or 1
     })
 end
 
@@ -66,7 +67,6 @@ local function worker(args)
     function update()
         fs_info = {}
         fs_now  = {}
-
         local f = io.popen("LC_ALL=C df -kP " .. partition)
 
         for line in f:lines() do -- Match: (size) (used)(avail)(use%) (mount)
@@ -99,7 +99,8 @@ local function worker(args)
                 text = partition .. " ran out!\nmake some room",
                 timeout = 8,
                 fg = "#000000",
-                bg = "#FFFFFF"
+                bg = "#FFFFFF",
+                screen = client.focus and client.focus.screen or 1
             })
             helpers.set_map("fs", true)
         else

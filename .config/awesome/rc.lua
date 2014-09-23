@@ -161,9 +161,10 @@ function ()
 end)))
 
 -- Battery
-batwidget = lain.widgets.bat({
+bat0widget = lain.widgets.bat({
+    battery    = "BAT0",
     settings = function()
-        bat_header = " Bat "
+        bat_header = " Bat0 "
         bat_p      = bat_now.perc .. " "
 
         if bat_now.status == "Not present" then
@@ -174,6 +175,22 @@ batwidget = lain.widgets.bat({
         widget:set_markup(markup(blue, bat_header) .. bat_p)
     end
 })
+
+bat1widget = lain.widgets.bat({
+    battery    = "BAT1",
+    settings = function()
+        bat_header = " Bat1 "
+        bat_p      = bat_now.perc .. " "
+
+        if bat_now.status == "Not present" then
+            bat_header = ""
+            bat_p      = ""
+        end
+
+        widget:set_markup(markup(blue, bat_header) .. bat_p)
+    end
+})
+
 
 -- ALSA volume bar
 myvolumebar = lain.widgets.alsabar({
@@ -305,7 +322,8 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     --right_layout:add(mailwidget)
     right_layout:add(kbdcfg.widget)
-    right_layout:add(batwidget)
+    right_layout:add(bat0widget)
+    right_layout:add(bat1widget)
     right_layout:add(spr_right)
     right_layout:add(prev_icon)
     right_layout:add(next_icon)

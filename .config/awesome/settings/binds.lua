@@ -1,6 +1,6 @@
 local awful = require("awful")
 local drop  = require("third-party/scratchdrop")
-local lain  = require("lain")
+-- local lain  = require("lain")
 
 -- {{{ Mouse bindings
 
