@@ -48,3 +48,7 @@ ln -s ${dir}/.gitconfig ~/.gitconfig
 
 # .pyrc
 ln -sf ${dir}/.pyrc ~/.pyrc
+
+# .dput.cf
+ln -sf ${dir}/.dput.cf ~/.dput.cf
+
