@@ -12,3 +12,7 @@ export PYTHONSTARTUP="$HOME/.pyrc"
 #-------------------
 alias lock='xscreensaver ; xscreensaver-command -lock &'
 alias docker='sudo docker'
+
+# quilt
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+complete -F _quilt_completion $_quilt_complete_opt dquilt

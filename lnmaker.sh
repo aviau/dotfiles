@@ -55,3 +55,5 @@ ln -sf ${dir}/.pyrc ~/.pyrc
 # .dput.cf
 ln -sf ${dir}/.dput.cf ~/.dput.cf
 
+# quiltrc
+ln -sf ${dir}/.quiltrc-dpkg ~/.quiltrc-dpkg
