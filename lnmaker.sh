@@ -34,6 +34,9 @@ ln -s ${dir}/.config/awesome ~/.config/awesome
 mv ~/.profile ~/.profile.bak
 ln -s ${dir}/.profile ~/.profile
 
+# .bashrc
+ln -sf ${dir}/.bashrc ~/.bashrc
+
 # .config/autostart
 mv ~/.config/autostart ~/.config/autostart.bak
 ln -s ${dir}/.config/autostart ~/.config/autostart
