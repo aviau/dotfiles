@@ -7,9 +7,12 @@ fi
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
 
-#-------------------
+# Enable bash completion
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
+
 # Personnal Aliases
-#-------------------
 alias lock='xscreensaver ; xscreensaver-command -lock &'
 alias docker='sudo docker'
 
