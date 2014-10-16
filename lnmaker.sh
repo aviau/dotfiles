@@ -57,3 +57,6 @@ ln -sf ${dir}/.dput.cf ~/.dput.cf
 
 # quiltrc
 ln -sf ${dir}/.quiltrc-dpkg ~/.quiltrc-dpkg
+
+# gbp.conf
+ln -sf ${dir}/.gbp.conf ~/.gbp.conf
