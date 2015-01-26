@@ -94,10 +94,10 @@ globalkeys = awful.util.table.join(globalkeys,
       end),
 
   -- Show Menu
-  awful.key({ modkey }, "w",
-      function ()
-          mymainmenu:show({ keygrabber = true })
-      end),
+  -- awful.key({ modkey }, "w",
+  --    function ()
+  --        mymainmenu:show({ keygrabber = true })
+  --    end),
 
   -- Keyboard layout
   awful.key({ "Shift" }, "Tab", function () kbdcfg.switch() end),
