@@ -20,5 +20,6 @@ run_once("xscreensaver -no-splash")
 run_once("nm-applet")
 run_once("insync start")
 run_once("guake")
+run_once("sy gui")
 
 -- }}}
