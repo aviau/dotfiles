@@ -6,6 +6,7 @@ fi
 #Set variables
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
+export GOPATH=/home/reazem/go
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
