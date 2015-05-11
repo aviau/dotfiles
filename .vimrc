@@ -67,4 +67,4 @@ set laststatus=2
 """"""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""
-set number
+"set number
