@@ -14,10 +14,11 @@ local escape_f     = require("awful.util").escape
 local naughty      = require("naughty")
 local wibox        = require("wibox")
 
-local io           = { popen    = io.popen }
 local os           = { execute  = os.execute,
                        getenv   = os.getenv }
+local math         = { floor    = math.floor }
 local string       = { format   = string.format,
+                       match    = string.match,
                        gmatch   = string.gmatch }
 
 local setmetatable = setmetatable
@@ -53,22 +54,26 @@ local function worker(args)
     function mpd.update()
         async.request(echo .. " | curl --connect-timeout 1 -fsm 3 " .. mpdh, function (f)
             mpd_now = {
-                state  = "N/A",
-                file   = "N/A",
-                artist = "N/A",
-                title  = "N/A",
-                album  = "N/A",
-                date   = "N/A"
+                state   = "N/A",
+                file    = "N/A",
+                artist  = "N/A",
+                title   = "N/A",
+                album   = "N/A",
+                date    = "N/A",
+                time    = "N/A",
+                elapsed = "N/A"
             }
 
             for line in f:lines() do
                 for k, v in string.gmatch(line, "([%w]+):[%s](.*)$") do
-                    if     k == "state"  then mpd_now.state  = v
-                    elseif k == "file"   then mpd_now.file   = v
-                    elseif k == "Artist" then mpd_now.artist = escape_f(v)
-                    elseif k == "Title"  then mpd_now.title  = escape_f(v)
-                    elseif k == "Album"  then mpd_now.album  = escape_f(v)
-                    elseif k == "Date"   then mpd_now.date   = escape_f(v)
+                    if     k == "state"   then mpd_now.state   = v
+                    elseif k == "file"    then mpd_now.file    = v
+                    elseif k == "Artist"  then mpd_now.artist  = escape_f(v)
+                    elseif k == "Title"   then mpd_now.title   = escape_f(v)
+                    elseif k == "Album"   then mpd_now.album   = escape_f(v)
+                    elseif k == "Date"    then mpd_now.date    = escape_f(v)
+                    elseif k == "Time"    then mpd_now.time    = v
+                    elseif k == "elapsed" then mpd_now.elapsed = string.match(v, "%d+")
                     end
                 end
             end
@@ -91,7 +96,6 @@ local function worker(args)
                         preset = mpd_notification_preset,
                         icon = "/tmp/mpdcover.png",
                         replaces_id = mpd.id,
-                        screen = client.focus and client.focus.screen or 1
                     }).id
                 end
             elseif mpd_now.state ~= "pause"

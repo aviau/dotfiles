@@ -1,121 +1,108 @@
 
 --[[
-                                                  
-     Licensed under GNU General Public License v2 
-      * (c) 2013,      Luke Bonham                
-      * (c) 2012,      Josh Komoroske             
-      * (c) 2010-2012, Peter Hofmann              
-                                                  
+
+     Licensed under GNU General Public License v2
+      * (c) 2014,      projektile, worron
+      * (c) 2013,      Luke Bonham
+      * (c) 2012,      Josh Komoroske
+      * (c) 2010-2012, Peter Hofmann
+
 --]]
 
 local beautiful = require("beautiful")
 local ipairs    = ipairs
-local math      = { ceil = math.ceil, sqrt = math.sqrt }
+local math      = { ceil = math.ceil, sqrt = math.sqrt, floor = math.floor, max = math.max }
 local tonumber  = tonumber
 
 local uselessfair = {}
 
-local function fair(p, orientation)
-    -- A useless gap (like the dwm patch) can be defined with
-    -- beautiful.useless_gap_width.
-    local useless_gap = tonumber(beautiful.useless_gap_width) or 0
+-- Transformation functions
+local function swap(geometry)
+    return { x = geometry.y, y = geometry.x, width = geometry.height, height = geometry.width }
+end
 
+-- Client geometry correction depending on useless gap and window border
+local function size_correction(c, geometry, useless_gap)
+    geometry.width  = math.max(geometry.width  - 2 * c.border_width - useless_gap, 1)
+    geometry.height = math.max(geometry.height - 2 * c.border_width - useless_gap, 1)
+    geometry.x = geometry.x + useless_gap / 2
+    geometry.y = geometry.y + useless_gap / 2
+end
+
+-- Main tiling function
+local function fair(p, orientation)
+
+    -- Theme vars
+    local useless_gap = beautiful.useless_gap_width or 0
+    local global_border = beautiful.global_border_width or 0
+
+    -- Aliases
     local wa = p.workarea
     local cls = p.clients
 
-    if #cls > 0 then
-        local cells = math.ceil(math.sqrt(#cls))
-        local strips = math.ceil(#cls / cells)
+    -- Nothing to tile here
+    if #cls == 0 then return end
 
-        local cell = 0
-        local strip = 0
-        for k, c in ipairs(cls) do
-            local g = {}
-            -- Save actual grid index for use in the useless_gap
-            -- routine.
-            local this_x = 0
-            local this_y = 0
-            if ( orientation == "east" and #cls > 2 )
-            or ( orientation == "south" and #cls <= 2 ) then
-                if #cls < (strips * cells) and strip == strips - 1 then
-                    g.width = wa.width / (cells - ((strips * cells) - #cls))
-                else
-                    g.width = wa.width / cells
-                end
-                g.height = wa.height / strips
+    -- Workarea size correction depending on useless gap and global border
+    wa.height = wa.height - 2 * global_border - useless_gap
+    wa.width  = wa.width -  2 * global_border - useless_gap
+    wa.x = wa.x + useless_gap / 2 + global_border
+    wa.y = wa.y + useless_gap / 2 + global_border
 
-                this_x = cell
-                this_y = strip
+    -- Geometry calculation
+    local row, col = 0, 0
 
-                g.x = wa.x + cell * g.width
-                g.y = wa.y + strip * g.height
+    local rows = math.ceil(math.sqrt(#cls))
+    local cols = math.ceil(#cls / rows)
 
-            else
-                if #cls < (strips * cells) and strip == strips - 1 then
-                    g.height = wa.height / (cells - ((strips * cells) - #cls))
-                else
-                    g.height = wa.height / cells
-                end
-                g.width = wa.width / strips
+    for i, c in ipairs(cls) do
+        local g = {}
 
-                this_x = strip
-                this_y = cell
+        -- find tile orientation for current client and swap geometry if need
+        local need_swap = (orientation == "east" and #cls <= 2) or (orientation == "south" and #cls > 2)
+        local area = need_swap and swap(wa) or wa
 
-                g.x = wa.x + strip * g.width
-                g.y = wa.y + cell * g.height
-            end
-
-            -- Useless gap.
-            if useless_gap > 0
-            then
-                -- Top and left clients are shrinked by two steps and
-                -- get moved away from the border. Other clients just
-                -- get shrinked in one direction.
-
-                gap_factor = (useless_gap / 100) * 2
-
-                if this_x == 0
-                then
-                    g.width = g.width - (2 + gap_factor) * useless_gap
-                    g.x = g.x + useless_gap
-                else
-                    g.width = g.width - (1 + gap_factor) * useless_gap
-                end
-
-                if this_y == 0
-                then
-                    g.height = g.height - (2 + gap_factor) * useless_gap
-                    g.y = g.y + useless_gap
-                else
-                    g.height = g.height - (1 + gap_factor) * useless_gap
-                end
-            end
-            -- End of useless gap.
-
-            c:geometry(g)
-
-            cell = cell + 1
-            if cell == cells then
-                cell = 0
-                strip = strip + 1
-            end
+        -- calculate geometry
+        if #cls < (cols * rows) and row == cols - 1 then
+            g.width = area.width / (rows - ((cols * rows) - #cls))
+        else
+            g.width = area.width / rows
         end
+
+        g.height = area.height / cols
+        g.x = area.x + col * g.width
+        g.y = area.y + row * g.height
+
+        -- turn back to real if geometry was swapped
+        if need_swap then g = swap(g) end
+
+        -- window size correction depending on useless gap and window border
+        size_correction(c, g, useless_gap)
+
+        -- set geometry
+        c:geometry(g)
+
+        -- update tile grid coordinates
+        col = i % rows
+        row = math.floor(i / rows)
     end
 end
 
---- Horizontal fair layout.
--- @param screen The screen to arrange.
-uselessfair.horizontal = {}
-uselessfair.horizontal.name = "uselessfairh"
-function uselessfair.horizontal.arrange(p)
-    return fair(p, "east")
+-- Layout constructor
+local function construct_layout(name, direction)
+    return {
+        name = name,
+        -- @p screen The screen number to tile
+        arrange = function(p) return fair(p, direction) end
+    }
 end
 
--- Vertical fair layout.
--- @param screen The screen to arrange.
-uselessfair.name = "uselessfair"
-function uselessfair.arrange(p)
-    return fair(p, "south")
-end
+-- Build layouts with different tile direction
+uselessfair.vertical   = construct_layout("uselessfair", "south")
+uselessfair.horizontal = construct_layout("uselessfairh", "east")
+
+-- Module aliase
+uselessfair.arrange = uselessfair.vertical.arrange
+uselessfair.name = uselessfair.vertical.name
 
 return uselessfair

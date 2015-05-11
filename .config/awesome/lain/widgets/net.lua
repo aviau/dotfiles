@@ -16,7 +16,8 @@ local wibox        = require("wibox")
 local io           = { popen  = io.popen }
 local tostring     = tostring
 local string       = { format = string.format,
-                       gsub   = string.gsub }
+                       gsub   = string.gsub,
+                       match  = string.match }
 
 local setmetatable = setmetatable
 
@@ -31,9 +32,9 @@ function net.get_device()
     f = io.popen("ip link show | cut -d' ' -f2,9")
     ws = f:read("*a")
     f:close()
-    ws = ws:match("%w+: UP")
+    ws = ws:match("%w+: UP") or ws:match("ppp%w+: UNKNOWN")
     if ws ~= nil then
-        return ws:gsub(": UP", "")
+        return ws:match("(%w+):")
     else
         return "network off"
     end
@@ -42,10 +43,12 @@ end
 local function worker(args)
     local args = args or {}
     local timeout = args.timeout or 2
-    local iface = args.iface or net.get_device()
     local units = args.units or 1024 --kb
     local notify = args.notify or "on"
+    local screen = args.screen or 1
     local settings = args.settings or function() end
+
+    iface = args.iface or net.get_device()
 
     net.widget = wibox.widget.textbox('')
 
@@ -54,7 +57,10 @@ local function worker(args)
     function update()
         net_now = {}
 
-        if iface == "" then iface = net.get_device() end
+        if iface == "" or string.match(iface, "network off")
+        then
+            iface = net.get_device()
+        end
 
         net_now.carrier = helpers.first_line('/sys/class/net/' .. iface ..
                                            '/carrier') or "0"
@@ -88,7 +94,7 @@ local function worker(args)
                     position = "top_left",
                     icon     = helpers.icons_dir .. "no_net.png",
                     fg       = notify_fg or "#FFFFFF",
-                    screen = client.focus and client.focus.screen or 1
+                    screen   = screen
                 })
                 helpers.set_map(iface, false)
             end

@@ -34,7 +34,7 @@ local function worker(args)
     local is_plain = args.is_plain or false
     local settings = args.settings or function() end
 
-    local head_command  = "curl --connect-timeout 1 -fsm 3"
+    local head_command  = "curl --connect-timeout 3 -fsm 3"
     local request = "-X 'SEARCH (UNSEEN)'"
 
     helpers.set_map(mail, 0)
@@ -54,7 +54,7 @@ local function worker(args)
             position = "top_left"
         }
 
-        curl = string.format("%s --url imaps://%s:%s/INBOX -u %s:%s %s -k",
+        curl = string.format("%s --url imaps://%s:%s/INBOX -u %s:%q %s -k",
                head_command, server, port, mail, password, request)
 
         async.request(curl, function(f)
@@ -77,7 +77,6 @@ local function worker(args)
                 naughty.notify({
                     preset = mail_notification_preset,
                     text = nt,
-                    screen = client.focus and client.focus.screen or 1
                 })
             end
 

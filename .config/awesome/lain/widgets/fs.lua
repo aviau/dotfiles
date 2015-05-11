@@ -47,7 +47,6 @@ function fs:show(t_out)
         preset = fs_notification_preset,
         text = ws,
         timeout = t_out,
-        screen = client.focus and client.focus.screen or 1
     })
 end
 
@@ -67,7 +66,7 @@ local function worker(args)
     function update()
         fs_info = {}
         fs_now  = {}
-        local f = io.popen("LC_ALL=C df -kP " .. partition)
+        local f = assert(io.popen("LC_ALL=C df -kP"))
 
         for line in f:lines() do -- Match: (size) (used)(avail)(use%) (mount)
             local s     = string.match(line, "^.-[%s]([%d]+)")
@@ -100,7 +99,6 @@ local function worker(args)
                 timeout = 8,
                 fg = "#000000",
                 bg = "#FFFFFF",
-                screen = client.focus and client.focus.screen or 1
             })
             helpers.set_map("fs", true)
         else

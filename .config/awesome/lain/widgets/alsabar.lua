@@ -25,8 +25,9 @@ local setmetatable = setmetatable
 -- ALSA volume bar
 -- lain.widgets.alsabar
 local alsabar = {
+    card    = "0",
     channel = "Master",
-    step    = "5%",
+    step    = "2%",
 
     colors = {
         background = beautiful.bg_normal,
@@ -41,7 +42,8 @@ local alsabar = {
         font      = beautiful.font:sub(beautiful.font:find(""), beautiful.font:find(" ")),
         font_size = "11",
         color     = beautiful.fg_normal,
-        bar_size  = 18
+        bar_size  = 18,
+        screen    = 1
     },
 
     _current_level = 0,
@@ -55,6 +57,7 @@ function alsabar.notify()
         title   = "",
         text    = "",
         timeout = 4,
+        screen  = alsabar.notifications.screen,
         font    = alsabar.notifications.font .. " " ..
                   alsabar.notifications.font_size,
         fg      = alsabar.notifications.color
@@ -67,22 +70,18 @@ function alsabar.notify()
         preset.title = alsabar.channel .. " - " .. alsabar._current_level .. "%"
     end
 
-    int = math.modf((alsabar._current_level / 100) * alsabar.notifications.bar_size)
-    preset.text = "["
-                .. string.rep("|", int)
-                .. string.rep(" ", alsabar.notifications.bar_size - int)
-                .. "]"
+    local int = math.modf((alsabar._current_level / 100) * alsabar.notifications.bar_size)
+    preset.text = string.format("[%s%s]", string.rep("|", int),
+                  string.rep(" ", alsabar.notifications.bar_size - int))
 
     if alsabar._notify ~= nil then
         alsabar._notify = naughty.notify ({
             replaces_id = alsabar._notify.id,
             preset      = preset,
-            screen = client.focus and client.focus.screen or 1
         })
     else
         alsabar._notify = naughty.notify ({
             preset = preset,
-            screen = client.focus and client.focus.screen or 1
         })
     end
 end
@@ -97,6 +96,7 @@ local function worker(args)
     local ticks_size = args.ticks_size or 7
     local vertical = args.vertical or false
 
+    alsabar.card = args.card or alsabar.card
     alsabar.channel = args.channel or alsabar.channel
     alsabar.step = args.step or alsabar.step
     alsabar.colors = args.colors or alsabar.colors
@@ -115,7 +115,7 @@ local function worker(args)
 
     function alsabar.update()
         -- Get mixer control contents
-        local f = io.popen("amixer -M get " .. alsabar.channel)
+        local f = assert(io.popen(string.format("amixer -c %s -M get %s", alsabar.card, alsabar.channel)))
         local mixer = f:read("*a")
         f:close()
 
@@ -129,7 +129,6 @@ local function worker(args)
 
         alsabar._current_level = tonumber(volu)
         alsabar.bar:set_value(alsabar._current_level / 100)
-
         if not mute and tonumber(volu) == 0 or mute == "off"
         then
             alsabar._muted = true
@@ -154,15 +153,15 @@ local function worker(args)
             awful.util.spawn(alsabar.mixer)
           end),
           awful.button ({}, 3, function()
-            awful.util.spawn(string.format("amixer set %s toggle", alsabar.channel))
+            awful.util.spawn(string.format("amixer -c %s set %s toggle", alsabar.card, alsabar.channel))
             alsabar.update()
           end),
           awful.button ({}, 4, function()
-            awful.util.spawn(string.format("amixer set %s %s+", alsabar.channel, alsabar.step))
+            awful.util.spawn(string.format("amixer -c %s set %s %s+", alsabar.card, alsabar.channel, alsabar.step))
             alsabar.update()
           end),
           awful.button ({}, 5, function()
-            awful.util.spawn(string.format("amixer set %s %s-", alsabar.channel, alsabar.step))
+            awful.util.spawn(string.format("amixer -c %s set %s %s-", alsabar.card, alsabar.channel, alsabar.step))
             alsabar.update()
           end)
     ))
