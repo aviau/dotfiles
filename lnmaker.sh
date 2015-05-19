@@ -60,3 +60,6 @@ ln -sf ${dir}/.quiltrc-dpkg ~/.quiltrc-dpkg
 
 # gbp.conf
 ln -sf ${dir}/.gbp.conf ~/.gbp.conf
+
+# zshrc
+ln -sf ${dir}/.zshrc ~/.zshrc
