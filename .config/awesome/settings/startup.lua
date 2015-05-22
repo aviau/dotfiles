@@ -24,6 +24,6 @@ run_once("sy gui")
 
 -- Switch caps lock and escape
 run_once("xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'")
-run_once("xmodmap -e 'keycode 9 = Caps_Lock NoSymbol Caps_Lock'")
+--  run_once("xmodmap -e 'keycode 9 = Caps_Lock NoSymbol Caps_Lock'")
 
 -- }}}
