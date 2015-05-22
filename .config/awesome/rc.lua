@@ -194,6 +194,7 @@ bat1widget = lain.widgets.bat({
 
 -- ALSA volume bar
 myvolumebar = lain.widgets.alsabar({
+    card   = "1",
     ticks  = true,
     width  = 80,
     height = 10,
