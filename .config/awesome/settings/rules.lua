@@ -15,6 +15,9 @@ awful.rules.rules = {
                     maximized_vertical   = false,
                     maximized_horizontal = false,
 
+                    -- Ensure windows never start floating
+                    floating = false,
+
                      buttons = clientbuttons,
                      size_hints_honor = false } },
       { rule = { class = "Guake" },
