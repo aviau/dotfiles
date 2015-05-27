@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <gconf>
+	<entry name="rename_current_tab" mtime="1432734895" type="string">
+		<stringvalue>F2</stringvalue>
+	</entry>
 	<entry name="close_tab" mtime="1402499964" type="string">
 		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;w</stringvalue>
 	</entry>
