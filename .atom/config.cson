@@ -4,6 +4,8 @@
     tabLength: 4
     softWrapAtPreferredLineLength: true
     invisibles: {}
+    fontSize: 13
+    softWrap: true
   core:
     disabledPackages: [
       "linter-pep8"
@@ -20,6 +22,7 @@
   "go-plus":
     goPath: "/home/reazem/go"
   "autocomplete-plus": {}
+  "fuzzy-finder": {}
 ".python.regexp.source":
   editor:
     preferredLineLength: 79
