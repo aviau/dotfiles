@@ -21,3 +21,4 @@
     'ctrl-t': 'unset!'
     'ctrl-q': 'window:close'
     'ctrl-shift-W': 'unset!'
+    'ctrl-s': 'unset!'
