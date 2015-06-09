@@ -20,7 +20,9 @@ alias lock='xscreensaver ; xscreensaver-command -lock &'
 alias docker='sudo docker'
 alias fig='sudo docker-compose'
 alias fig-krb='sudo docker-compose kill && sudo docker-compose rm --force && sudo docker-compose build'
+alias swapescape="setxkbmap -option 'caps:swapescape'"
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+
 complete -F _quilt_completion $_quilt_complete_opt dquilt
