@@ -8,31 +8,29 @@ fi
 dir=$(readlink -f $1)
 
 # .tmux.conf
-mv ~/.tmux.conf ~/.tmux.conf.bak
-ln -s ${dir}/.tmux.conf ~/.tmux.conf
+ln -sf ${dir}/.tmux.conf ~/.tmux.conf
 
 # .vimrc
 ln -sf ${dir}/.vimrc ~/.vimrc
 
 # .vim
-mv ~/.vim ~/.vim.bak
+rm -rf ~/.vim
 ln -sf ${dir}/.vim ~/.vim
 
 # .atom
-mv ~/.atom ~/.atom.bak
-ln -s ${dir}/.atom ~/.atom
+rm -rf ~/.atom
+ln -sf ${dir}/.atom ~/.atom
 
 # .bin
 mv ~/bin ~/.bin.bak
 ln -s ${dir}/bin ~/bin
 
 # awesome
-mv ~/.config/awesome ~/.config/awesome.bak
-ln -s ${dir}/.config/awesome ~/.config/awesome
+rm -rf ~/.config/awesome
+ln -sf ${dir}/.config/awesome ~/.config/awesome
 
 # .profile
-mv ~/.profile ~/.profile.bak
-ln -s ${dir}/.profile ~/.profile
+ln -sf ${dir}/.profile ~/.profile
 
 # .bashrc
 ln -sf ${dir}/.bashrc ~/.bashrc
@@ -42,12 +40,10 @@ mv ~/.config/autostart ~/.config/autostart.bak
 ln -s ${dir}/.config/autostart ~/.config/autostart
 
 # .gconf/apps/guake
-mv ~/.gconf/apps/guake ~/.gconf/apps/guake.bak
-ln -s ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
+ln -sf ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
 
 # .gitconfig
-mv ~/.gitconfig ~/.gitconfig.bak
-ln -s ${dir}/.gitconfig ~/.gitconfig
+ln -sf ${dir}/.gitconfig ~/.gitconfig
 
 # .pyrc
 ln -sf ${dir}/.pyrc ~/.pyrc
