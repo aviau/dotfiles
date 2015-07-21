@@ -21,6 +21,7 @@ run_once("nm-applet")
 run_once("insync start")
 run_once("guake")
 run_once("sy gui")
+run_once("xset r rate 200 20")
 
 -- Switch caps lock and escape
 run_once("setxkbmap -option 'caps:swapescape'")
