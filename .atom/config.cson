@@ -30,13 +30,13 @@
     {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
-".console.python.text":
+".python.regexp.source":
   editor:
     preferredLineLength: 79
 ".python.text.traceback":
   editor:
     preferredLineLength: 79
-".python.regexp.source":
+".console.python.text":
   editor:
     preferredLineLength: 79
 ".python.source":
