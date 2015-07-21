@@ -62,3 +62,6 @@ ln -sf ${dir}/.zshrc ~/.zshrc
 
 # .pbuilderrc
 ln -sf ${dir}/.pbuilderrc ~/.pbuilderrc
+
+# .gitignore_global
+ln -sf ${dir}/.gitignore_global ~/.gitignore_global

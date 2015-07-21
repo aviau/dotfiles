@@ -4,7 +4,7 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /home/aviau/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [gitreview]
 	username = reazem
 [color]
