@@ -63,3 +63,6 @@ ln -sf ${dir}/.gbp.conf ~/.gbp.conf
 
 # zshrc
 ln -sf ${dir}/.zshrc ~/.zshrc
+
+# .pbuilderrc
+ln -sf ${dir}/.pbuilderrc ~/.pbuilderrc
