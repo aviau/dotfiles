@@ -1,6 +1,7 @@
 [user]
 	name = aviau
-	email = alexandre.viau@savoirfairelinux.com
+	email = alexandre@alexandreviau.net
+	signingkey = 3CCC3A3A
 [push]
 	default = simple
 [core]
@@ -24,3 +25,4 @@
 	untracked = cyan
 [alias]
 	st = status
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
