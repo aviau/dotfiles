@@ -3,6 +3,11 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH to include golang stuff
+if [ -d "$HOME/go/bin" ] ; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
+
 #Set variables
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
