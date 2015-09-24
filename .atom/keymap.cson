@@ -22,3 +22,7 @@
     'ctrl-q': 'window:close'
     'ctrl-shift-W': 'unset!'
     'ctrl-s': 'unset!'
+
+'atom-text-editor.vim-mode':
+  'ctrl-c': 'core:copy'
+  'ctrl-v': 'core:paste'

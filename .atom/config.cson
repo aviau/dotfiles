@@ -5,8 +5,7 @@
     softWrapAtPreferredLineLength: true
     invisibles:
       {}
-    fontSize: 13
-    softWrap: true
+    fontSize: 12
   core:
     disabledPackages: [
       "linter-pep8"
@@ -30,6 +29,7 @@
     {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
 ".python.regexp.source":
   editor:
     preferredLineLength: 79
