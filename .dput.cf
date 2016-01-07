@@ -18,3 +18,9 @@ allow_unsigned_uploads = 0
 # Allow uploads for UNRELEASED packages
 allowed_distributions = .*
 
+[people.debian.org]
+fqdn = people.debian.org
+method = scp
+login = aviau
+incoming = /home/aviau/public_html/debian/mini-dinstall/incoming
+post_upload_command = ssh people.debian.org mini-dinstall -b
