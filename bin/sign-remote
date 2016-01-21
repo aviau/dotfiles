@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Copyright Â© 2009 Stefano Zacchiroli <zack@upsilon.cc>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# See https://upsilon.cc/~zack/blog/posts/2009/04/howto:_uploading_to_people.d.o_using_dput/
+
+if [ -z "$1" ] ; then
+    echo "Usage: sign-remote HOSTNAME:PATH"
+    exit 2
+fi
+url="$1"
+host=$(echo "$url" | cut -f 1 -d':')
+path=$(echo "$url" | cut -f 2 -d':')
+base=$(dirname "$path")
+if [ -z "$host" -o -z "$path" ] ; then
+    echo "Malformed remote \"URL\", must follow the \"HOSTNAME:PATH\" convention."
+    exit 2
+fi
+
+tmp=`mktemp`
+sig="$tmp.gpg"
+trap "rm -f $tmp $sig" EXIT
+
+echo "I: retrieving file to sign from remote host ..."
+scp "$url" $tmp
+echo "I: signing ..."
+gpg --detach-sign --batch -o $sig $tmp
+echo "I: sending back signature ..."
+scp $sig "$host":"$path.gpg"
+echo "I: remote signing done."

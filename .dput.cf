@@ -23,4 +23,5 @@ fqdn = people.debian.org
 method = scp
 login = aviau
 incoming = /home/aviau/debian/mini-dinstall/incoming
-post_upload_command = ssh people.debian.org mini-dinstall -b
+post_upload_command = bash -c 'ssh people.debian.org "mini-dinstall --batch 2>/dev/null" &&  \
+    /home/reazem/bin/sign-remote people.debian.org:~/debian/mailpile/Release'
