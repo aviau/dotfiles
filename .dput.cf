@@ -22,5 +22,5 @@ allowed_distributions = .*
 fqdn = people.debian.org
 method = scp
 login = aviau
-incoming = /home/aviau/public_html/debian/mini-dinstall/incoming
+incoming = /home/aviau/debian/mini-dinstall/incoming
 post_upload_command = ssh people.debian.org mini-dinstall -b
