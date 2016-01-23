@@ -3,8 +3,7 @@
     preferredLineLength: 79
     tabLength: 4
     softWrapAtPreferredLineLength: true
-    invisibles:
-      {}
+    invisibles: {}
     fontSize: 12
   core:
     disabledPackages: [
@@ -21,24 +20,24 @@
     userId: "63ce77a918de0ca05fef549c8715e16451b50f99"
   "go-plus":
     goPath: "/home/reazem/go"
-  "autocomplete-plus":
-    {}
-  "fuzzy-finder":
-    {}
-  "one-dark-ui":
-    {}
+  "autocomplete-plus": {}
+  "fuzzy-finder": {}
+  "one-dark-ui": {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
-".python.regexp.source":
+".console.python.text":
   editor:
     preferredLineLength: 79
 ".python.text.traceback":
   editor:
     preferredLineLength: 79
-".console.python.text":
+".python.regexp.source":
   editor:
     preferredLineLength: 79
+".rust.source":
+  editor:
+    preferredLineLength: 99
 ".python.source":
   editor:
     preferredLineLength: 79
