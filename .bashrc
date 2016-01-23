@@ -32,6 +32,7 @@ alias fig-krb='sudo docker-compose kill && sudo docker-compose rm --force && sud
 alias swapescape="setxkbmap -option 'caps:swapescape'"
 alias bts="bts --mutt"
 alias lintian='lintian -IEcv --pedantic --color auto'
+alias patchedit="patchedit -f -o"
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
