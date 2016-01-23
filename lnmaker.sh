@@ -22,8 +22,7 @@ rm -rf ~/.atom
 ln -sf ${dir}/.atom ~/.atom
 
 # .bin
-mv ~/bin ~/.bin.bak
-ln -s ${dir}/bin ~/bin
+ln -nsf ${dir}/bin ~/bin
 
 # awesome
 rm -rf ~/.config/awesome
