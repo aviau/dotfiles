@@ -4,7 +4,7 @@
     tabLength: 4
     softWrapAtPreferredLineLength: true
     invisibles: {}
-    fontSize: 12
+    fontSize: 13
   core:
     disabledPackages: [
       "linter-pep8"
@@ -33,6 +33,12 @@
   editor:
     preferredLineLength: 79
 ".python.regexp.source":
+  editor:
+    preferredLineLength: 79
+".cpp.source":
+  editor:
+    preferredLineLength: 79
+".c.source":
   editor:
     preferredLineLength: 79
 ".rust.source":
