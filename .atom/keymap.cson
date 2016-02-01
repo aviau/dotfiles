@@ -24,5 +24,9 @@
     'ctrl-s': 'unset!'
 
 'atom-text-editor.vim-mode':
-  'ctrl-c': 'core:copy'
-  'ctrl-v': 'core:paste'
+    'ctrl-c': 'core:copy'
+    'ctrl-v': 'core:paste'
+
+'.fuzzy-finder':
+    'ctrl-k': 'core:move-up'
+    'ctrl-j': 'core:move-down'
