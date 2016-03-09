@@ -30,3 +30,6 @@
 '.fuzzy-finder':
     'ctrl-k': 'core:move-up'
     'ctrl-j': 'core:move-down'
+
+'atom-text-editor':
+  'f10': 'editor:toggle-soft-wrap'
