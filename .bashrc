@@ -33,6 +33,7 @@ alias swapescape="setxkbmap -option 'caps:swapescape'"
 alias bts="bts --mutt"
 alias lintian='lintian -IEcv --pedantic --color auto'
 alias patchedit="patchedit -f -o"
+alias shrug="echo  '¯\_(ツ)_/¯'"
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
