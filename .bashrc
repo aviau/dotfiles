@@ -18,6 +18,7 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export DEBEMAIL=aviau@debian.org
 export DEBSIGN_KEYID=3ccc3a3a
 export EMAIL=alexandre@alexandreviau.net
+export USCAN_SYMLINK=rename
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
