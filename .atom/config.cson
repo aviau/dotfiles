@@ -6,6 +6,7 @@
     ]
     useReactEditor: true
   editor:
+    fontSize: 12
     invisibles: {}
     preferredLineLength: 79
     softWrapAtPreferredLineLength: true
@@ -20,6 +21,9 @@
   "one-dark-ui": {}
   "release-notes":
     viewedVersion: "0.96.0-4fa0b6e"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
