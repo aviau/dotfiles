@@ -33,3 +33,8 @@
 
 'atom-text-editor':
   'f10': 'editor:toggle-soft-wrap'
+  'ctrl-s': 'symbols-view:toggle-file-symbols'
+
+'.symbols-view':
+    'ctrl-k': 'core:move-up'
+    'ctrl-j': 'core:move-down'

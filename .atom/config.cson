@@ -3,6 +3,7 @@
   core:
     disabledPackages: [
       "linter-pep8"
+      "language-python"
     ]
     useReactEditor: true
   editor:
