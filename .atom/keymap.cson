@@ -27,14 +27,21 @@
     'ctrl-c': 'core:copy'
     'ctrl-v': 'core:paste'
 
-'.fuzzy-finder':
-    'ctrl-k': 'core:move-up'
-    'ctrl-j': 'core:move-down'
-
 'atom-text-editor':
   'f10': 'editor:toggle-soft-wrap'
   'ctrl-s': 'symbols-view:toggle-file-symbols'
 
+# UP/DOWN in finders
+'.fuzzy-finder':
+    'ctrl-k': 'core:move-up'
+    'ctrl-j': 'core:move-down'
+
 '.symbols-view':
     'ctrl-k': 'core:move-up'
     'ctrl-j': 'core:move-down'
+
+#  NVATOM
+'atom-workspace':
+  'alt-ctrl-l': 'nvatom:toggle'
+'atom-workspace atom-text-editor':
+  'alt-ctrl-o': 'nvatom:openInterlink'
