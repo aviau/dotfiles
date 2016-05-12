@@ -4,10 +4,12 @@
     disabledPackages: [
       "linter-pep8"
       "language-python"
+      "markdown-preview"
     ]
     packagesWithKeymapsDisabled: [
       "nvatom"
       "markdown-preview"
+      "markdown-preview-plus"
     ]
     useReactEditor: true
   editor:
@@ -21,6 +23,7 @@
   "fuzzy-finder": {}
   "go-plus":
     goPath: "/home/reazem/go"
+  "markdown-preview-plus": {}
   metrics:
     userId: "63ce77a918de0ca05fef549c8715e16451b50f99"
   nvatom:
