@@ -40,6 +40,10 @@
     'ctrl-k': 'core:move-up'
     'ctrl-j': 'core:move-down'
 
+'.nvatom':
+    'ctrl-k': 'core:move-up'
+    'ctrl-j': 'core:move-down'
+
 #  NVATOM
 'atom-workspace':
   'alt-ctrl-l': 'nvatom:toggle'
