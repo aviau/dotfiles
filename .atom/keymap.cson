@@ -47,11 +47,9 @@
 #  NVATOM
 'atom-workspace':
   'alt-ctrl-l': 'nvatom:toggle'
-'atom-workspace atom-text-editor':
-  'alt-ctrl-o': 'nvatom:openInterlink'
 
 # Markdown preview
-'atom-workspace, atom-workspace atom-text-editor':
-  'ctrl-M': 'markdown-preview:toggle'
+#'atom-workspace, atom-workspace atom-text-editor':
+#  'ctrl-M': 'markdown-preview:toggle'
 'atom-workspace, atom-workspace atom-text-editor':
   'ctrl-M': 'markdown-preview-plus:toggle'
