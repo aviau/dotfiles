@@ -5,6 +5,10 @@
       "linter-pep8"
       "language-python"
     ]
+    packagesWithKeymapsDisabled: [
+      "nvatom"
+      "markdown-preview"
+    ]
     useReactEditor: true
   editor:
     fontSize: 12
@@ -19,9 +23,12 @@
     goPath: "/home/reazem/go"
   metrics:
     userId: "63ce77a918de0ca05fef549c8715e16451b50f99"
+  nvatom:
+    directory: "/home/reazem/git/notes"
   "one-dark-ui": {}
   "release-notes":
     viewedVersion: "0.96.0-4fa0b6e"
+  "symbols-tree-view": {}
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -39,6 +46,10 @@
 ".cpp.source":
   editor:
     preferredLineLength: 79
+".gfm.nvatom.source":
+  editor:
+    preferredLineLength: 79
+    tabLength: 4
 ".python.regexp.source":
   editor:
     preferredLineLength: 79
