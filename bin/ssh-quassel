@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -N -L 4242:localhost:4242 ssh.reazem.net
