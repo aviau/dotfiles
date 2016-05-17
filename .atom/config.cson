@@ -1,11 +1,14 @@
 "*":
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    useCoreMovementCommands: false
   core:
+    closeEmptyWindows: false
     disabledPackages: [
       "linter-pep8"
       "language-python"
       "markdown-preview"
       "minimap"
+      "you-complete-me"
     ]
     packagesWithKeymapsDisabled: [
       "nvatom"
@@ -43,6 +46,7 @@
     viewedVersion: "0.96.0-4fa0b6e"
   "symbols-tree-view":
     autoToggle: true
+    defaultWidth: 250
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -51,6 +55,9 @@
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+  "you-complete-me":
+    pythonExecutable: "/usr/bin/python"
+    ycmdPath: "/usr/lib/ycmd"
 ".angular.html.text":
   editor:
     preferredLineLength: 79
