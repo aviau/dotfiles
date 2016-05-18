@@ -48,6 +48,15 @@
 'atom-workspace':
   'alt-ctrl-l': 'nvatom:toggle'
 
+# Autocomplete-plus
+'body atom-text-editor.autocomplete-active':
+  'ctrl-k': 'autocomplete-plus:move-up'
+  'ctrl-j': 'autocomplete-plus:move-down'
+  'ctrl-u': 'autocomplete-plus:page-up'
+  'ctrl-d': 'autocomplete-plus:page-down'
+  'home': 'autocomplete-plus:move-to-top'
+  'end': 'autocomplete-plus:move-to-bottom'
+
 # Markdown preview
 #'atom-workspace, atom-workspace atom-text-editor':
 #  'ctrl-M': 'markdown-preview:toggle'

@@ -8,12 +8,12 @@
       "language-python"
       "markdown-preview"
       "minimap"
-      "you-complete-me"
     ]
     packagesWithKeymapsDisabled: [
       "nvatom"
       "markdown-preview"
       "markdown-preview-plus"
+      "linter"
     ]
     useReactEditor: true
   editor:
@@ -27,6 +27,9 @@
   "fuzzy-finder": {}
   "go-plus":
     goPath: "/home/reazem/go"
+  linter:
+    errorPanelHeight: 26
+    statusIconScope: "File"
   "markdown-preview-plus":
     grammars: [
       "source.gfm"
@@ -56,6 +59,8 @@
   welcome:
     showOnStartup: false
   "you-complete-me":
+    confirmExtraConfig: false
+    globalExtraConfig: "~/.ycm_extra_conf.py"
     pythonExecutable: "/usr/bin/python"
     ycmdPath: "/usr/lib/ycmd"
 ".angular.html.text":

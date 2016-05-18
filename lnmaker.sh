@@ -64,3 +64,6 @@ ln -sf ${dir}/.pbuilderrc ~/.pbuilderrc
 
 # .gitignore_global
 ln -sf ${dir}/.gitignore_global ~/.gitignore_global
+
+# youcompleteme
+ln -sf ${dir}/.ycm_extra_conf.py ~/.ycm_extra_conf.py
