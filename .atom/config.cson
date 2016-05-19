@@ -15,9 +15,11 @@
       "markdown-preview-plus"
       "linter"
       "you-complete-me"
+      "symbols-view"
     ]
     useReactEditor: true
   editor:
+    backUpBeforeSaving: true
     fontSize: 12
     invisibles: {}
     preferredLineLength: 79
