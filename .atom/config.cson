@@ -14,6 +14,7 @@
       "markdown-preview"
       "markdown-preview-plus"
       "linter"
+      "you-complete-me"
     ]
     useReactEditor: true
   editor:
