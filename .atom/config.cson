@@ -64,6 +64,7 @@
   "you-complete-me":
     confirmExtraConfig: false
     globalExtraConfig: "~/.ycm_extra_conf.py"
+    linterEnabled: false
     pythonExecutable: "/usr/bin/python"
     ycmdPath: "/usr/lib/ycmd"
 ".angular.html.text":
