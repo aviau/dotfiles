@@ -46,7 +46,7 @@
   metrics:
     userId: "63ce77a918de0ca05fef549c8715e16451b50f99"
   nvatom:
-    directory: "/home/reazem/git/notes"
+    directory: "/home/aviau/git/notes"
   "one-dark-ui": {}
   "release-notes":
     viewedVersion: "0.96.0-4fa0b6e"
