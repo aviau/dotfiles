@@ -48,6 +48,9 @@
   nvatom:
     directory: "/home/aviau/viau.alexandre@gmail.com/notes"
   "one-dark-ui": {}
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   "release-notes":
     viewedVersion: "0.96.0-4fa0b6e"
   "symbols-tree-view":

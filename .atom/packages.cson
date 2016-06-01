@@ -1,0 +1,10 @@
+packages: [
+  "ex-mode"
+  "MagicPython"
+  "markdown-preview-plus"
+  "nvatom"
+  "package-sync"
+  "symbols-tree-view"
+  "vim-mode"
+  "you-complete-me"
+]
