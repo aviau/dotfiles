@@ -36,6 +36,7 @@ alias lintian='lintian -IEcv --pedantic --color auto'
 alias patchedit="patchedit -f -o"
 alias shrug="echo  '¯\_(ツ)_/¯'"
 alias uscan="uscan --overwrite-download"
+alias nautilus='nautilus --no-desktop'
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
