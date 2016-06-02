@@ -67,3 +67,7 @@ ln -sf ${dir}/.gitignore_global ~/.gitignore_global
 
 # youcompleteme
 ln -sf ${dir}/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+
+# gpg.conf
+mkdir -p ~/.gnupg
+ln -sf ${dir}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
