@@ -26,7 +26,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Personnal Aliases
-alias lock='xscreensaver ; xscreensaver-command -lock &'
+alias lock='xscreensaver & xscreensaver-command -lock &'
 alias docker='sudo docker'
 alias fig='sudo docker-compose'
 alias fig-krb='sudo docker-compose kill && sudo docker-compose rm --force && sudo docker-compose build'
