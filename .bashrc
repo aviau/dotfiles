@@ -37,6 +37,7 @@ alias patchedit="patchedit -f -o"
 alias shrug="echo  '¯\_(ツ)_/¯'"
 alias uscan="uscan --overwrite-download"
 alias nautilus='nautilus --no-desktop'
+alias gpg='gpg2'
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
