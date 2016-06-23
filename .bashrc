@@ -19,6 +19,7 @@ export DEBEMAIL=aviau@debian.org
 export DEBSIGN_KEYID=3ccc3a3a
 export EMAIL=alexandre@alexandreviau.net
 export USCAN_SYMLINK=rename
+export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
