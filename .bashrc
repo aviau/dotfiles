@@ -39,6 +39,8 @@ alias shrug="echo  '¯\_(ツ)_/¯'"
 alias uscan="uscan --overwrite-download"
 alias nautilus='nautilus --no-desktop'
 alias gpg='gpg2'
+alias bat0='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias bat1='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep -E "state|to\ full|percentage"'
 
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
