@@ -1,0 +1,8 @@
+# .caffrc -- vim:ft=perl:
+# This file is in perl(1) format - see caff(1) for details.
+
+$CONFIG{'owner'} = 'Alexandre Viau';
+$CONFIG{'email'} = 'aviau@debian.org';
+$CONFIG{'reply-to'} = 'aviau@debian.org';
+$CONFIG{'keyid'} = [ qw{E30154F5429FFBB9B22E49C2DA82830E3CCC3A3A} ];
+$CONFIG{'also-encrypt-to'} = [ qw{E30154F5429FFBB9B22E49C2DA82830E3CCC3A3A} ];
