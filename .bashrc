@@ -29,6 +29,16 @@ fi
 
 # Personnal Aliases
 alias lock='xscreensaver & xscreensaver-command -lock &'
+alias pacman='apt'
+
+# Allow for using aliases when using sudo
+# http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+# The first word of each simple command, if unquoted, is checked to see if it
+# has an alias If the last character of the alias value is a space or tab
+# character, then the next command word following the alias is also checked
+# for alias expansion.
+alias sudo='sudo '
+
 alias docker='sudo docker'
 alias fig='sudo docker-compose'
 alias fig-krb='sudo docker-compose kill && sudo docker-compose rm --force && sudo docker-compose build'
