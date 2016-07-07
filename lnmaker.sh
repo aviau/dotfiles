@@ -38,6 +38,10 @@ ln -sf ${dir}/.bashrc ~/.bashrc
 mv ~/.config/autostart ~/.config/autostart.bak
 ln -s ${dir}/.config/autostart ~/.config/autostart
 
+# ranger config
+rm -rf ~/.config/ranger
+ln -sf ${dir}/.config/ranger ~/.config/ranger
+
 # .gconf/apps/guake
 ln -sf ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
 
