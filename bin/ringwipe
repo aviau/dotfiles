@@ -1,0 +1,8 @@
+#!/bin/bash
+pkill -9 -f dring
+pkill -9 -f gnome-ring
+rm -rf ~/.config/ring
+rm -rf ~/.local/share/ring
+rm -rf ~/.local/share/ring-gnome
+rm -rf ~/.local/share/gnome-ring
+rm -rf ~/.cache/ring
