@@ -8,14 +8,6 @@ if [ -d "$HOME/go/bin" ] ; then
     export PATH="$HOME/go/bin:$PATH"
 fi
 
-# gpg smart card
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-     . "${HOME}/.gpg-agent-info"
-       export GPG_AGENT_INFO
-       export SSH_AUTH_SOCK
-       export SSH_AGENT_PID
-fi
-
 #Set variables
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
@@ -29,6 +21,7 @@ export EMAIL=alexandre@alexandreviau.net
 export USCAN_SYMLINK=rename
 export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
 export DEBSIGN_PROGRAM=gpg2
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
