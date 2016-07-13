@@ -8,6 +8,14 @@ if [ -d "$HOME/go/bin" ] ; then
     export PATH="$HOME/go/bin:$PATH"
 fi
 
+# gpg smart card
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+     . "${HOME}/.gpg-agent-info"
+       export GPG_AGENT_INFO
+       export SSH_AUTH_SOCK
+       export SSH_AGENT_PID
+fi
+
 #Set variables
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
