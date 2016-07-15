@@ -1,7 +1,7 @@
 [user]
 	name = aviau
 	email = alexandre@alexandreviau.net
-	signingkey = 3CCC3A3A
+	signingkey = 3CCC3A3A!
 [push]
 	default = simple
 [core]
