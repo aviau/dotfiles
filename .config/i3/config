@@ -172,6 +172,7 @@ bar {
         position top
         status_command i3blocks -c ~/.config/i3/status_top.conf
         font pango:monospace Bold 12
+        tray_padding 0
 }
 
 bar {
