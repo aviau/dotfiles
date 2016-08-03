@@ -1,6 +1,7 @@
+
 --[[
                                              
-     Powerarrow Darker Awesome WM config 3.0 
+     Powerarrow Darker Awesome WM config 2.0 
      github.com/copycat-killer               
                                              
 --]]
@@ -36,7 +37,7 @@ theme.mouse_finder_color            = "#CC9393"
 theme.menu_height                   = "16"
 theme.menu_width                    = "140"
 
-theme.menu_submenu_icon             = themes_dir .. "/icons/submenu.png"
+theme.submenu_icon                  = themes_dir .. "/icons/submenu.png"
 theme.taglist_squares_sel           = themes_dir .. "/icons/square_sel.png"
 theme.taglist_squares_unsel         = themes_dir .. "/icons/square_unsel.png"
 
@@ -53,10 +54,6 @@ theme.layout_max                    = themes_dir .. "/icons/max.png"
 theme.layout_fullscreen             = themes_dir .. "/icons/fullscreen.png"
 theme.layout_magnifier              = themes_dir .. "/icons/magnifier.png"
 theme.layout_floating               = themes_dir .. "/icons/floating.png"
-
-theme.arrl                          = themes_dir .. "/icons/arrl.png"
-theme.arrl_dl                       = themes_dir .. "/icons/arrl_dl.png"
-theme.arrl_ld                       = themes_dir .. "/icons/arrl_ld.png"
 
 theme.widget_ac                     = themes_dir .. "/icons/ac.png"
 theme.widget_battery                = themes_dir .. "/icons/battery.png"

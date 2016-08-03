@@ -1,9 +1,9 @@
 
 --[[
-                                                   
-     Licensed under GNU General Public License v2  
-      * (c) 2014, anticlockwise <http://github.com/anticlockwise>
-                                                   
+                                                                  
+     Licensed under GNU General Public License v2                 
+      * (c) 2014, anticlockwise <http://github.com/anticlockwise> 
+                                                                  
 --]]
 
 local helpers = require("lain.helpers")
@@ -21,6 +21,8 @@ local string = { format  = string.format,
 
 local setmetatable = setmetatable
 
+-- MOC audio player
+-- lain.widgets.contrib.moc
 local moc = {}
 
 local function worker(args)
@@ -29,6 +31,7 @@ local function worker(args)
     local music_dir   = args.music_dir or os.getenv("HOME") .. "/Music"
     local cover_size  = args.cover_size or 100
     local default_art = args.default_art or ""
+    local followmouse = args.followmouse or false
     local settings    = args.settings or function() end
 
     local mpdcover = helpers.scripts_dir .. "mpdcover"
@@ -58,7 +61,7 @@ local function worker(args)
                 total   = "N/A"
             }
 
-            for line in f:lines() do
+            for line in string.gmatch(f, "[^\n]+") do
                 for k, v in string.gmatch(line, "([%w]+):[%s](.*)$") do
                     if k == "State" then moc_now.state = v
                     elseif k == "File" then moc_now.file = v
@@ -81,6 +84,10 @@ local function worker(args)
                     helpers.set_map("current moc track", moc_now.title)
                     os.execute(string.format("%s %q %q %d %q", mpdcover, "",
                                moc_now.file, cover_size, default_art))
+
+                    if followmouse then
+                        moc_notification_preset.screen = mouse.screen
+                    end
 
                     moc.id = naughty.notify({
                         preset = moc_notification_preset,

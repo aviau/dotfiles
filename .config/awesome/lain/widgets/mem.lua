@@ -7,17 +7,15 @@
                                                   
 --]]
 
-local newtimer        = require("lain.helpers").newtimer
+local newtimer     = require("lain.helpers").newtimer
 
-local wibox           = require("wibox")
+local wibox        = require("wibox")
 
-local io              = { lines  = io.lines }
-local math            = { floor  = math.floor }
-local string          = { format = string.format,
-                          gmatch = string.gmatch,
-                          len    = string.len }
+local io           = { lines  = io.lines }
+local math         = { floor  = math.floor }
+local string       = { gmatch = string.gmatch }
 
-local setmetatable    = setmetatable
+local setmetatable = setmetatable
 
 -- Memory usage (ignoring caches)
 -- lain.widgets.mem
@@ -25,7 +23,7 @@ local mem = {}
 
 local function worker(args)
     local args     = args or {}
-    local timeout  = args.timeout or 3
+    local timeout  = args.timeout or 2
     local settings = args.settings or function() end
 
     mem.widget = wibox.widget.textbox('')
@@ -48,6 +46,7 @@ local function worker(args)
 
         mem_now.used = mem_now.total - (mem_now.free + mem_now.buf + mem_now.cache)
         mem_now.swapused = mem_now.swap - mem_now.swapf
+        mem_now.perc = math.floor(mem_now.used / mem_now.total * 100)
 
         widget = mem.widget
         settings()
