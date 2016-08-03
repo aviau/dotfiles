@@ -34,6 +34,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # dropdown terminal
 bindsym $mod+z exec guake -t
+for_window [instance="guake"] floating enable
 
 # kill focused window
 bindsym $mod+Shift+c kill
