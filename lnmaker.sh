@@ -28,6 +28,11 @@ ln -nsf ${dir}/bin ~/bin
 rm -rf ~/.config/awesome
 ln -sf ${dir}/.config/awesome ~/.config/awesome
 
+
+# i3
+rm -rf ~/.config/i3
+ln -sf ${dir}/.config/i3 ~/.config/i3
+
 # .profile
 ln -sf ${dir}/.profile ~/.profile
 
