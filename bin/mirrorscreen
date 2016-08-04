@@ -1,0 +1,2 @@
+#!/bin/bash
+xrandr --output $(xrandr | grep -e " connected" | grep -v eDP | awk '{ print $1'}) --mode 1920x1080 --same-as eDP-1
