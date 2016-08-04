@@ -599,7 +599,7 @@ globalkeys = awful.util.table.join(
 
     -- Dropdown terminal
     awful.key({ modkey,	          }, "z",      function () quakeconsole[mouse.screen]:toggle() end),
---      awful.key({modkey,              }, "z",      function () awful.util.spawn_with_shell("guake -t") end),
+--    awful.key({modkey,              }, "z",      function () awful.util.spawn_with_shell("guake -t") end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
@@ -756,8 +756,10 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    { rule_any = { class = { "guake", "Main.py" }, name = { "Guake!" } },
-      properties = { floating = true, size_hints_honor = true, height = 500, maximized_horizontal = true } },
+    { rule_any = { class = { "guake", "Main.py" },
+                   name = { "Guake!" } },
+      properties = { floating = true,
+                     maximized_horizontal = true } },
 --    { rule = { class = "Firefox" },
 --          properties = { tag = tags[1][1] } },
 --
