@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $(setxkbmap -query | grep layout | awk '{ print $2 }') = "us" ]; then
+    setxkbmap ca
+else
+    setxkbmap us
+fi
+
+pkill -RTMIN+2 i3blocks
