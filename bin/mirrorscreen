@@ -1,0 +1,4 @@
+#!/bin/bash
+SCREEN=$(xrandr -q | grep -e " connected" | grep -v eDP | awk '{ print $1'})
+MODE=$(xrandr -q | grep -A 1 $SCREEN | tail -n 1 |  awk '{ print $1'})
+xrandr --output $SCREEN --mode $MODE --same-as eDP-1

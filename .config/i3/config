@@ -41,6 +41,9 @@ for_window [instance="guake"] floating enable
 bindsym $alt+Up exec pactl set-sink-volume 1 +5% && pkill -RTMIN+1 i3blocks
 bindsym $alt+Down exec pactl set-sink-volume 1 -5% && pkill -RTMIN+1 i3blocks
 
+# switch keyboard map
+bindsym Shift+Tab exec ~/bin/swapkbmap
+
 # kill focused window
 bindsym $mod+Shift+c kill
 
