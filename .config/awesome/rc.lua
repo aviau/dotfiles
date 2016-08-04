@@ -92,7 +92,7 @@ local layouts = {
 -- quake terminal
 local quakeconsole = {}
 for s = 1, screen.count() do
-   quakeconsole[s] = lain.util.quake({ app = "guake", argname = "--name %s", wibox_height = 32})
+   quakeconsole[s] = lain.util.quake({ app = "guake", argname = "--name %s" })
 --   quakeconsole[s] = lain.util.quake({ app = "xterm", wibox_height = 32})
 end
 -- }}}
@@ -757,7 +757,7 @@ awful.rules.rules = {
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
     { rule_any = { class = { "guake", "Main.py" }, name = { "Guake!" } },
-      properties = { floating = true, size_hints_honor = false, height=500 } },
+      properties = { floating = true, size_hints_honor = true, height = 500, maximized_horizontal = true } },
 --    { rule = { class = "Firefox" },
 --          properties = { tag = tags[1][1] } },
 --
