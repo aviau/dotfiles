@@ -1,0 +1,3 @@
+#!/bin/bash
+pkill -9 -f dring
+pkill -9 -f gnome-ring
