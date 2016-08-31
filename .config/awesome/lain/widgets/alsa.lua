@@ -7,60 +7,45 @@
                                                   
 --]]
 
-local newtimer        = require("lain.helpers").newtimer
+local newtimer     = require("lain.helpers").newtimer
+local read_pipe    = require("lain.helpers").read_pipe
 
-local wibox           = require("wibox")
+local wibox        = require("wibox")
 
-local io              = { popen  = io.popen }
-local string          = { match  = string.match,
-                          format = string.format }
+local string       = { match  = string.match,
+                       format = string.format }
 
-local setmetatable    = setmetatable
+local setmetatable = setmetatable
 
 -- ALSA volume
 -- lain.widgets.alsa
-local alsa = {}
+local alsa = { last_level = "0", last_status = "" }
 
 local function worker(args)
     local args     = args or {}
     local timeout  = args.timeout or 5
     local settings = args.settings or function() end
 
-    alsa.card    = args.card or "0"
+    alsa.cmd     = args.cmd or "amixer"
     alsa.channel = args.channel or "Master"
-
-    alsa.widget = wibox.widget.textbox('')
+    alsa.widget  = wibox.widget.textbox('')
 
     function alsa.update()
-        local f = assert(io.popen(string.format("amixer -c %s -M get %s", alsa.card, alsa.channel)))
-        local mixer = f:read("*a")
-        f:close()
+        mixer = read_pipe(string.format("%s get %s", alsa.cmd, alsa.channel))
+        l,s   = string.match(mixer, "([%d]+)%%.*%[([%l]*)")
 
-        volume_now = {}
+        if alsa.last_level ~= l or alsa.last_status ~= s then
+            volume_now = { level = l, status = s }
+            alsa.last_level  = l
+            alsa.last_status = s
 
-        volume_now.level, volume_now.status = string.match(mixer, "([%d]+)%%.*%[([%l]*)")
-
-        if volume_now.level == nil
-        then
-            volume_now.level  = "0"
-            volume_now.status = "off"
+            widget = alsa.widget
+            settings()
         end
-
-        if volume_now.status == ""
-        then
-            if volume_now.level == "0"
-            then
-                volume_now.status = "off"
-            else
-                volume_now.status = "on"
-            end
-        end
-
-        widget = alsa.widget
-        settings()
     end
 
-    newtimer("alsa", timeout, alsa.update)
+    timer_id = string.format("alsa-%s-%s", alsa.cmd, alsa.channel)
+    newtimer(timer_id, timeout, alsa.update)
 
     return setmetatable(alsa, { __index = alsa.widget })
 end

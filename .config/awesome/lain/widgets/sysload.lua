@@ -12,8 +12,7 @@ local newtimer     = require("lain.helpers").newtimer
 local wibox        = require("wibox")
 
 local io           = { open = io.open }
-local string       = { format = string.format,
-                       match  = string.match }
+local string       = { match  = string.match }
 
 local setmetatable = setmetatable
 
@@ -23,14 +22,14 @@ local sysload = {}
 
 local function worker(args)
     local args = args or {}
-    local timeout = args.timeout or 5
+    local timeout = args.timeout or 2
     local settings = args.settings or function() end
 
     sysload.widget = wibox.widget.textbox('')
 
     function update()
         local f = io.open("/proc/loadavg")
-        local ret = f:read("*a")
+        local ret = f:read("*all")
         f:close()
 
         load_1, load_5, load_15 = string.match(ret, "([^%s]+) ([^%s]+) ([^%s]+)")

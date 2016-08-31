@@ -14,12 +14,13 @@ local escape_f     = require("awful.util").escape
 local naughty      = require("naughty")
 local wibox        = require("wibox")
 
-local os           = { execute  = os.execute,
-                       getenv   = os.getenv }
-local math         = { floor    = math.floor }
-local string       = { format   = string.format,
-                       match    = string.match,
-                       gmatch   = string.gmatch }
+local os           = { execute = os.execute,
+                       getenv  = os.getenv }
+local math         = { floor   = math.floor }
+local mouse        = mouse
+local string       = { format  = string.format,
+                       match   = string.match,
+                       gmatch  = string.gmatch }
 
 local setmetatable = setmetatable
 
@@ -36,11 +37,14 @@ local function worker(args)
     local music_dir   = args.music_dir or os.getenv("HOME") .. "/Music"
     local cover_size  = args.cover_size or 100
     local default_art = args.default_art or ""
+    local notify      = args.notify or "on"
+    local followmouse = args.followmouse or false
+    local echo_cmd    = args.echo_cmd or "echo"
     local settings    = args.settings or function() end
 
     local mpdcover = helpers.scripts_dir .. "mpdcover"
     local mpdh = "telnet://" .. host .. ":" .. port
-    local echo = "echo 'password " .. password .. "\nstatus\ncurrentsong\nclose'"
+    local echo = echo_cmd .. " 'password " .. password .. "\nstatus\ncurrentsong\nclose'"
 
     mpd.widget = wibox.widget.textbox('')
 
@@ -54,26 +58,40 @@ local function worker(args)
     function mpd.update()
         async.request(echo .. " | curl --connect-timeout 1 -fsm 3 " .. mpdh, function (f)
             mpd_now = {
-                state   = "N/A",
-                file    = "N/A",
-                artist  = "N/A",
-                title   = "N/A",
-                album   = "N/A",
-                date    = "N/A",
-                time    = "N/A",
-                elapsed = "N/A"
+                random_mode  = false,
+                single_mode  = false,
+                repeat_mode  = false,
+                consume_mode = false,
+                pls_pos      = "N/A",
+                pls_len      = "N/A",
+                state        = "N/A",
+                file         = "N/A",
+                name         = "N/A",
+                artist       = "N/A",
+                title        = "N/A",
+                album        = "N/A",
+                date         = "N/A",
+                time         = "N/A",
+                elapsed      = "N/A"
             }
 
-            for line in f:lines() do
+            for line in string.gmatch(f, "[^\n]+") do
                 for k, v in string.gmatch(line, "([%w]+):[%s](.*)$") do
-                    if     k == "state"   then mpd_now.state   = v
-                    elseif k == "file"    then mpd_now.file    = v
-                    elseif k == "Artist"  then mpd_now.artist  = escape_f(v)
-                    elseif k == "Title"   then mpd_now.title   = escape_f(v)
-                    elseif k == "Album"   then mpd_now.album   = escape_f(v)
-                    elseif k == "Date"    then mpd_now.date    = escape_f(v)
-                    elseif k == "Time"    then mpd_now.time    = v
-                    elseif k == "elapsed" then mpd_now.elapsed = string.match(v, "%d+")
+                    if     k == "state"          then mpd_now.state        = v
+                    elseif k == "file"           then mpd_now.file         = v
+                    elseif k == "Name"           then mpd_now.name         = escape_f(v)
+                    elseif k == "Artist"         then mpd_now.artist       = escape_f(v)
+                    elseif k == "Title"          then mpd_now.title        = escape_f(v)
+                    elseif k == "Album"          then mpd_now.album        = escape_f(v)
+                    elseif k == "Date"           then mpd_now.date         = escape_f(v)
+                    elseif k == "Time"           then mpd_now.time         = v
+                    elseif k == "elapsed"        then mpd_now.elapsed      = string.match(v, "%d+")
+                    elseif k == "song"           then mpd_now.pls_pos      = v
+                    elseif k == "playlistlength" then mpd_now.pls_len      = v
+                    elseif k == "repeat"         then mpd_now.repeat_mode  = v ~= "0"
+                    elseif k == "single"         then mpd_now.single_mode  = v ~= "0"
+                    elseif k == "random"         then mpd_now.random_mode  = v ~= "0"
+                    elseif k == "consume"        then mpd_now.consume_mode = v ~= "0"
                     end
                 end
             end
@@ -85,16 +103,26 @@ local function worker(args)
 
             if mpd_now.state == "play"
             then
-                if mpd_now.title ~= helpers.get_map("current mpd track")
+                if notify == "on" and mpd_now.title ~= helpers.get_map("current mpd track")
                 then
                     helpers.set_map("current mpd track", mpd_now.title)
 
-                    os.execute(string.format("%s %q %q %d %q", mpdcover, music_dir,
-                               mpd_now.file, cover_size, default_art))
+                    if string.match(mpd_now.file, "http.*://") == nil
+                    then -- local file
+                        os.execute(string.format("%s %q %q %d %q", mpdcover, music_dir,
+                                   mpd_now.file, cover_size, default_art))
+                        current_icon = "/tmp/mpdcover.png"
+                    else -- http stream
+                        current_icon = default_art
+                    end
+
+                    if followmouse then
+                        mpd_notification_preset.screen = mouse.screen
+                    end
 
                     mpd.id = naughty.notify({
                         preset = mpd_notification_preset,
-                        icon = "/tmp/mpdcover.png",
+                        icon = current_icon,
                         replaces_id = mpd.id,
                     }).id
                 end

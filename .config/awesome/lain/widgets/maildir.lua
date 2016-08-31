@@ -8,9 +8,12 @@
 --]]
 
 local newtimer        = require("lain.helpers").newtimer
+local read_pipe       = require("lain.helpers").read_pipe
+local spairs          = require("lain.helpers").spairs
 
 local wibox           = require("wibox")
 
+local awful           = require("awful")
 local util            = require("lain.util")
 
 local io              = { popen  = io.popen }
@@ -18,7 +21,6 @@ local os              = { getenv = os.getenv }
 local pairs           = pairs
 local string          = { len    = string.len,
                           match  = string.match }
-local table           = { sort   = table.sort }
 
 local setmetatable    = setmetatable
 
@@ -32,13 +34,19 @@ local function worker(args)
     local mailpath     = args.mailpath or os.getenv("HOME") .. "/Mail"
     local ignore_boxes = args.ignore_boxes or {}
     local settings     = args.settings or function() end
+    local ext_mail_cmd = args.external_mail_cmd
 
     maildir.widget = wibox.widget.textbox('')
 
     function update()
+        if ext_mail_cmd ~= nil
+        then
+            awful.util.spawn(ext_mail_cmd)
+        end
+
         -- Find pathes to mailboxes.
         local p = io.popen("find " .. mailpath ..
-                           " -mindepth 1 -maxdepth 1 -type d" ..
+                           " -mindepth 1 -maxdepth 2 -type d" ..
                            " -not -name .git")
         local boxes = {}
         repeat
@@ -50,13 +58,12 @@ local function worker(args)
                 -- match files that begin with a dot.
                 -- Afterwards the length of this string is the number of
                 -- new mails in that box.
-                local np = io.popen("find " .. line ..
+                local mailstring = read_pipe("find " .. line ..
                                     "/new -mindepth 1 -type f " ..
                                     "-not -name '.*' -printf a")
-                local mailstring = np:read("*a")
 
                 -- Strip off leading mailpath.
-                local box = string.match(line, mailpath .. "/*([^/]+)")
+                local box = string.match(line, mailpath .. "/(.*)")
                 local nummails = string.len(mailstring)
                 if nummails > 0
                 then
@@ -65,13 +72,13 @@ local function worker(args)
             end
         until line == nil
 
-        table.sort(boxes)
+        p:close()
 
         newmail = "no mail"
-        --Count the total number of mails irrespective of where it was found
+        -- Count the total number of mails irrespective of where it was found
         total = 0
 
-        for box, number in pairs(boxes)
+        for box, number in spairs(boxes)
         do
             -- Add this box only if it's not to be ignored.
             if not util.element_in_table(box, ignore_boxes)

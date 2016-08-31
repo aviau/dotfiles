@@ -16,6 +16,7 @@ local naughty      = require("naughty")
 
 local io           = { popen  = io.popen }
 local pairs        = pairs
+local mouse        = mouse
 local string       = { match  = string.match,
                        format = string.format }
 local tonumber     = tonumber
@@ -25,28 +26,28 @@ local setmetatable = setmetatable
 -- File system disk space usage
 -- lain.widgets.fs
 local fs = {}
-
-local notification  = nil
-fs_notification_preset = { fg = beautiful.fg_normal }
+local fs_notification  = nil
 
 function fs:hide()
-    if notification ~= nil then
-        naughty.destroy(notification)
-        notification = nil
+    if fs_notification ~= nil then
+        naughty.destroy(fs_notification)
+        fs_notification = nil
     end
 end
 
 function fs:show(t_out)
     fs:hide()
 
-    local f = io.popen(helpers.scripts_dir .. "dfs")
-    ws = f:read("*a"):gsub("\n*$", "")
-    f:close()
+    local ws = helpers.read_pipe(helpers.scripts_dir .. "dfs"):gsub("\n*$", "")
 
-    notification = naughty.notify({
-        preset = fs_notification_preset,
-        text = ws,
-        timeout = t_out,
+    if fs.followmouse then
+        fs.notification_preset.screen = mouse.screen
+    end
+
+    fs_notification = naughty.notify({
+        preset  = fs.notification_preset,
+        text    = ws,
+        timeout = t_out
     })
 end
 
@@ -54,14 +55,19 @@ end
 local unit = { ["mb"] = 1024, ["gb"] = 1024^2 }
 
 local function worker(args)
-    local args      = args or {}
-    local timeout   = args.timeout or 600
-    local partition = args.partition or "/"
-    local settings  = args.settings or function() end
+    local args             = args or {}
+    local timeout          = args.timeout or 600
+    local partition        = args.partition or "/"
+    local showpopup        = args.showpopup or "on"
+    local notify           = args.notify or "on"
+    local settings         = args.settings or function() end
+
+    fs.followmouse         = args.followmouse or false
+    fs.notification_preset = args.notification_preset or { fg = beautiful.fg_normal }
 
     fs.widget = wibox.widget.textbox('')
 
-    helpers.set_map("fs", false)
+    helpers.set_map(partition, false)
 
     function update()
         fs_info = {}
@@ -88,10 +94,11 @@ local function worker(args)
         fs_now.size_mb   = tonumber(fs_info[partition .. " size_mb"]) or 0
         fs_now.size_gb   = tonumber(fs_info[partition .. " size_gb"]) or 0
 
+        notification_preset = fs.notification_preset
         widget = fs.widget
         settings()
 
-        if fs_now.used >= 99 and not helpers.get_map("fs")
+        if notify == "on" and fs_now.used >= 99 and not helpers.get_map(partition)
         then
             naughty.notify({
                 title = "warning",
@@ -100,16 +107,18 @@ local function worker(args)
                 fg = "#000000",
                 bg = "#FFFFFF",
             })
-            helpers.set_map("fs", true)
+            helpers.set_map(partition, true)
         else
-            helpers.set_map("fs", false)
+            helpers.set_map(partition, false)
         end
     end
 
-    helpers.newtimer(partition, timeout, update)
+    if showpopup == "on" then
+        fs.widget:connect_signal('mouse::enter', function () fs:show(0) end)
+        fs.widget:connect_signal('mouse::leave', function () fs:hide() end)
+    end
 
-    widget:connect_signal('mouse::enter', function () fs:show(0) end)
-    widget:connect_signal('mouse::leave', function () fs:hide() end)
+    helpers.newtimer(partition, timeout, update)
 
     return setmetatable(fs, { __index = fs.widget })
 end

@@ -12,6 +12,7 @@ local async        = require("lain.asyncshell")
 local naughty      = require("naughty")
 local wibox        = require("wibox")
 
+local mouse        = mouse
 local string       = { format = string.format,
                        gsub   = string.gsub }
 local tonumber     = tonumber
@@ -22,17 +23,18 @@ local setmetatable = setmetatable
 -- lain.widgets.imap
 
 local function worker(args)
-    local imap     = {}
-    local args     = args or {}
+    local imap        = {}
+    local args        = args or {}
 
-    local server   = args.server
-    local mail     = args.mail
-    local password = args.password
+    local server      = args.server
+    local mail        = args.mail
+    local password    = args.password
 
-    local port     = args.port or 993
-    local timeout  = args.timeout or 60
-    local is_plain = args.is_plain or false
-    local settings = args.settings or function() end
+    local port        = args.port or 993
+    local timeout     = args.timeout or 60
+    local is_plain    = args.is_plain or false
+    local followmouse = args.followmouse or false
+    local settings    = args.settings or function() end
 
     local head_command  = "curl --connect-timeout 3 -fsm 3"
     local request = "-X 'SEARCH (UNSEEN)'"
@@ -41,9 +43,7 @@ local function worker(args)
 
     if not is_plain
     then
-        local f = io.popen(password)
-        password = f:read("*a"):gsub("\n", "")
-        f:close()
+        password = helpers.read_pipe(password):gsub("\n", "")
     end
 
     imap.widget = wibox.widget.textbox('')
@@ -54,14 +54,15 @@ local function worker(args)
             position = "top_left"
         }
 
+        if followmouse then
+            mail_notification_preset.screen = mouse.screen
+        end
+
         curl = string.format("%s --url imaps://%s:%s/INBOX -u %s:%q %s -k",
                head_command, server, port, mail, password, request)
 
         async.request(curl, function(f)
-            ws = f:read("*a")
-            f:close()
-
-            _, mailcount = string.gsub(ws, "%d+", "")
+            _, mailcount = string.gsub(f, "%d+", "")
             _ = nil
 
             widget = imap.widget
@@ -76,7 +77,7 @@ local function worker(args)
                 end
                 naughty.notify({
                     preset = mail_notification_preset,
-                    text = nt,
+                    text = nt
                 })
             end
 

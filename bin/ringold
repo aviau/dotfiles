@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ringwipe
+cp -r ${DIR}/.ringold/config/ring ~/.config/ring
+cp -r ${DIR}/.ringold/share/ring ~/.local/share/ring
