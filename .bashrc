@@ -21,7 +21,7 @@ export EMAIL=alexandre@alexandreviau.net
 export USCAN_SYMLINK=rename
 export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
 export DEBSIGN_PROGRAM=gpg2
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=/run/user/$( id -u)/gnupg/S.gpg-agent.ssh
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
