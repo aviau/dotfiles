@@ -1,0 +1,2 @@
+#!/bin/bash
+CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -std=gnu++1y -ggdb -O1" cmake -DLibRingClient_PROJECT_DIR=/home/aviau/git/ring/ring-lrc ..
