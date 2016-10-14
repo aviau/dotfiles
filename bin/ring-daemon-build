@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+rm -rf contrib/native
+rm -rf contrib/x86_64-linux-gnu/
+rm -rf contrib/tarballs
+git checkout contrib/tarballs
+
+mkdir -p contrib/native
+cd contrib/native
+../bootstrap
+make
+cd ../..
