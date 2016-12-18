@@ -326,9 +326,9 @@ kbdcfg.switch = function ()
 end
 
 -- Weather
-myweather = lain.widgets.weather({
-    city_id = 123456 -- placeholder
-})
+-- myweather = lain.widgets.weather({
+--    city_id = 123456 -- placeholder
+-- })
 
 -- Separators
 first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
