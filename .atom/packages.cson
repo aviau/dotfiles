@@ -6,5 +6,6 @@ packages: [
   "package-sync"
   "symbols-tree-view"
   "vim-mode"
+  "xml-formatter"
   "you-complete-me"
 ]

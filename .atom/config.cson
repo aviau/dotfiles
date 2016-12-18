@@ -64,6 +64,8 @@
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+  "xml-formatter":
+    endLineCharacter: "LF (\\n)"
   "you-complete-me":
     confirmExtraConfig: false
     globalExtraConfig: "~/.ycm_extra_conf.py"
