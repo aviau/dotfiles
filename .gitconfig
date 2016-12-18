@@ -30,3 +30,5 @@
 	gpgsign = true
 [gpg]
     program = gpg2
+[apply]
+	whitespace = fix
