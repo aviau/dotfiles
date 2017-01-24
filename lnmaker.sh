@@ -82,6 +82,7 @@ mkdir -p ~/.gnupg
 ln -sf ${dir}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
 ln -sf ${dir}/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ln -sf ${dir}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
+chmod -R 700 ~/.gnupg
 
 # .caffrc
 ln -sf ${dir}/.caffrc ~/.caffrc
