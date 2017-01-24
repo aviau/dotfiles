@@ -59,6 +59,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.html :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.java :call DeleteTrailingWS()
 
 """"""""""""""""""""""""""""""
 " => Status line
