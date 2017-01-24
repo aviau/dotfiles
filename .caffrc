@@ -1,6 +1,8 @@
 # .caffrc -- vim:ft=perl:
 # This file is in perl(1) format - see caff(1) for details.
 
+$CONFIG{'gpg'} = '/usr/bin/gpg2';
+
 $CONFIG{'owner'} = 'Alexandre Viau';
 $CONFIG{'email'} = 'aviau@debian.org';
 $CONFIG{'reply-to'} = 'aviau@debian.org';
