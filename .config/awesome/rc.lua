@@ -68,7 +68,7 @@ run_once("setxkbmap -option 'caps:swapescape'")
 local chosen_theme = "holo"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "gnome-terminal" or "xfce4-terminal" or "xterm"
+local terminal     = "termite" or "gnome-terminal" or "xfce4-terminal" or "xterm"
 local editor       = os.getenv("EDITOR") or "vim" or "vi" or "nano"
 local gui_editor   = "gvim"
 local browser      = "chromium"
