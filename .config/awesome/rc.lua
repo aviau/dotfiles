@@ -567,7 +567,7 @@ awful.rules.rules = {
 
     { rule_any = { class = { "guake", "Main.py" },
                    name = { "Guake!" } },
-      properties = { floating = true } },
+      properties = { floating = true, ontop = true } },
 
 }
 -- }}}
