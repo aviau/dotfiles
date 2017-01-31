@@ -201,6 +201,7 @@ end)))
 
 -- Battery
 local bat = lain.widgets.bat({
+    batteries = {"BAT0", "BAT1"},
     settings = function()
         bat_header = " Bat "
         bat_p      = bat_now.perc .. " "
