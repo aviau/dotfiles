@@ -1,1 +1,9 @@
 PBUILDERSATISFYDEPENDSCMD="/usr/lib/pbuilder/pbuilder-satisfydepends-gdebi"
+
+# http://www.enricozini.org/blog/2006/tips/pbuilder-tips/
+# guide:
+#   - Put packages in /var/cache/pbuilder/result
+#   - run update-aptsource
+# put this in /etc/pbuilderrc
+#OTHERMIRROR="deb [trusted=yes] file:/var/cache/pbuilder/result/ ./"
+#BINDMOUNTS="/var/cache/pbuilder/result/"
