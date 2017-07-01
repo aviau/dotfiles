@@ -2,4 +2,4 @@
 cd /var/cache/pbuilder/result
 sudo bash -c "dpkg-scanpackages . /dev/null | gzip -9 > Packages.gz"
 echo "Running cowbuilder update..."
-su -c "cowbuilder update"
+sudo cowbuilder update
