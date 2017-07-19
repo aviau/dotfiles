@@ -12,8 +12,6 @@ fi
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
 export GOPATH=$HOME/go
-export SURVEIL_API_URL=http://localhost:5311/v2
-export SURVEIL_AUTH_URL=http://localhost:5311/v2/auth
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export DEBEMAIL=aviau@debian.org
 export DEBSIGN_KEYID=3ccc3a3a
