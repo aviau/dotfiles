@@ -1,2 +1,2 @@
 #!/bin/bash
-xscreensaver-command -lock
+xscreensaver & xscreensaver-command -lock &

@@ -29,7 +29,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Personnal Aliases
-alias lock='xscreensaver & xscreensaver-command -lock &'
 alias pacman='apt'
 
 # Allow for using aliases when using sudo
