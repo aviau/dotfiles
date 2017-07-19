@@ -1,13 +1,3 @@
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH to include golang stuff
-if [ -d "$HOME/go/bin" ] ; then
-    export PATH="$HOME/go/bin:$PATH"
-fi
-
 #Set variables
 export EDITOR="vim"
 export PYTHONSTARTUP="$HOME/.pyrc"
@@ -20,6 +10,16 @@ export USCAN_SYMLINK=rename
 export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
 export DEBSIGN_PROGRAM=gpg2
 export SSH_AUTH_SOCK=/run/user/$( id -u)/gnupg/S.gpg-agent.ssh
+
+# set PATH to include golang stuff
+if [ -d "$GOPATH/bin" ] ; then
+    export PATH="$GOPATH/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
