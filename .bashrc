@@ -40,8 +40,6 @@ alias pacman='apt'
 alias sudo='sudo '
 
 alias docker='sudo docker'
-alias fig='sudo docker-compose'
-alias fig-krb='sudo docker-compose kill && sudo docker-compose rm --force && sudo docker-compose build'
 alias swapescape="setxkbmap -option 'caps:swapescape'"
 alias bts="bts --mutt"
 alias lintian='lintian -IEcv --pedantic --color auto'
