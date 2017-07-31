@@ -2,12 +2,15 @@
   "autocomplete-plus":
     useCoreMovementCommands: false
   core:
+    automaticallyUpdate: false
     closeEmptyWindows: false
     disabledPackages: [
       "linter-pep8"
       "language-python"
       "markdown-preview"
       "minimap"
+      "github"
+      "you-complete-me"
     ]
     packagesWithKeymapsDisabled: [
       "nvatom"
@@ -17,10 +20,12 @@
       "you-complete-me"
       "symbols-view"
     ]
+    reopenProjectMenuCount: 12
+    telemetryConsent: "limited"
     useReactEditor: true
   editor:
     backUpBeforeSaving: true
-    fontSize: 12
+    fontSize: 15
     invisibles: {}
     preferredLineLength: 79
     softWrapAtPreferredLineLength: true
@@ -58,6 +63,7 @@
     defaultWidth: 250
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
