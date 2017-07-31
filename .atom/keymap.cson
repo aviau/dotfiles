@@ -23,6 +23,13 @@
     'ctrl-shift-W': 'unset!'
     'ctrl-s': 'unset!'
 
+# Cycle trough tabs
+'body':
+    'ctrl-tab': 'pane:show-next-item'
+    'ctrl-tab ^ctrl': 'unset!'
+    'ctrl-shift-tab': 'pane:show-previous-item'
+    'ctrl-shift-tab ^ctrl': 'unset!'
+
 'atom-text-editor.vim-mode':
     'ctrl-c': 'core:copy'
     'ctrl-v': 'core:paste'
@@ -41,6 +48,10 @@
     'ctrl-j': 'core:move-down'
 
 '.nvatom':
+    'ctrl-k': 'core:move-up'
+    'ctrl-j': 'core:move-down'
+
+'.command-palette':
     'ctrl-k': 'core:move-up'
     'ctrl-j': 'core:move-down'
 
