@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="rename_current_tab" mtime="1432734895" type="string">
-		<stringvalue>F2</stringvalue>
+	<entry name="toggle_fullscreen" mtime="1479299555" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="rename_current_tab" mtime="1502058167" type="string">
+		<stringvalue>XF86AudioLowerVolume</stringvalue>
 	</entry>
 	<entry name="close_tab" mtime="1402499964" type="string">
 		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;w</stringvalue>
