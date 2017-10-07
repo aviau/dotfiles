@@ -26,8 +26,10 @@
   editor:
     backUpBeforeSaving: true
     fontSize: 15
-    invisibles: {}
+    invisibles:
+      eol: " "
     preferredLineLength: 79
+    showInvisibles: true
     softWrapAtPreferredLineLength: true
     tabLength: 4
   "exception-reporting":
