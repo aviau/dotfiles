@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -eux
+
+PROJECT="${1%.git}"
+DESCRIPTION="$PROJECT packaging"
+ALIOTH_URL="https://anonscm.debian.org/git"
+ALIOTH_GROUP="pkg-go/packages"
+SALSA_URL="https://salsa.debian.org/api/v4"
+SALSA_NAMESPACE="2295" # 2 is "debian"
+SALSA_TOKEN="<TOKEN>"
+
+gbp clone $ALIOTH_URL/$ALIOTH_GROUP/$PROJECT
+
+cd $PROJECT
+
+git remote remove origin
+git remote add origin git@salsa.debian.org:js-team/$PROJECT.git
+
+curl -f "$SALSA_URL/projects?private_token=$SALSA_TOKEN" --data "path=$PROJECT&namespace_id=$SALSA_NAMESPACE&description=$DESCRIPTION&import_url=$ALIOTH_URL/$ALIOTH_GROUP/$PROJECT&visibility=public"
+
+sleep 10
+
+ssh git.debian.org "rm -rf /git/$ALIOTH_GROUP/$PROJECT"
+ssh git.debian.org "rm -rf /git/$ALIOTH_GROUP/$PROJECT.git"
