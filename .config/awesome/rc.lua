@@ -337,6 +337,9 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end),
     awful.key({ modkey, }, "z", function () os.execute("guake") end),
 
+    -- Dropdown application
+    awful.key({ modkey, }, "p", function () os.execute("/home/aviau/bin/passmenu --type -l 15") end),
+
     -- Widgets popups
     awful.key({ altkey, }, "c", function () lain.widgets.calendar.show(7) end),
     awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end),

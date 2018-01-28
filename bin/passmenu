@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# requires debian packages:
+#  - suckless-tools (for dmenu)
+#  - xdotool
+#  - gopass (or pass)
+
 shopt -s nullglob globstar
 
 typeit=0
@@ -18,9 +23,9 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-    pass show -c "$password" 2>/dev/null
+    gopass show -c "$password" 2>/dev/null
 else
-    pass show "$password" |
+    gopass show "$password" |
         awk 'BEGIN{ORS=""} {print; exit}' |
         xdotool type --clearmodifiers --file -
 fi
