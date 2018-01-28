@@ -1,0 +1,4 @@
+#!/bin/bash
+VERSION=$(dpkg-parsechangelog --show-field Version)
+VERSION_TAG=$(dpkg-parsechangelog --show-field Version | tr "~" "_")
+git tag -a -u 3ccc3a3a debian/${VERSION_TAG} -m ${VERSION}
