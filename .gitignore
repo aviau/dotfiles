@@ -2,3 +2,7 @@ ycm/**/compile_commands.json
 .atom/blob-store
 .atom/nohup.out
 .nvim
+*.asc
+
+# pass dotfiles/muttrc
+.muttrc
