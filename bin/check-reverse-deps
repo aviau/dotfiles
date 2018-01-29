@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh mirror.ftp-master.debian.org "dak rm -Rn $1"
