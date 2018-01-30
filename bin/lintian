@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+/usr/bin/lintian -IEcv --pedantic --color auto $@
