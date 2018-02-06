@@ -30,7 +30,7 @@
     'ctrl-shift-tab': 'pane:show-previous-item'
     'ctrl-shift-tab ^ctrl': 'unset!'
 
-'atom-text-editor.vim-mode':
+'atom-text-editor.vim-mode-plus':
     'ctrl-c': 'core:copy'
     'ctrl-v': 'core:paste'
 
