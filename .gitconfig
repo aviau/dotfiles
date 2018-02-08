@@ -32,3 +32,5 @@
     program = gpg2
 [apply]
 	whitespace = fix
+[url "git@salsa.debian.org:"]
+	pushInsteadOf = https://salsa.debian.org/
