@@ -10,7 +10,6 @@
       "markdown-preview"
       "minimap"
       "github"
-      "you-complete-me"
     ]
     packagesWithKeymapsDisabled: [
       "nvatom"
