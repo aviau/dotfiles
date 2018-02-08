@@ -34,3 +34,5 @@
 	whitespace = fix
 [url "git@salsa.debian.org:"]
 	pushInsteadOf = https://salsa.debian.org/
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
