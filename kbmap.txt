@@ -1,0 +1,2 @@
+This might be useful:
+ - gsettings set org.gnome.settings-daemon.plugins.keyboard active false
