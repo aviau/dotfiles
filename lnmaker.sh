@@ -7,6 +7,8 @@ fi
 
 dir=$(readlink -f $1)
 
+git submodule update --init --recursive
+
 # .tmux.conf
 ln -sf ${dir}/.tmux.conf ~/.tmux.conf
 
