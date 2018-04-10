@@ -12,6 +12,9 @@ git submodule update --init --recursive
 # .tmux.conf
 ln -sf ${dir}/.tmux.conf ~/.tmux.conf
 
+# .sbuildrc
+ln -sf ${dir}/.sbuildrc ~/.sbuildrc
+
 # .vimrc
 ln -sf ${dir}/.vimrc ~/.vimrc
 
