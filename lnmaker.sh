@@ -15,6 +15,9 @@ ln -sf ${dir}/.tmux.conf ~/.tmux.conf
 # .sbuildrc
 ln -sf ${dir}/.sbuildrc ~/.sbuildrc
 
+# .devscripts
+ln -sf ${dir}/.devscripts ~/.devscripts
+
 # .vimrc
 ln -sf ${dir}/.vimrc ~/.vimrc
 
