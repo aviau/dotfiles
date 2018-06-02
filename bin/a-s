@@ -1,0 +1,2 @@
+#!/bin/bash
+./autodeb-server -config ~/.autodeb-server.toml
