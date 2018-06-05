@@ -1,2 +1,2 @@
 #!/bin/bash
-./autodeb-worker -config ~/.autodeb-worker.toml
+./autodeb-worker -config ~/.autodeb-worker.conf
