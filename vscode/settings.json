@@ -25,5 +25,7 @@
     "go.useLanguageServer": false,
     "editor.autoClosingBrackets": false,
     "editor.acceptSuggestionOnEnter": "off",
-    "editor.acceptSuggestionOnCommitCharacter": false
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "vim.cmdLineInitialColon": true,
+    "vim.useSystemClipboard": true
 }

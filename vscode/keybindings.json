@@ -83,5 +83,65 @@
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-list.focusPageDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-cursorUndo",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "-list.focusPageUp",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "pagedown",
+        "command": "-list.focusPageDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-list.focusPageUp",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "pagedown",
+        "command": "-workbench.action.interactivePlayground.pageDown",
+        "when": "interactivePlaygroundFocus && !editorTextFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "-workbench.action.interactivePlayground.pageUp",
+        "when": "interactivePlaygroundFocus && !editorTextFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "cursorPageUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "-cursorPageUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "cursorPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pagedown",
+        "command": "-cursorPageDown",
+        "when": "textInputFocus"
     }
 ]
