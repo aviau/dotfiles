@@ -11,5 +11,7 @@
     "workbench.statusBar.visible": true,
     "window.enableMenuBarMnemonics": false,
     "keyboard.dispatch": "keyCode",
-    "go.formatTool": "gofmt"
+    "go.formatTool": "gofmt",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }
