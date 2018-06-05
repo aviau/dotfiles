@@ -19,4 +19,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": true,
     "workbench.colorTheme": "One Dark Pro",
+    "go.testFlags": [
+        "-v",
+    ]
 }
