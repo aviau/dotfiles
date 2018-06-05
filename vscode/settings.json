@@ -1,0 +1,15 @@
+{
+    "editor.renderWhitespace": "all",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.activityBar.visible": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.showIcons": true,
+    "workbench.editor.showTabs": true,
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": true,
+    "window.enableMenuBarMnemonics": false,
+    "keyboard.dispatch": "keyCode",
+    "go.formatTool": "gofmt"
+}

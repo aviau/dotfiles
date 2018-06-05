@@ -9,6 +9,11 @@ dir=$(readlink -f $1)
 
 git submodule update --init --recursive
 
+# vscode
+mkdir -p ~/.config/Code/User
+ln -sf ${dir}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf ${dir}/vscode/settings.json ~/.config/Code/User/settings.json
+
 # .tmux.conf
 ln -sf ${dir}/.tmux.conf ~/.tmux.conf
 
