@@ -13,5 +13,6 @@
     "keyboard.dispatch": "keyCode",
     "go.formatTool": "gofmt",
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "vim.useCtrlKeys": false,
 }
