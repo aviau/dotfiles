@@ -15,4 +15,7 @@
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "vim.useCtrlKeys": false,
+    "window.zoomLevel": 0,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": true,
 }
