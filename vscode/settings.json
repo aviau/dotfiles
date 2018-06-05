@@ -27,5 +27,6 @@
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
     "vim.cmdLineInitialColon": true,
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "editor.selectionHighlight": false
 }
