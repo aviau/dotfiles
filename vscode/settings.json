@@ -18,4 +18,5 @@
     "window.zoomLevel": 0,
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": true,
+    "workbench.colorTheme": "One Dark Pro",
 }
