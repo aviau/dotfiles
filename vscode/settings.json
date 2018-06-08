@@ -43,5 +43,9 @@
         "runtest": false
     },
     "editor.scrollBeyondLastLine": false,
-    "html.autoClosingTags": false
+    "html.autoClosingTags": false,
+    "vim.handleKeys": {
+        "<C-d>": false,
+        "<C-r>": true
+    }
 }
