@@ -28,5 +28,20 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "vim.cmdLineInitialColon": true,
     "vim.useSystemClipboard": true,
-    "editor.selectionHighlight": false
+    "editor.selectionHighlight": false,
+    "editor.cursorBlinking": "solid",
+    "editor.snippetSuggestions": "none",
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.parameterHints": false,
+    "go.enableCodeLens": {
+        "references": false,
+        "runtest": false
+    },
+    "editor.scrollBeyondLastLine": false,
+    "html.autoClosingTags": false
 }
