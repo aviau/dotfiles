@@ -47,5 +47,6 @@
     "vim.handleKeys": {
         "<C-d>": false,
         "<C-r>": true
-    }
+    },
+    "workbench.startupEditor": "newUntitledFile"
 }
