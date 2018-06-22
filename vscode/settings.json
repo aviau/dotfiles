@@ -48,5 +48,6 @@
         "<C-d>": false,
         "<C-r>": true
     },
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "files.insertFinalNewline": true
 }
