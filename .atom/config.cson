@@ -24,7 +24,6 @@
     useReactEditor: true
   editor:
     backUpBeforeSaving: true
-    fontSize: 15
     invisibles:
       eol: " "
     preferredLineLength: 79
@@ -64,7 +63,6 @@
     defaultWidth: 250
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
