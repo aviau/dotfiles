@@ -400,12 +400,15 @@ globalkeys = my_table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "launcher"}),
+    -- Custom keymaps
 
     awful.key({ modkey, }, "z", function () os.execute("guake &") end),
     awful.key({ modkey, }, "p", function () os.execute("/home/aviau/bin/passmenu --type -l 15 &") end),
+    awful.key({ "Shift" }, "Tab", function () kbdcfg.switch() end),
+
+    -- Dropdown application
+    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
+              {description = "dropdown application", group = "launcher"}),
 
     -- Widgets popups
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
