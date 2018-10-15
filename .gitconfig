@@ -36,3 +36,5 @@
 	pushInsteadOf = https://salsa.debian.org/
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[http]
+	cookiefile = /home/aviau/.gitcookies
