@@ -1,10 +1,9 @@
-
 --[[
-                                                   
-     Licensed under GNU General Public License v2  
-      * (c) 2016, Luke Bonham                      
-      * (c) 2015, unknown                          
-                                                   
+
+     Licensed under GNU General Public License v2
+      * (c) 2016, Luca CPZ
+      * (c) 2015, unknown
+
 --]]
 
 local awful        = require("awful")
@@ -34,7 +33,7 @@ function quake:display()
     for c in awful.client.iterate(function (c)
         -- c.name may be changed!
         return c.instance == self.name
-    end, nil, self.screen)
+    end)
     do
         i = i + 1
         if i == 1 then
@@ -64,7 +63,7 @@ function quake:display()
     client.floating = true
     client.border_width = self.border
     client.size_hints_honor = false
-    client:geometry(self:compute_size())
+    client:geometry(self.geometry[self.screen.index] or self:compute_size())
 
     -- Set not sticky and on top
     client.sticky = false
@@ -96,12 +95,12 @@ end
 
 function quake:compute_size()
     -- skip if we already have a geometry for this screen
-    if not self.geometry[self.screen] then
+    if not self.geometry[self.screen.index] then
         local geom
         if not self.overlap then
-            geom = screen[self.screen].workarea
+            geom = screen[self.screen.index].workarea
         else
-            geom = screen[self.screen].geometry
+            geom = screen[self.screen.index].geometry
         end
         local width, height = self.width, self.height
         if width  <= 1 then width = math.floor(geom.width * width) - 2 * self.border end
@@ -113,9 +112,9 @@ function quake:compute_size()
         if     self.vert == "top"    then y = geom.y
         elseif self.vert == "bottom" then y = geom.height + geom.y - height
         else   y = geom.y + (geom.height - height)/2 end
-        self.geometry[self.screen] = { x = x, y = y, width = width, height = height }
+        self.geometry[self.screen.index] = { x = x, y = y, width = width, height = height }
     end
-    return self.geometry[self.screen]
+    return self.geometry[self.screen.index]
 end
 
 function quake:new(config)
@@ -159,7 +158,10 @@ function quake:toggle()
      if self.followtag then self.screen = awful.screen.focused() end
      local current_tag = self.screen.selected_tag
      if current_tag and self.last_tag ~= current_tag and self.visible then
-         self:display():move_to_tag(current_tag)
+         local c=self:display()
+         if c then
+            c:move_to_tag(current_tag)
+        end
      else
          self.visible = not self.visible
          self:display()

@@ -32,7 +32,7 @@ table.insert(menu_gen.all_menu_dirs, string.format("%s/.nix-profile/share/applic
 -- Remove non existent paths in order to avoid issues
 local existent_paths = {}
 for k,v in pairs(menu_gen.all_menu_dirs) do
-    if os.execute(string.format("ls %s &> /dev/null", v)) then
+    if os.execute(string.format("ls %s >/dev/null 2>&1", v)) then
         table.insert(existent_paths, v)
     end
 end
@@ -45,16 +45,30 @@ menu_utils.wm_name = ""
 -- freedesktop.menu
 local menu = {}
 
+-- Determines whether an table includes a certain element
+-- @param tab a given table
+-- @param val the element to search for
+-- @return true if the given string is found within the search table; otherwise, false if not
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if val:find(value) then
+            return true
+        end
+    end
+    return false
+end
+
 -- Use MenuBar parsing utils to build a menu for Awesome
 -- @return awful.menu
 function menu.build(args)
-    local args      = args or {}
-    local icon_size = args.icon_size
-    local before    = args.before or {}
-    local after     = args.after or {}
+    local args       = args or {}
+    local icon_size  = args.icon_size
+    local before     = args.before or {}
+    local after      = args.after or {}
+    local skip_items = args.skip_items or {}
 
-    local result    = {}
-    local _menu     = awful_menu({ items = before })
+    local result     = {}
+    local _menu      = awful_menu({ items = before })
 
     menu_gen.generate(function(entries)
         -- Add category icons
@@ -66,7 +80,9 @@ function menu.build(args)
         for k, v in pairs(entries) do
             for _, cat in pairs(result) do
                 if cat[1] == v.category then
-                    table.insert(cat[2], { v.name, v.cmdline, v.icon })
+                    if not has_value(skip_items, v.name) then
+                        table.insert(cat[2], { v.name, v.cmdline, v.icon })
+                    end
                     break
                 end
             end

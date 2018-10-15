@@ -1,17 +1,18 @@
-
 --[[
-                               
-     Holo Awesome WM theme 3.0 
-     github.com/copycat-killer 
-                               
+
+     Holo Awesome WM theme 3.0
+     github.com/lcpz
+
 --]]
 
-local gears  = require("gears")
-local lain   = require("lain")
-local awful  = require("awful")
-local wibox  = require("wibox")
+local gears = require("gears")
+local lain  = require("lain")
+local awful = require("awful")
+local wibox = require("wibox")
+
 local string = string
--- local os     = { getenv = os.getenv }
+local os = { getenv = os.getenv }
+local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
@@ -71,7 +72,7 @@ theme.layout_magnifier                          = theme.icon_dir .. "/magnifier.
 theme.layout_floating                           = theme.icon_dir .. "/floating.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 2
+theme.useless_gap                               = 4
 theme.titlebar_close_button_normal              = theme.default_dir.."/titlebar/close_normal.png"
 theme.titlebar_close_button_focus               = theme.default_dir.."/titlebar/close_focus.png"
 theme.titlebar_minimize_button_normal           = theme.default_dir.."/titlebar/minimize_normal.png"
@@ -111,7 +112,7 @@ local mytextcalendar = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF
 local calendar_icon = wibox.widget.imagebox(theme.calendar)
 local calbg = wibox.container.background(mytextcalendar, theme.bg_focus, gears.shape.rectangle)
 local calendarwidget = wibox.container.margin(calbg, 0, 0, 5, 5)
-lain.widgets.calendar({
+theme.cal = lain.widget.cal({
     attach_to = { mytextclock, mytextcalendar },
     notification_preset = {
         fg = "#FFFFFF",
@@ -121,9 +122,9 @@ lain.widgets.calendar({
     }
 })
 
---[[ Mail IMAP check
--- commented because it needs to be set before use
-local mail = lain.widgets.imap({
+-- Mail IMAP check
+--[[ commented because it needs to be set before use
+theme.mail = lain.widget.imap({
     timeout  = 180,
     server   = "server",
     mail     = "mail",
@@ -150,7 +151,7 @@ local next_icon = wibox.widget.imagebox(theme.nex)
 local stop_icon = wibox.widget.imagebox(theme.stop)
 local pause_icon = wibox.widget.imagebox(theme.pause)
 local play_pause_icon = wibox.widget.imagebox(theme.play)
-theme.mpd = lain.widgets.mpd({
+theme.mpd = lain.widget.mpd({
     settings = function ()
         if mpd_now.state == "play" then
             mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
@@ -175,33 +176,32 @@ theme.mpd = lain.widgets.mpd({
 local musicbg = wibox.container.background(theme.mpd.widget, theme.bg_focus, gears.shape.rectangle)
 local musicwidget = wibox.container.margin(musicbg, 0, 0, 5, 5)
 
-musicwidget:buttons(awful.util.table.join(awful.button({ }, 1,
+musicwidget:buttons(my_table.join(awful.button({ }, 1,
 function () awful.spawn(theme.musicplr) end)))
-prev_icon:buttons(awful.util.table.join(awful.button({}, 1,
+prev_icon:buttons(my_table.join(awful.button({}, 1,
 function ()
-    awful.spawn.with_shell("mpc prev")
-    mpd.update()
+    os.execute("mpc prev")
+    theme.mpd.update()
 end)))
-next_icon:buttons(awful.util.table.join(awful.button({}, 1,
+next_icon:buttons(my_table.join(awful.button({}, 1,
 function ()
-    awful.spawn.with_shell("mpc next")
-    mpd.update()
+    os.execute("mpc next")
+    theme.mpd.update()
 end)))
-stop_icon:buttons(awful.util.table.join(awful.button({}, 1,
+stop_icon:buttons(my_table.join(awful.button({}, 1,
 function ()
     play_pause_icon:set_image(theme.play)
-    awful.spawn.with_shell("mpc stop")
-    mpd.update()
+    os.execute("mpc stop")
+    theme.mpd.update()
 end)))
-play_pause_icon:buttons(awful.util.table.join(awful.button({}, 1,
+play_pause_icon:buttons(my_table.join(awful.button({}, 1,
 function ()
-    awful.spawn.with_shell("mpc toggle")
-    mpd.update()
+    os.execute("mpc toggle")
+    theme.mpd.update()
 end)))
 
 -- Battery
-local bat = lain.widgets.bat({
-    batteries = {"BAT0", "BAT1"},
+local bat = lain.widget.bat({
     settings = function()
         bat_header = " Bat "
         bat_p      = bat_now.perc .. " "
@@ -211,14 +211,16 @@ local bat = lain.widgets.bat({
         widget:set_markup(markup.font(theme.font, markup(blue, bat_header) .. bat_p))
     end
 })
---  fs
-theme.fs = lain.widgets.fs({
-    options = "--exclude-type=tmpfs",
-    notification_preset = { bg = theme.bg_normal, font = "Monospace 9, " },
+
+-- / fs
+--[[ commented because it needs Gio/Glib >= 2.54
+theme.fs = lain.widget.fs({
+    notification_preset = { bg = theme.bg_normal, font = "Monospace 9" },
 })
+--]]
 
 -- ALSA volume bar
-theme.volume = lain.widgets.alsabar({
+theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 9"},
     --togglechannel = "IEC958,3",
     width = 80, height = 10, border_width = 0,
@@ -235,7 +237,7 @@ volumewidget = wibox.container.margin(volumewidget, 0, 0, 5, 5)
 
 -- CPU
 local cpu_icon = wibox.widget.imagebox(theme.cpu)
-local cpu = lain.widgets.cpu({
+local cpu = lain.widget.cpu({
     settings = function()
         widget:set_markup(space3 .. markup.font(theme.font, "CPU " .. cpu_now.usage
                           .. "% ") .. markup.font("Roboto 5", " "))
@@ -247,7 +249,7 @@ local cpuwidget = wibox.container.margin(cpubg, 0, 0, 5, 5)
 -- Net
 local netdown_icon = wibox.widget.imagebox(theme.net_down)
 local netup_icon = wibox.widget.imagebox(theme.net_up)
-local net = lain.widgets.net({
+local net = lain.widget.net({
     settings = function()
         widget:set_markup(markup.font("Roboto 1", " ") .. markup.font(theme.font, net_now.received .. " - "
                           .. net_now.sent) .. markup.font("Roboto 2", " "))
@@ -256,23 +258,8 @@ local net = lain.widgets.net({
 local netbg = wibox.container.background(net.widget, theme.bg_focus, gears.shape.rectangle)
 local networkwidget = wibox.container.margin(netbg, 0, 0, 5, 5)
 
--- Keyboard map indicator and changer
-kbdcfg = {}
-kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "us", "" }, { "ca", "" } }
-kbdcfg.current = 1  -- us is our default layout
-kbdcfg.widget = wibox.widget.textbox()
-kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][1] .. " ")
-kbdcfg.switch = function ()
-  kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
-  local t = kbdcfg.layout[kbdcfg.current]
-  kbdcfg.widget:set_text(" " .. t[1] .. " ")
-  os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
-end
-
-
 -- Weather
-theme.weather = lain.widgets.weather({
+theme.weather = lain.widget.weather({
     city_id = 2643743, -- placeholder (London)
     notification_preset = { font = "Monospace 9", position = "bottom_right" },
 })
@@ -300,28 +287,24 @@ local barcolor  = gears.color({
 
 function theme.at_screen_connect(s)
     -- Quake application
-    s.quake = lain.util.quake(
-        { 
-             app = "guake",
-             skip_wibox = true,
-        }
-    )
+    s.quake = lain.util.quake({ app = awful.util.terminal })
 
     -- If wallpaper is a function, call it with the screen
+    local wallpaper = theme.wallpaper
     if type(wallpaper) == "function" then
-        theme.wallpaper = theme.wallpaper(s)
+        wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(theme.wallpaper, s, true)
+    gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts[2])
+    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(awful.util.table.join(
+    s.mylayoutbox:buttons(my_table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
@@ -354,9 +337,8 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            --mail.widget,
-            kbdcfg.widget,
-            bat.widget,
+            --theme.mail.widget,
+            --bat.widget,
             spr_right,
             musicwidget,
             bar,

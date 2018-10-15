@@ -1,22 +1,23 @@
-
 --[[
-                                  
-     Copland Awesome WM theme 2.0 
-     github.com/copycat-killer    
-                                  
+
+     Copland Awesome WM theme 2.0
+     github.com/lcpz
+
 --]]
 
-local gears   = require("gears")
-local lain    = require("lain")
-local awful   = require("awful")
-local wibox   = require("wibox")
-local eminent = require("eminent")
-local os      = { getenv = os.getenv, setlocale = os.setlocale }
+local gears = require("gears")
+local lain  = require("lain")
+local awful = require("awful")
+local wibox = require("wibox")
+
+local os = { execute = os.execute, getenv = os.getenv, setlocale = os.setlocale }
+local awesome, client = awesome, client
+local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/copland"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Tamzen 10.5"
+theme.font                                      = "Misc Tamsyn 10.5"
 theme.fg_normal                                 = "#BBBBBB"
 theme.fg_focus                                  = "#78A4FF"
 theme.bg_normal                                 = "#111111"
@@ -94,22 +95,22 @@ local green  = "#8FEB8F"
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Tamzen 5'> </span>%H:%M ")
+local mytextclock = wibox.widget.textclock("<span font='Misc Tamsyn 5'> </span>%H:%M ")
 mytextclock.font = theme.font
 
 -- Calendar
-lain.widgets.calendar({
+theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Tamzen 11",
+        font = "Misc Tamsyn 11",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
 })
 
---[[ Mail IMAP check
--- commented because it needs to be set before use
-local mail = lain.widgets.imap({
+-- Mail IMAP check
+--[[ commented because it needs to be set before use
+theme.mail = lain.widget.imap({
     timeout  = 180,
     server   = "server",
     mail     = "mail",
@@ -119,7 +120,7 @@ local mail = lain.widgets.imap({
         count = ""
 
         if mailcount > 0 then
-            mail = "<span font='Tamzen 5'> </span>Mail "
+            mail = "<span font='Misc Tamsyn 5'> </span>Mail "
             count = mailcount .. " "
         end
 
@@ -130,15 +131,15 @@ local mail = lain.widgets.imap({
 
 -- MPD
 local mpdicon = wibox.widget.imagebox()
-theme.mpd = lain.widgets.mpd({
+theme.mpd = lain.widget.mpd({
     settings = function()
         if mpd_now.state == "play" then
             title = mpd_now.title
-            artist  = " " .. mpd_now.artist  .. markup("#333333", " <span font='Tamzen 2'> </span>|<span font='Tamzen 5'> </span>")
+            artist  = " " .. mpd_now.artist  .. markup("#777777", " <span font='Misc Tamsyn 2'> </span>|<span font='Misc Tamsyn 5'> </span>")
             mpdicon:set_image(theme.play)
         elseif mpd_now.state == "pause" then
             title = "mpd "
-            artist  = "paused" .. markup("#333333", " |<span font='Tamzen 5'> </span>")
+            artist  = "paused" .. markup("#777777", " |<span font='Misc Tamsyn 5'> </span>")
             mpdicon:set_image(theme.pause)
         else
             title  = ""
@@ -165,9 +166,9 @@ local batbar = wibox.widget {
     ticks_size       = 6,
     widget           = wibox.widget.progressbar,
 }
-local batupd = lain.widgets.bat({
+local batupd = lain.widget.bat({
     settings = function()
-        if bat_now.status == "N/A" or type(bat_now.perc) ~= "number" then return end
+        if (not bat_now.status) or bat_now.status == "N/A" or type(bat_now.perc) ~= "number" then return end
 
         if bat_now.status == "Charging" then
             baticon:set_image(theme.ac)
@@ -201,6 +202,7 @@ local batbg = wibox.container.background(batbar, "#474747", gears.shape.rectangl
 local batwidget = wibox.container.margin(batbg, 2, 7, 4, 4)
 
 -- /home fs
+--[[ commented because it needs Gio/Glib >= 2.54
 local fsicon = wibox.widget.imagebox(theme.disk)
 local fsbar = wibox.widget {
     forced_height    = 1,
@@ -213,25 +215,24 @@ local fsbar = wibox.widget {
     ticks_size       = 6,
     widget           = wibox.widget.progressbar,
 }
-theme.fs = lain.widgets.fs({
-    partition = "/home",
-    options = "--exclude-type=tmpfs",
-    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Tamzen 10.5" },
+theme.fs = lain.widget.fs {
+    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Misc Tamsyn 10.5" },
     settings  = function()
-        if tonumber(fs_now.used) < 90 then
+        if fs_now["/home"].percentage < 90 then
             fsbar:set_color(theme.fg_normal)
         else
             fsbar:set_color("#EB8F8F")
         end
-        fsbar:set_value(fs_now.used / 100)
+        fsbar:set_value(fs_now["/home"].percentage / 100)
     end
-})
+}
 local fsbg = wibox.container.background(fsbar, "#474747", gears.shape.rectangle)
 local fswidget = wibox.container.margin(fsbg, 2, 7, 4, 4)
+--]]
 
 -- ALSA volume bar
 local volicon = wibox.widget.imagebox(theme.vol)
-theme.volume = lain.widgets.alsabar({
+theme.volume = lain.widget.alsabar {
     width = 59, border_width = 0, ticks = true, ticks_size = 6,
     notification_preset = { font = theme.font },
     --togglechannel = "IEC958,3",
@@ -251,26 +252,26 @@ theme.volume = lain.widgets.alsabar({
         mute         = red,
         unmute       = theme.fg_normal
     }
-})
+}
 theme.volume.tooltip.wibox.fg = theme.fg_focus
-theme.volume.bar:buttons(awful.util.table.join (
+theme.volume.bar:buttons(my_table.join (
           awful.button({}, 1, function()
-            awful.spawn.with_shell(string.format("%s -e alsamixer", awful.util.terminal))
+            awful.spawn(string.format("%s -e alsamixer", awful.util.terminal))
           end),
           awful.button({}, 2, function()
-            awful.spawn(string.format("%s set %s 100%%", theme.volume.cmd, theme.volume.channel))
+            os.execute(string.format("%s set %s 100%%", theme.volume.cmd, theme.volume.channel))
             theme.volume.update()
           end),
           awful.button({}, 3, function()
-            awful.spawn(string.format("%s set %s toggle", theme.volume.cmd, theme.volume.togglechannel or theme.volume.channel))
+            os.execute(string.format("%s set %s toggle", theme.volume.cmd, theme.volume.togglechannel or theme.volume.channel))
             theme.volume.update()
           end),
           awful.button({}, 4, function()
-            awful.spawn(string.format("%s set %s 1%%+", theme.volume.cmd, theme.volume.channel))
+            os.execute(string.format("%s set %s 1%%+", theme.volume.cmd, theme.volume.channel))
             theme.volume.update()
           end),
           awful.button({}, 5, function()
-            awful.spawn(string.format("%s set %s 1%%-", theme.volume.cmd, theme.volume.channel))
+            os.execute(string.format("%s set %s 1%%-", theme.volume.cmd, theme.volume.channel))
             theme.volume.update()
           end)
 ))
@@ -278,25 +279,36 @@ local volumebg = wibox.container.background(theme.volume.bar, "#474747", gears.s
 local volumewidget = wibox.container.margin(volumebg, 2, 7, 4, 4)
 
 -- Weather
-theme.weather = lain.widgets.weather({
+theme.weather = lain.widget.weather({
     city_id = 2643743, -- placeholder (London)
 })
 
 -- Separators
-local first     = wibox.widget.textbox(markup.font("Tamzen 3", " "))
+local first     = wibox.widget.textbox(markup.font("Misc Tamsyn 3", " "))
 local spr       = wibox.widget.textbox(' ')
-local small_spr = wibox.widget.textbox(markup.font("Tamzen 4", " "))
-local bar_spr   = wibox.widget.textbox(markup.font("Tamzen 3", " ") .. markup.fontfg(theme.font, "#333333", "|") .. markup.font("Tamzen 5", " "))
+local small_spr = wibox.widget.textbox(markup.font("Misc Tamsyn 4", " "))
+local bar_spr   = wibox.widget.textbox(markup.font("Misc Tamsyn 3", " ") .. markup.fontfg(theme.font, "#777777", "|") .. markup.font("Misc Tamsyn 5", " "))
+
+-- Eminent-like task filtering
+local orig_filter = awful.widget.taglist.filter.all
+
+-- Taglist label functions
+awful.widget.taglist.filter.all = function (t, args)
+    if t.selected or #t:clients() > 0 then
+        return orig_filter(t, args)
+    end
+end
 
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
     -- If wallpaper is a function, call it with the screen
+    local wallpaper = theme.wallpaper
     if type(wallpaper) == "function" then
-        theme.wallpaper = theme.wallpaper(s)
+        wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(theme.wallpaper, s, true)
+    gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
@@ -306,7 +318,7 @@ function theme.at_screen_connect(s)
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(awful.util.table.join(
+    s.mylayoutbox:buttons(my_table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
@@ -339,14 +351,14 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             small_spr,
-            --mail.widget,
+            --theme.mail.widget,
             mpdicon,
             theme.mpd.widget,
             baticon,
             batwidget,
             bar_spr,
-            fsicon,
-            fswidget,
+            --fsicon,
+            --fswidget,
             bar_spr,
             volicon,
             volumewidget,

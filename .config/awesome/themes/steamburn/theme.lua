@@ -1,16 +1,17 @@
-
 --[[
-                                    
-     Steamburn Awesome WM theme 3.0 
-     github.com/copycat-killer      
-                                    
+
+     Steamburn Awesome WM theme 3.0
+     github.com/lcpz
+
 --]]
 
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
-local os    = { getenv = os.getenv }
+
+local os = { getenv = os.getenv }
+local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.zenburn_dir                               = require("awful.util").get_themes_dir() .. "zenburn"
@@ -84,7 +85,7 @@ local mytextclock = wibox.widget.textclock(" %H:%M ")
 mytextclock.font = theme.font
 
 -- Calendar
-lain.widgets.calendar({
+theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
         font = "Misc Tamsyn 11",
@@ -93,9 +94,9 @@ lain.widgets.calendar({
     }
 })
 
---[[ Mail IMAP check
--- commented because it needs to be set before use
-local mail = lain.widgets.imap({
+-- Mail IMAP check
+--[[ commented because it needs to be set before use
+theme.mail = lain.widget.imap({
     timeout  = 180,
     server   = "server",
     mail     = "mail",
@@ -115,7 +116,7 @@ local mail = lain.widgets.imap({
 --]]
 
 -- MPD
-theme.mpd = lain.widgets.mpd({
+theme.mpd = lain.widget.mpd({
     settings = function()
         artist = mpd_now.artist .. " "
         title  = mpd_now.title  .. " "
@@ -133,37 +134,38 @@ theme.mpd = lain.widgets.mpd({
 })
 
 -- CPU
-local cpu = lain.widgets.sysload({
+local cpu = lain.widget.sysload({
     settings = function()
         widget:set_markup(markup.font(theme.font, markup(gray, " Cpu ") .. load_1 .. " "))
     end
 })
 
 -- MEM
-local mem = lain.widgets.mem({
+local mem = lain.widget.mem({
     settings = function()
         widget:set_markup(markup.font(theme.font, markup(gray, " Mem ") .. mem_now.used .. " "))
     end
 })
 
 -- /home fs
-theme.fs = lain.widgets.fs({
-    options = "--exclude-type=tmpfs",
+--[[ commented because it needs Gio/Glib >= 2.54
+theme.fs = lain.widget.fs({
     partition = "/home",
     notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Misc Tamsyn 10.5" },
 })
+--]]
 
 -- Battery
-local bat = lain.widgets.bat({
+local bat = lain.widget.bat({
     settings = function()
-        bat_perc = bat_now.perc
-        if bat_now.ac_status == 1 then bat_perc = "Plug" end
-        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. bat_perc .. " "))
+        local perc = bat_now.perc
+        if bat_now.ac_status == 1 then perc = perc .. " Plug" end
+        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc .. " "))
     end
 })
 
 -- Net checker
-local net = lain.widgets.net({
+local net = lain.widget.net({
     settings = function()
         if net_now.state == "up" then net_state = "On"
         else net_state = "Off" end
@@ -172,7 +174,7 @@ local net = lain.widgets.net({
 })
 
 -- ALSA volume
-theme.volume = lain.widgets.alsa({
+theme.volume = lain.widget.alsa({
     settings = function()
         header = " Vol "
         vlevel  = volume_now.level
@@ -188,7 +190,7 @@ theme.volume = lain.widgets.alsa({
 })
 
 -- Weather
-theme.weather = lain.widgets.weather({
+theme.weather = lain.widget.weather({
     city_id = 2643743, -- placeholder (London)
 })
 
@@ -207,10 +209,11 @@ function theme.at_screen_connect(s)
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
     -- If wallpaper is a function, call it with the screen
+    local wallpaper = theme.wallpaper
     if type(wallpaper) == "function" then
-        theme.wallpaper = theme.wallpaper(s)
+        wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(theme.wallpaper, s, true)
+    gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
@@ -222,20 +225,17 @@ function theme.at_screen_connect(s)
     s.mytxtlayoutbox = wibox.widget.textbox(theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))])
     awful.tag.attached_connect_signal(s, "property::selected", function () update_txt_layoutbox(s) end)
     awful.tag.attached_connect_signal(s, "property::layout", function () update_txt_layoutbox(s) end)
-    s.mytxtlayoutbox:buttons(awful.util.table.join(
-                           awful.button({}, 1, function() awful.layout.inc(layouts, 1) end),
-                           awful.button({}, 3, function() awful.layout.inc(layouts, -1) end),
-                           awful.button({}, 4, function() awful.layout.inc(layouts, 1) end),
-                           awful.button({}, 5, function() awful.layout.inc(layouts, -1) end)))
+    s.mytxtlayoutbox:buttons(my_table.join(
+                           awful.button({}, 1, function() awful.layout.inc(1) end),
+                           awful.button({}, 3, function() awful.layout.inc(-1) end),
+                           awful.button({}, 4, function() awful.layout.inc(1) end),
+                           awful.button({}, 5, function() awful.layout.inc(-1) end)))
 
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
-
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 18 })
@@ -259,7 +259,7 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             spr,
             theme.mpd.widget,
-            --mail.widget,
+            --theme.mail.widget,
             cpu.widget,
             mem.widget,
             bat.widget,
