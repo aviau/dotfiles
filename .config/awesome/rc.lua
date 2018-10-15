@@ -56,7 +56,18 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
+run_once(
+    {
+        "urxvtd",
+        "unclutter -root",
+        "xscreensaver -no-splash",
+        "nm-applet",
+        "insync start",
+        "guake",
+        "xset r rate 200 20",
+        "setxkbmap -option 'caps:swapescape'",
+    }
+) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
@@ -393,7 +404,7 @@ globalkeys = my_table.join(
     awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
               {description = "dropdown application", group = "launcher"}),
 
-    awful.key({ modkey, }, "z", function () os.execute("guake") end),
+    awful.key({ modkey, }, "z", function () os.execute("guake &") end),
     awful.key({ modkey, }, "p", function () os.execute("/home/aviau/bin/passmenu --type -l 15 &") end),
 
     -- Widgets popups
