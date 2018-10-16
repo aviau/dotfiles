@@ -66,6 +66,7 @@ run_once(
         "guake",
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
+        "/home/aviau/bin/homescreensetup",
     }
 ) -- entries must be separated by commas
 
