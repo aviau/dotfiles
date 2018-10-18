@@ -66,7 +66,10 @@ run_once(
         "guake",
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
+
+        -- try to setup the screens as if we were docked
         "/home/aviau/bin/homescreensetup",
+        "sleep 5 && /home/aviau/bin/homescreensetup",
     }
 ) -- entries must be separated by commas
 
