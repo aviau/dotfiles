@@ -2,6 +2,8 @@
 
 set -e
 
+NPROC=$(nproc)
+
 ##############################
 ## Parse the command to run ##
 ##############################
@@ -44,7 +46,7 @@ function build {
     # build wine64
     make \
         -C build/wine64 \
-        -j4
+        -j$NPROC
 
     # Configure wine32
     (
@@ -57,7 +59,7 @@ function build {
     # build wine32
     make \
         -C build/wine32 \
-        -j4
+        -j$NPROC
 }
 
 ###########
