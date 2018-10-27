@@ -1,0 +1,75 @@
+#!/bin/bash
+
+set -e
+
+##############################
+## Parse the command to run ##
+##############################
+
+# $1 = the command to parse
+function parse_cmd {
+    local cmd=build
+    case "$1" in
+    c|clean)
+        cmd=clean
+        ;;
+    *)
+        if [[ -n "$1" ]]; then
+            echo "unrecognized command $1"
+            exit 1
+        fi
+        ;;
+    esac
+    echo $cmd
+}
+
+###########
+## Build ##
+###########
+
+function build {
+    # Create build dirs
+    mkdir -p build
+    mkdir -p build/wine32
+    mkdir -p build/wine64
+
+    # configure wine64
+    (
+        cd build/wine64
+
+        ../../configure \
+            --enable-win64
+    )
+
+    # build wine64
+    make -C build/wine64
+
+    # Configure wine32
+    (
+        cd build/wine32
+        export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
+        ../../configure \
+            --with-wine64=../wine64
+    )
+
+    # build wine32
+    make -C build/wine32
+}
+
+###########
+## Clean ##
+###########
+
+function clean {
+    if [[ -f build/wine32/Makefile ]]; then
+        make -C build/wine32 uninstall
+    fi
+    if [[ -f build/wine64/Makefile ]]; then
+        make -C build/wine64 uninstall
+    fi
+    rm -rf build
+}
+
+cmd=$(parse_cmd $1)
+
+$cmd
