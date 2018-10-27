@@ -42,7 +42,9 @@ function build {
     )
 
     # build wine64
-    make -C build/wine64
+    make \
+        -C build/wine64 \
+        -j4
 
     # Configure wine32
     (
@@ -53,7 +55,9 @@ function build {
     )
 
     # build wine32
-    make -C build/wine32
+    make \
+        -C build/wine32 \
+        -j4
 }
 
 ###########
