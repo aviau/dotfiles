@@ -76,7 +76,7 @@ run_once(
 -- This function implements the XDG autostart specification
 --[[
 awful.spawn.with_shell(
-    'if (xrdb -query | grep --quiet "^awesome\\.started:\\s*true$"); then; exit; fi;' ..
+    'if (xrdb -query | grep --quiet "^awesome\\.started:\\s*true$"); then exit; fi;' ..
     'xrdb -merge <<< "awesome.started:true";' ..
     -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
@@ -173,6 +173,7 @@ awful.util.tasklist_buttons = my_table.join(
             c:raise()
         end
     end),
+    awful.button({ }, 2, function (c) c:kill() end),
     awful.button({ }, 3, function ()
         local instance = nil
 
@@ -716,6 +717,7 @@ client.connect_signal("request::titlebars", function(c)
             c:emit_signal("request::activate", "titlebar", {raise = true})
             awful.mouse.client.move(c)
         end),
+        awful.button({ }, 2, function() c:kill() end),
         awful.button({ }, 3, function()
             c:emit_signal("request::activate", "titlebar", {raise = true})
             awful.mouse.client.resize(c)
