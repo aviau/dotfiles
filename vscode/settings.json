@@ -48,7 +48,7 @@
         "<C-d>": false,
         "<C-r>": true
     },
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "none",
     "files.insertFinalNewline": true,
     "explorer.openEditors.visible": 0,
     "window.restoreWindows": "none",
