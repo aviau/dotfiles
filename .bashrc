@@ -37,7 +37,6 @@ alias pacman='apt'
 # for alias expansion.
 alias sudo='sudo '
 
-alias docker='sudo docker'
 alias swapescape="setxkbmap -option 'caps:swapescape'"
 alias bts="bts --mutt"
 alias patchedit="patchedit -f -o"
