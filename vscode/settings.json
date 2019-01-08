@@ -53,5 +53,8 @@
     "explorer.openEditors.visible": 0,
     "window.restoreWindows": "none",
     "explorer.confirmDragAndDrop": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.vue": "javascript"
+    }
 }
