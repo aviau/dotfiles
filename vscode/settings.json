@@ -55,6 +55,6 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.vue": "javascript"
+        "*.vue": "html"
     }
 }
