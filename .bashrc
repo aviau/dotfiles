@@ -37,7 +37,6 @@ alias pacman='apt'
 # for alias expansion.
 alias sudo='sudo '
 
-alias swapescape="setxkbmap -option 'caps:swapescape'"
 alias bts="bts --mutt"
 alias patchedit="patchedit -f -o"
 alias shrug="echo  '¯\_(ツ)_/¯'"
@@ -49,11 +48,12 @@ alias bat1='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep -E "sta
 alias bat="bat0 && bat1"
 alias pass="gopass"
 
+# keyboard map
+swapescape &
+
 # quilt
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-
 complete -F _quilt_completion $_quilt_complete_opt dquilt
-
 
 # Show exit codes
 export PROMPT_COMMAND=set_prompt
