@@ -45,7 +45,6 @@ alias nautilus='nautilus'
 alias bat0='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias bat1='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep -E "state|to\ full|percentage"'
 alias bat="bat0 && bat1"
-alias pass="gopass"
 
 # keyboard map
 swapescape &
