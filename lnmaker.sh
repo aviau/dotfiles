@@ -23,6 +23,9 @@ ln -sf ${dir}/.sbuildrc ~/.sbuildrc
 # .devscripts
 ln -sf ${dir}/.devscripts ~/.devscripts
 
+# .Xresources
+ln -sf ${dir}/.Xresources ~/.Xresources
+
 # .vimrc
 ln -sf ${dir}/.vimrc ~/.vimrc
 
