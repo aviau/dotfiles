@@ -23,9 +23,9 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-    gopass show -c "$password" 2>/dev/null
+    pass show -c "$password" 2>/dev/null
 else
-    gopass show "$password" |
+    pass show "$password" |
         awk 'BEGIN{ORS=""} {print; exit}' |
         xdotool type --clearmodifiers --file -
 fi
