@@ -8,7 +8,7 @@ export DEBSIGN_KEYID=3ccc3a3a
 export EMAIL=alexandre@alexandreviau.net
 export USCAN_SYMLINK=rename
 export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
-export DEBSIGN_PROGRAM=gpg2
+export DEBSIGN_PROGRAM=gpg
 export SSH_AUTH_SOCK=/run/user/$( id -u)/gnupg/S.gpg-agent.ssh
 
 # set PATH to include golang stuff
@@ -42,7 +42,6 @@ alias patchedit="patchedit -f -o"
 alias shrug="echo  '¯\_(ツ)_/¯'"
 alias uscan="uscan --overwrite-download"
 alias nautilus='nautilus'
-alias gpg='gpg2'
 alias bat0='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias bat1='upower -i /org/freedesktop/UPower/devices/battery_BAT1| grep -E "state|to\ full|percentage"'
 alias bat="bat0 && bat1"
