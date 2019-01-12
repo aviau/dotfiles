@@ -1,3 +1,8 @@
 #!/bin/bash
-xrandr --output DP-2-1 --mode 1920x1080 --same-as eDP-1
-xrandr --output DP-2-2 --mode 1920x1200 --right-of DP-2-1
+
+set -e
+
+xrandr \
+    --output DP-2-1 --mode 1920x1080 --scale 1.3x1.3 --fb 5120x2880 --pos 0x0 \
+    --output eDP-1 --mode 2560x1440 --pos 2560x0
+
