@@ -1,1 +1,2 @@
-Xft.dpi: 128
+# 130 shows a bit less than 1080p, 129 a bit more.
+Xft.dpi: 129
