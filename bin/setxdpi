@@ -2,4 +2,5 @@
 
 set -e
 
+# 130 shows a bit less than 1080p, 129 a bit more.
 echo "Xft.dpi: $@" > ~/.Xresources

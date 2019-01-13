@@ -2,8 +2,5 @@
 
 set -e
 
-xrandr \
-    --fb 5120x2880 \
-    --output DP-2-1 --mode 1920x1080 --scale 2x2 --pos 0x0 \
-    --output eDP-1 --mode 2560x1440 --pos 2560x0
-
+xrandr --output DP-2-1 --mode 1920x1080 \
+       --output eDP-1 --off
