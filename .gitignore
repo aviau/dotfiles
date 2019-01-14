@@ -6,3 +6,6 @@ ycm/**/compile_commands.json
 
 # pass dotfiles/muttrc
 .muttrc
+
+# setxdpi changes this all the time
+/.Xresources
