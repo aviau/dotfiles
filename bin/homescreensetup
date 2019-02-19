@@ -3,5 +3,6 @@
 set -e
 
 xrandr --output DP-2-1 --mode 1920x1080 \
-       --output DP-2-2 --mode 1920x1200 --right-of DP-2-1 \
-       --output eDP-1 --off
+       --output DP-2-2 --mode 1920x1200 --right-of DP-2-1
+
+#       --output eDP-1 --off
