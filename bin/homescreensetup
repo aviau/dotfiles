@@ -2,7 +2,8 @@
 
 set -e
 
-xrandr --output DP-2-1 --mode 1920x1080 \
-       --output DP-2-2 --mode 1920x1200 --right-of DP-2-1
-
-#       --output eDP-1 --off
+if xrandr -q | grep "DP-2-2 connected"; then
+    xrandr --output DP-2-1 --mode 1920x1080 \
+           --output DP-2-2 --mode 1920x1200 --right-of DP-2-1 \
+           --output eDP-1 --off
+fi
