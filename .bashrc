@@ -26,6 +26,14 @@ if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
 
+
+# pyenv
+if [ -d "$HOME/.pyenv/bin" ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 # Personnal Aliases
 alias pacman='apt'
 
