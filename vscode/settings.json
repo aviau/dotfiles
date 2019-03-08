@@ -2,6 +2,7 @@
     "editor.renderWhitespace": "all",
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.activityBar.visible": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showIcons": true,
     "workbench.editor.showTabs": true,
     "workbench.editor.tabCloseButton": "right",
