@@ -55,5 +55,6 @@
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.vue": "html"
-    }
+    },
+    "workbench.editor.enablePreview": false
 }
