@@ -56,5 +56,6 @@
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.vue": "html"
-    }
+    },
+    "python.linting.mypyEnabled": true
 }
