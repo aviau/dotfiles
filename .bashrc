@@ -4,6 +4,7 @@ export PYTHONSTARTUP="$HOME/.pyrc"
 export GOPATH=$HOME/go
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export DEBEMAIL=aviau@debian.org
+export DEBFULLNAME="Alexandre Viau"
 export DEBSIGN_KEYID=3ccc3a3a
 export EMAIL=alexandre@alexandreviau.net
 export USCAN_SYMLINK=rename
