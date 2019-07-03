@@ -6,6 +6,7 @@ set -e
 #  1440p: 130
 #  1080p: 96
 #  4k: ?
+# 1080p on 27inch: 81
 
 # 130 shows a bit less than 1080p, 129 a bit more.
 echo "Xft.dpi: $@" > ~/.Xresources
