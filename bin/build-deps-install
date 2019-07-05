@@ -1,2 +1,5 @@
 #!/bin/bash
+
+set -e
+
 mk-build-deps --install debian/control
