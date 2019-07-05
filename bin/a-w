@@ -1,2 +1,0 @@
-#!/bin/bash
-./autodeb-worker -config ~/.autodeb-worker.conf
