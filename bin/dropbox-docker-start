@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# sudo docker pull gfjardim/dropbox
-sudo docker stop dropbox || true
-sudo docker rm dropbox || true
-sudo docker run --name=dropbox --privileged=true --net=host -v /home/reazem/.dropbox:/home/.dropbox -v /home/reazem/Dropbox:/home/Dropbox -v /etc/localtime:/etc/localtime:ro gfjardim/dropbox
