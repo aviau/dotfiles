@@ -2,4 +2,4 @@
 
 set -e
 
-xrandr --output eDP-1 --brightness $@
+xrandr --output eDP-1 --brightness "$@"

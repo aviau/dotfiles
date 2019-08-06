@@ -2,4 +2,4 @@
 
 set -e
 
-/usr/bin/lintian -IEcv --pedantic --color auto $@
+/usr/bin/lintian -IEcv --pedantic --color auto "$@"
