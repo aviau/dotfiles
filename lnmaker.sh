@@ -44,6 +44,9 @@ ln -nsf ${dir}/bin ~/bin
 rm -rf ~/.config/awesome
 ln -sf ${dir}/.config/awesome ~/.config/awesome
 
+# redshift
+rm -rf ~/.config/redshift.conf
+ln -sf ${dir}/.config/redshift.conf ~/.config/redshift.conf
 
 # i3
 rm -rf ~/.config/i3

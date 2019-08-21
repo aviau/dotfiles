@@ -64,6 +64,7 @@ run_once(
         "nm-applet",
         "insync start",
         "guake",
+        "redshift-gtk",
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
 
