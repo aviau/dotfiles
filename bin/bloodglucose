@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-API_TOKEN=$(pass cgm.alexandreviau.net  | head -n 1 | tr -d '\n')
+API_TOKEN=$(cat ~/.config/nightscout_readonly_key | head -n 1 | tr -d '\n')
 
 curl \
     --silent \
