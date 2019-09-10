@@ -7,3 +7,5 @@
 pass cgm.alexandreviau.net_readonly > ~/.config/nightscout_readonly_key
 
 pass dotfiles/muttrc > ~/.muttrc
+
+pass dotfiles/ssh/config > ~/.ssh/config
