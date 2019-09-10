@@ -15,21 +15,11 @@ local awful_menu = require("awful.menu")
 local menu_gen   = require("menubar.menu_gen")
 local menu_utils = require("menubar.utils")
 local icon_theme = require("menubar.icon_theme")
-local gls        = require("gears.filesystem")
 
-local pairs, string, table, os = pairs, string, table, os
+local io, pairs, string, table, os = io, pairs, string, table, os
 
 -- Add support for NixOS systems too
 table.insert(menu_gen.all_menu_dirs, string.format("%s/.nix-profile/share/applications", os.getenv("HOME")))
-
--- Remove non existent paths in order to avoid issues
-local existent_paths = {}
-for k,v in pairs(menu_gen.all_menu_dirs) do
-    if gls.is_dir(v) then
-        table.insert(existent_paths, v)
-    end
-end
-menu_gen.all_menu_dirs = existent_paths
 
 -- Expecting a wm_name of awesome omits too many applications and tools
 menu_utils.wm_name = ""
@@ -37,6 +27,24 @@ menu_utils.wm_name = ""
 -- Menu
 -- freedesktop.menu
 local menu = {}
+
+-- Determines if a path points to a directory, by checking if it can be read
+-- (which is `nil` also for empty files) and if its size is not 0.
+-- @author blueyed
+-- @param path the path to check
+function menu.is_dir(path)
+    local f = io.open(path)
+    return f and not f:read(0) and f:seek("end") ~= 0 and f:close()
+end
+
+-- Remove non existent paths in order to avoid issues
+local existent_paths = {}
+for k,v in pairs(menu_gen.all_menu_dirs) do
+    if menu.is_dir(v) then
+        table.insert(existent_paths, v)
+    end
+end
+menu_gen.all_menu_dirs = existent_paths
 
 -- Determines whether an table includes a certain element
 -- @param tab a given table
@@ -115,6 +123,9 @@ function menu.build(args)
             v.icon = icon_theme():find_icon_path(v.icon_name, icon_size)
         end
     end
+
+    -- Hold the menu in the module
+    menu.menu = _menu
 
     return _menu
 end

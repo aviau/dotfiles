@@ -21,6 +21,7 @@ local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
+local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
 
 -- {{{ Error handling
@@ -77,7 +78,7 @@ run_once(
 -- This function implements the XDG autostart specification
 --[[
 awful.spawn.with_shell(
-    'if (xrdb -query | grep --quiet "^awesome\\.started:\\s*true$"); then exit; fi;' ..
+    'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
     'xrdb -merge <<< "awesome.started:true";' ..
     -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
@@ -183,7 +184,7 @@ awful.util.tasklist_buttons = my_table.join(
                 instance:hide()
                 instance = nil
             else
-                instance = awful.menu.clients({theme = {width = 250}})
+                instance = awful.menu.clients({theme = {width = dpi(250)}})
             end
         end
     end),
@@ -195,9 +196,9 @@ lain.layout.termfair.nmaster           = 3
 lain.layout.termfair.ncol              = 1
 lain.layout.termfair.center.nmaster    = 3
 lain.layout.termfair.center.ncol       = 1
-lain.layout.cascade.tile.offset_x      = 2
-lain.layout.cascade.tile.offset_y      = 32
-lain.layout.cascade.tile.extra_padding = 5
+lain.layout.cascade.tile.offset_x      = dpi(2)
+lain.layout.cascade.tile.offset_y      = dpi(32)
+lain.layout.cascade.tile.extra_padding = dpi(5)
 lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
@@ -213,7 +214,7 @@ local myawesomemenu = {
     { "quit", function() awesome.quit() end }
 }
 awful.util.mymainmenu = freedesktop.menu.build({
-    icon_size = beautiful.menu_height or 16,
+    icon_size = beautiful.menu_height or dpi(16),
     before = {
         { "Awesome", myawesomemenu, beautiful.awesome_icon },
         -- other triads can be put here
@@ -223,6 +224,9 @@ awful.util.mymainmenu = freedesktop.menu.build({
         -- other triads can be put here
     }
 })
+-- hide menu when mouse leaves it
+--awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function() awful.util.mymainmenu:hide() end)
+
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 -- }}}
 
@@ -237,6 +241,18 @@ screen.connect_signal("property::geometry", function(s)
             wallpaper = wallpaper(s)
         end
         gears.wallpaper.maximized(wallpaper, s, true)
+    end
+end)
+
+-- No borders when rearranging only 1 non-floating or maximized client
+screen.connect_signal("arrange", function (s)
+    local only_one = #s.tiled_clients == 1
+    for _, c in pairs(s.clients) do
+        if only_one and not c.floating or c.maximized then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
     end
 end)
 -- Create a wibox for each screen and add it
@@ -526,6 +542,15 @@ globalkeys = my_table.join(
         end,
         {description = "show dmenu", group = "launcher"})
     --]]
+    -- alternatively use rofi, a dmenu-like application with more features
+    -- check https://github.com/DaveDavenport/rofi for more details
+    --[[ rofi
+    awful.key({ modkey }, "x", function ()
+            os.execute(string.format("rofi -show %s -theme %s",
+            'run', 'dmenu'))
+        end,
+        {description = "show rofi", group = "launcher"}),
+    --]]
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
@@ -725,7 +750,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, {size = 16}) : setup {
+    awful.titlebar(c, {size = dpi(16)}) : setup {
         { -- Left
             awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
@@ -756,17 +781,9 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = true})
 end)
 
--- No border for maximized clients
-function border_adjust(c)
-    if c.maximized then -- no borders if only 1 client visible
-        c.border_width = 0
-    elseif #awful.screen.focused().clients > 1 then
-        c.border_width = beautiful.border_width
-        c.border_color = beautiful.border_focus
-    end
-end
-
-client.connect_signal("property::maximized", border_adjust)
-client.connect_signal("focus", border_adjust)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- possible workaround for tag preservation when switching back to default screen:
+-- https://github.com/lcpz/awesome-copycats/issues/251
 -- }}}

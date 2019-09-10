@@ -6,12 +6,14 @@
 
 --]]
 
-local helpers = require("lain.helpers")
-local awful   = require("awful")
-local naughty = require("naughty")
-local wibox   = require("wibox")
-
-local math, string, type, tonumber = math, string, type, tonumber
+local helpers  = require("lain.helpers")
+local awful    = require("awful")
+local naughty  = require("naughty")
+local wibox    = require("wibox")
+local math     = math
+local string   = string
+local type     = type
+local tonumber = tonumber
 
 -- PulseAudio volume bar
 -- lain.widget.pulsebar
@@ -38,6 +40,10 @@ local function factory(args)
     local paddings   = args.paddings or 1
     local ticks      = args.ticks or false
     local ticks_size = args.ticks_size or 7
+    local tick       = args.tick or "|"
+    local tick_pre   = args.tick_pre or "["
+    local tick_post  = args.tick_post or "]"
+    local tick_none  = args.tick_none or " "
 
     pulsebar.colors              = args.colors or pulsebar.colors
     pulsebar.followtag           = args.followtag or false
@@ -136,8 +142,13 @@ local function factory(args)
             end
 
             int = math.modf((pulsebar._current_level / 100) * tot)
-            preset.text = string.format("[%s%s]", string.rep("|", int),
-                          string.rep(" ", tot - int))
+            preset.text = string.format(
+                "%s%s%s%s",
+                tick_pre,
+                string.rep(tick, int),
+                string.rep(tick_none, tot - int),
+                tick_post
+            )
 
             if pulsebar.followtag then preset.screen = awful.screen.focused() end
 
@@ -152,7 +163,7 @@ local function factory(args)
         end)
     end
 
-    helpers.newtimer(string.format("pulsebar-%s", pulsebar.sink), timeout, pulsebar.update)
+    helpers.newtimer(string.format("pulsebar-%s-%s", pulsebar.devicetype, pulsebar.device), timeout, pulsebar.update)
 
     return pulsebar
 end

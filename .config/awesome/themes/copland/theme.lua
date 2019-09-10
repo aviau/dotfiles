@@ -9,6 +9,7 @@ local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
+local dpi   = require("beautiful.xresources").apply_dpi
 
 local awesome, client, os = awesome, client, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -16,14 +17,14 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/copland"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Misc Tamsyn 10.5"
+theme.font                                      = "Terminus 10.5"
 theme.fg_normal                                 = "#BBBBBB"
 theme.fg_focus                                  = "#78A4FF"
 theme.bg_normal                                 = "#111111"
 theme.bg_focus                                  = "#111111"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
-theme.border_width                              = 1
+theme.border_width                              = dpi(1)
 theme.border_normal                             = "#141414"
 theme.border_focus                              = "#93B6FF"
 theme.taglist_fg_focus                          = "#FFFFFF"
@@ -31,8 +32,8 @@ theme.taglist_bg_focus                          = "#111111"
 theme.taglist_bg_normal                         = "#111111"
 theme.titlebar_bg_normal                        = "#191919"
 theme.titlebar_bg_focus                         = "#262626"
-theme.menu_height                               = 16
-theme.menu_width                                = 130
+theme.menu_height                               = dpi(16)
+theme.menu_width                                = dpi(130)
 theme.tasklist_disable_icon                     = true
 theme.awesome_icon                              = theme.dir .."/icons/awesome.png"
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -94,14 +95,14 @@ local green  = "#8FEB8F"
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Misc Tamsyn 5'> </span>%H:%M ")
+local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M ")
 mytextclock.font = theme.font
 
 -- Calendar
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Misc Tamsyn 11",
+        font = "Terminus 11",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -119,7 +120,7 @@ theme.mail = lain.widget.imap({
         count = ""
 
         if mailcount > 0 then
-            mail = "<span font='Misc Tamsyn 5'> </span>Mail "
+            mail = "<span font='Terminus 5'> </span>Mail "
             count = mailcount .. " "
         end
 
@@ -134,11 +135,11 @@ theme.mpd = lain.widget.mpd({
     settings = function()
         if mpd_now.state == "play" then
             title = mpd_now.title
-            artist  = " " .. mpd_now.artist  .. markup("#777777", " <span font='Misc Tamsyn 2'> </span>|<span font='Misc Tamsyn 5'> </span>")
+            artist  = " " .. mpd_now.artist  .. markup("#777777", " <span font='Terminus 2'> </span>|<span font='Terminus 5'> </span>")
             mpdicon:set_image(theme.play)
         elseif mpd_now.state == "pause" then
             title = "mpd "
-            artist  = "paused" .. markup("#777777", " |<span font='Misc Tamsyn 5'> </span>")
+            artist  = "paused" .. markup("#777777", " |<span font='Terminus 5'> </span>")
             mpdicon:set_image(theme.pause)
         else
             title  = ""
@@ -155,14 +156,14 @@ theme.mpd = lain.widget.mpd({
 -- Battery
 local baticon = wibox.widget.imagebox(theme.bat)
 local batbar = wibox.widget {
-    forced_height    = 1,
-    forced_width     = 59,
+    forced_height    = dpi(1),
+    forced_width     = dpi(59),
     color            = theme.fg_normal,
     background_color = theme.bg_normal,
     margins          = 1,
     paddings         = 1,
     ticks            = true,
-    ticks_size       = 6,
+    ticks_size       = dpi(6),
     widget           = wibox.widget.progressbar,
 }
 local batupd = lain.widget.bat({
@@ -198,24 +199,24 @@ local batupd = lain.widget.bat({
     end
 })
 local batbg = wibox.container.background(batbar, "#474747", gears.shape.rectangle)
-local batwidget = wibox.container.margin(batbg, 2, 7, 4, 4)
+local batwidget = wibox.container.margin(batbg, dpi(2), dpi(7), dpi(4), dpi(4))
 
 -- /home fs
 --[[ commented because it needs Gio/Glib >= 2.54
 local fsicon = wibox.widget.imagebox(theme.disk)
 local fsbar = wibox.widget {
-    forced_height    = 1,
-    forced_width     = 59,
+    forced_height    = dpi(1),
+    forced_width     = dpi(59),
     color            = theme.fg_normal,
     background_color = theme.bg_normal,
     margins          = 1,
     paddings         = 1,
     ticks            = true,
-    ticks_size       = 6,
+    ticks_size       = dpi(6),
     widget           = wibox.widget.progressbar,
 }
 theme.fs = lain.widget.fs {
-    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Misc Tamsyn 10.5" },
+    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Terminus 10.5" },
     settings  = function()
         if fs_now["/home"].percentage < 90 then
             fsbar:set_color(theme.fg_normal)
@@ -226,13 +227,13 @@ theme.fs = lain.widget.fs {
     end
 }
 local fsbg = wibox.container.background(fsbar, "#474747", gears.shape.rectangle)
-local fswidget = wibox.container.margin(fsbg, 2, 7, 4, 4)
+local fswidget = wibox.container.margin(fsbg, dpi(2), dpi(7), dpi(4), dpi(4))
 --]]
 
 -- ALSA volume bar
 local volicon = wibox.widget.imagebox(theme.vol)
 theme.volume = lain.widget.alsabar {
-    width = 59, border_width = 0, ticks = true, ticks_size = 6,
+    width = dpi(59), border_width = 0, ticks = true, ticks_size = dpi(6),
     notification_preset = { font = theme.font },
     --togglechannel = "IEC958,3",
     settings = function()
@@ -275,7 +276,7 @@ theme.volume.bar:buttons(my_table.join (
           end)
 ))
 local volumebg = wibox.container.background(theme.volume.bar, "#474747", gears.shape.rectangle)
-local volumewidget = wibox.container.margin(volumebg, 2, 7, 4, 4)
+local volumewidget = wibox.container.margin(volumebg, dpi(2), dpi(7), dpi(4), dpi(4))
 
 -- Weather
 theme.weather = lain.widget.weather({
@@ -283,10 +284,10 @@ theme.weather = lain.widget.weather({
 })
 
 -- Separators
-local first     = wibox.widget.textbox(markup.font("Misc Tamsyn 3", " "))
+local first     = wibox.widget.textbox(markup.font("Terminus 3", " "))
 local spr       = wibox.widget.textbox(' ')
-local small_spr = wibox.widget.textbox(markup.font("Misc Tamsyn 4", " "))
-local bar_spr   = wibox.widget.textbox(markup.font("Misc Tamsyn 3", " ") .. markup.fontfg(theme.font, "#777777", "|") .. markup.font("Misc Tamsyn 5", " "))
+local small_spr = wibox.widget.textbox(markup.font("Terminus 4", " "))
+local bar_spr   = wibox.widget.textbox(markup.font("Terminus 3", " ") .. markup.fontfg(theme.font, "#777777", "|") .. markup.font("Terminus 5", " "))
 
 -- Eminent-like task filtering
 local orig_filter = awful.widget.taglist.filter.all
@@ -331,7 +332,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(18), bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

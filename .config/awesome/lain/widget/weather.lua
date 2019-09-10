@@ -10,8 +10,11 @@ local json     = require("lain.util").dkjson
 local focused  = require("awful.screen").focused
 local naughty  = require("naughty")
 local wibox    = require("wibox")
-
-local math, os, string, tonumber = math, os, string, tonumber
+local math     = math
+local os       = os
+local string   = string
+local type     = type
+local tonumber = tonumber
 
 -- OpenWeatherMap
 -- current weather and X-days forecast
@@ -49,7 +52,7 @@ local function factory(args)
     weather.icon_path = icons_path .. "na.png"
     weather.icon = wibox.widget.imagebox(weather.icon_path)
 
-    function weather.show(t_out)
+    function weather.show(seconds)
         weather.hide()
 
         if followtag then
@@ -61,12 +64,12 @@ local function factory(args)
             weather.forecast_update()
         end
 
-        weather.notification = naughty.notify({
+        weather.notification = naughty.notify {
+            preset  = notification_preset,
             text    = weather.notification_text,
             icon    = weather.icon_path,
-            timeout = t_out,
-            preset  = notification_preset
-        })
+            timeout = type(seconds == "number") and seconds or notification_preset.timeout
+        }
     end
 
     function weather.hide()
@@ -114,20 +117,7 @@ local function factory(args)
                 local sunrise = tonumber(weather_now["sys"]["sunrise"])
                 local sunset  = tonumber(weather_now["sys"]["sunset"])
                 local icon    = weather_now["weather"][1]["icon"]
-                local loc_now = os.time() -- local time
-                local loc_m   = os.time { year = os.date("%Y"), month = os.date("%m"), day = os.date("%d"), hour = 0 } -- local time from midnight
-                local loc_d   = os.date("*t",  loc_now) -- table YMDHMS for current local time (for TZ calculation)
-                local utc_d   = os.date("!*t", loc_now) -- table YMDHMS for current UTC time
-                local utc_now = os.time(utc_d) -- UTC time now
-                local offdt   = (loc_d.isdst and 1 or 0) * 3600 + 100 * (loc_d.min  - utc_d.min) / 60 -- DST offset
-                local offset  = os.difftime(loc_now, utc_now) + (loc_d.isdst and 1 or 0) * 3600 + 100 * (loc_d.min  - utc_d.min) / 60 -- TZ offset (including DST)
-                local offday  = (offset < 0 and -86400) or 86400 -- 24 hour correction value (+86400 or -86400)
-
-                -- if current UTC time is earlier then local midnight -> positive offset (negative otherwise)
-                if offset * (loc_m - utc_now + offdt) > 0 then
-                    sunrise = sunrise + offday -- Shift sunset and sunrise times by 24 hours
-                    sunset  = sunset  + offday
-                end
+                local loc_now = os.time()
 
                 if sunrise <= loc_now and loc_now <= sunset then
                     icon = string.gsub(icon, "n", "d")
