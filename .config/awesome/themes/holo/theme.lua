@@ -56,6 +56,7 @@ theme.play                                      = theme.icon_dir .. "/play.png"
 theme.clock                                     = theme.icon_dir .. "/clock.png"
 theme.calendar                                  = theme.icon_dir .. "/cal.png"
 theme.cpu                                       = theme.icon_dir .. "/cpu.png"
+theme.tint                                      = theme.icon_dir .. "/tint.png"
 theme.net_up                                    = theme.icon_dir .. "/net_up.png"
 theme.net_down                                  = theme.icon_dir .. "/net_down.png"
 theme.layout_tile                               = theme.icon_dir .. "/tile.png"
@@ -235,6 +236,18 @@ theme.volume.bar.margins = dpi(5)
 local volumewidget = wibox.container.background(theme.volume.bar, theme.bg_focus, gears.shape.rectangle)
 volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(0), dpi(5), dpi(5))
 
+-- Bloodglucose
+local bloodglucose = require("bloodglucose")
+local bloodglucose_icon = wibox.widget.imagebox(theme.tint)
+local bloodglucose_instance = bloodglucose({
+    settings = function()
+        widget:set_markup(space3 .. markup.font(theme.font, "" .. bg_now
+                          .. " mmol/L ") .. markup.font("Roboto 5", " "))
+    end
+})
+local bloodglucose_bg = wibox.container.background(bloodglucose_instance.widget, theme.bg_focus, gears.shape.rectangle)
+local bloodglucose_widget = wibox.container.margin(bloodglucose_bg, dpi(0), dpi(0), dpi(5), dpi(5))
+
 -- CPU
 local cpu_icon = wibox.widget.imagebox(theme.cpu)
 local cpu = lain.widget.cpu({
@@ -389,6 +402,9 @@ function theme.at_screen_connect(s)
             netdown_icon,
             networkwidget,
             netup_icon,
+            bottom_bar,
+            bloodglucose_icon,
+            bloodglucose_widget,
             bottom_bar,
             cpu_icon,
             cpuwidget,
