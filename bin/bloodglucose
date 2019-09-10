@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+API_TOKEN=$(pass cgm.alexandreviau.net  | head -n 1 | tr -d '\n')
+
+curl \
+    --silent \
+    -X GET \
+    "https://cgm.alexandreviau.net/api/v1/entries/svg?count=1&token=${API_TOKEN}" \
+    -H "accept: application/json" | jq '.[0]["sgv"] / 18'
