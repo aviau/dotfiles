@@ -68,6 +68,7 @@ run_once(
         "redshift-gtk",
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
+        "gnome-keyring-daemon -r -d",
 
         -- try to setup the screens as if we were docked
         "/home/aviau/bin/homescreensetup",
