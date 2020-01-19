@@ -2,108 +2,103 @@
 
 set -e
 
-if [ "$#" -ne 1 ]; then
-  echo "usage: ./lnmaker.sh DOTFILES_DIR"
-  exit
-fi
-
-dir=$(readlink -f $1)
+DOTFILES_DIR=$(dirname $(readlink -f $0))
 
 git submodule update --init --recursive
 
 # vscode
 mkdir -p ~/.config/Code/User
-ln -sf ${dir}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -sf ${dir}/vscode/settings.json ~/.config/Code/User/settings.json
+ln -sf ${DOTFILES_DIR}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/.config/Code/User/settings.json
 
 # .tmux.conf
-ln -sf ${dir}/.tmux.conf ~/.tmux.conf
+ln -sf ${DOTFILES_DIR}/.tmux.conf ~/.tmux.conf
 
 # .sbuildrc
-ln -sf ${dir}/.sbuildrc ~/.sbuildrc
+ln -sf ${DOTFILES_DIR}/.sbuildrc ~/.sbuildrc
 
 # .devscripts
-ln -sf ${dir}/.devscripts ~/.devscripts
+ln -sf ${DOTFILES_DIR}/.devscripts ~/.devscripts
 
 # .Xresources
-ln -sf ${dir}/.Xresources ~/.Xresources
+ln -sf ${DOTFILES_DIR}/.Xresources ~/.Xresources
 
 # .vimrc
-ln -sf ${dir}/.vimrc ~/.vimrc
+ln -sf ${DOTFILES_DIR}/.vimrc ~/.vimrc
 
 # .vim
 rm -rf ~/.vim
-ln -sf ${dir}/.vim ~/.vim
+ln -sf ${DOTFILES_DIR}/.vim ~/.vim
 
 # .atom
 rm -rf ~/.atom
-ln -sf ${dir}/.atom ~/.atom
+ln -sf ${DOTFILES_DIR}/.atom ~/.atom
 
 # .bin
-ln -nsf ${dir}/bin ~/bin
+ln -nsf ${DOTFILES_DIR}/bin ~/bin
 
 # awesome
 rm -rf ~/.config/awesome
-ln -sf ${dir}/.config/awesome ~/.config/awesome
+ln -sf ${DOTFILES_DIR}/.config/awesome ~/.config/awesome
 
 # redshift
 rm -rf ~/.config/redshift.conf
-ln -sf ${dir}/.config/redshift.conf ~/.config/redshift.conf
+ln -sf ${DOTFILES_DIR}/.config/redshift.conf ~/.config/redshift.conf
 
 # i3
 rm -rf ~/.config/i3
-ln -sf ${dir}/.config/i3 ~/.config/i3
+ln -sf ${DOTFILES_DIR}/.config/i3 ~/.config/i3
 
 # .profile
-ln -sf ${dir}/.profile ~/.profile
+ln -sf ${DOTFILES_DIR}/.profile ~/.profile
 
 # .bashrc
-ln -sf ${dir}/.bashrc ~/.bashrc
+ln -sf ${DOTFILES_DIR}/.bashrc ~/.bashrc
 
 # .config/autostart
 mv ~/.config/autostart ~/.config/autostart.bak
-ln -s ${dir}/.config/autostart ~/.config/autostart
+ln -s ${DOTFILES_DIR}/.config/autostart ~/.config/autostart
 
 # ranger config
 rm -rf ~/.config/ranger
-ln -sf ${dir}/.config/ranger ~/.config/ranger
+ln -sf ${DOTFILES_DIR}/.config/ranger ~/.config/ranger
 
 # .gconf/apps/guake
-ln -sf ${dir}/.gconf/apps/guake ~/.gconf/apps/guake
+ln -sf ${DOTFILES_DIR}/.gconf/apps/guake ~/.gconf/apps/guake
 
 # .gitconfig
-ln -sf ${dir}/.gitconfig ~/.gitconfig
+ln -sf ${DOTFILES_DIR}/.gitconfig ~/.gitconfig
 
 # .pyrc
-ln -sf ${dir}/.pyrc ~/.pyrc
+ln -sf ${DOTFILES_DIR}/.pyrc ~/.pyrc
 
 # .dput.cf
-ln -sf ${dir}/.dput.cf ~/.dput.cf
+ln -sf ${DOTFILES_DIR}/.dput.cf ~/.dput.cf
 
 # quiltrc
-ln -sf ${dir}/.quiltrc-dpkg ~/.quiltrc-dpkg
+ln -sf ${DOTFILES_DIR}/.quiltrc-dpkg ~/.quiltrc-dpkg
 
 # gbp.conf
-ln -sf ${dir}/.gbp.conf ~/.gbp.conf
+ln -sf ${DOTFILES_DIR}/.gbp.conf ~/.gbp.conf
 
 # zshrc
-ln -sf ${dir}/.zshrc ~/.zshrc
+ln -sf ${DOTFILES_DIR}/.zshrc ~/.zshrc
 
 # .pbuilderrc
-ln -sf ${dir}/.pbuilderrc ~/.pbuilderrc
+ln -sf ${DOTFILES_DIR}/.pbuilderrc ~/.pbuilderrc
 
 # .gitignore_global
-ln -sf ${dir}/.gitignore_global ~/.gitignore_global
+ln -sf ${DOTFILES_DIR}/.gitignore_global ~/.gitignore_global
 
 # youcompleteme
-ln -sf ${dir}/.ycm_extra_conf.py ~/.ycm_extra_conf.py
+ln -sf ${DOTFILES_DIR}/.ycm_extra_conf.py ~/.ycm_extra_conf.py
 
 # gnupg files
 mkdir -p ~/.gnupg
-ln -sf ${dir}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
-ln -sf ${dir}/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-ln -sf ${dir}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
+ln -sf ${DOTFILES_DIR}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
+ln -sf ${DOTFILES_DIR}/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+ln -sf ${DOTFILES_DIR}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
 chmod -R 700 ~/.gnupg
 
 # .caffrc
-ln -sf ${dir}/.caffrc ~/.caffrc
+ln -sf ${DOTFILES_DIR}/.caffrc ~/.caffrc
