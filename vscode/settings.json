@@ -57,5 +57,6 @@
     "files.associations": {
         "*.vue": "html"
     },
-    "python.linting.mypyEnabled": true
+    "python.linting.mypyEnabled": true,
+    "html.mirrorCursorOnMatchingTag": false
 }
