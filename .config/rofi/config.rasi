@@ -1,5 +1,5 @@
 configuration {
-    modi: "window,run";
+    modi: "run";
 
     kb-row-tab: "";
     kb-row-select: "Tab";
