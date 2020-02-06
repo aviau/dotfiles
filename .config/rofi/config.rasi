@@ -1,0 +1,16 @@
+configuration {
+    modi: "window,run";
+
+    kb-row-tab: "";
+    kb-row-select: "Tab";
+
+    kb-move-front: "Control+e";
+    kb-move-end: "Control+a";
+
+    kb-accept-entry: "Return,KP_Enter";
+
+    kb-remove-to-eol: "";
+    kb-remove-to-sol: "";
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+}

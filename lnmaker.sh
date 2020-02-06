@@ -11,6 +11,10 @@ mkdir -p ~/.config/Code/User
 ln -sf ${DOTFILES_DIR}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
 ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/.config/Code/User/settings.json
 
+# rofi
+mkdir -p ~/.config/rofi
+ln -sf ${DOTFILES_DIR}/.config/rofi/config.rasi ~/.config/rofi/config.rasi
+
 # .tmux.conf
 ln -sf ${DOTFILES_DIR}/.tmux.conf ~/.tmux.conf
 

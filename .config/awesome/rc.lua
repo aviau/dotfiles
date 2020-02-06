@@ -553,8 +553,7 @@ globalkeys = my_table.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey, }, "r", function () os.execute("rofi -show run &") end),
 
     awful.key({ modkey }, "x",
               function ()
