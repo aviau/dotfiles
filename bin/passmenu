@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # requires debian packages:
-#  - suckless-tools (for dmenu)
+#  - suckless-tools (for dmenu) or rofi
 #  - xdotool
 #  - gopass (or pass)
 
@@ -18,7 +18,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
+password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
 
 [[ -n $password ]] || exit
 
