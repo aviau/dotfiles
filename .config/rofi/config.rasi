@@ -1,20 +1,85 @@
 configuration {
+
+    /* General configuration */
     modi: "run";
 
-    kb-row-tab: "";
-    kb-row-select: "Tab";
-
-    kb-move-front: "Control+a";
-    kb-move-end: "Control+e";
-
-    kb-accept-entry: "Return,KP_Enter";
-
+    /* Remove all keyboard shortcuts */
+    kb-primary-paste: "";
+    kb-secondary-paste: "";
+    kb-clear-line: "";
+    kb-move-front: "";
+    kb-move-end: "";
+    kb-move-word-back: "";
+    kb-move-word-forward: "";
+    kb-move-char-back: "";
+    kb-move-char-forward: "";
     kb-remove-word-back: "";
     kb-remove-word-forward: "";
     kb-remove-char-forward: "";
     kb-remove-char-back: "";
     kb-remove-to-eol: "";
     kb-remove-to-sol: "";
+    kb-accept-entry: "";
+    kb-accept-custom: "";
+    kb-accept-alt: "";
+    kb-delete-entry: "";
+    kb-mode-next: "";
+    kb-mode-previous: "";
+    kb-row-left: "";
+    kb-row-right: "";
+    kb-row-up: "";
+    kb-row-down: "";
+    kb-row-tab: "";
+    kb-page-prev: "";
+    kb-page-next: "";
+    kb-row-first: "";
+    kb-row-last: "";
+    kb-row-select: "";
+    kb-screenshot: "";
+    kb-toggle-case-sensitivity: "";
+    kb-toggle-sort: "";
+    kb-cancel: "";
+    kb-custom-1: "";
+    kb-custom-2: "";
+    kb-custom-3: "";
+    kb-custom-4: "";
+    kb-custom-5: "";
+    kb-custom-6: "";
+    kb-custom-7: "";
+    kb-custom-8: "";
+    kb-custom-9: "";
+    kb-custom-10: "";
+    kb-custom-11: "";
+    kb-custom-12: "";
+    kb-custom-13: "";
+    kb-custom-14: "";
+    kb-custom-15: "";
+    kb-custom-16: "";
+    kb-custom-17: "";
+    kb-custom-18: "";
+    kb-custom-19: "";
+    kb-select-1: "";
+    kb-select-2: "";
+    kb-select-3: "";
+    kb-select-4: "";
+    kb-select-5: "";
+    kb-select-6: "";
+    kb-select-7: "";
+    kb-select-8: "";
+    kb-select-9: "";
+    kb-select-10: "";
+
+    /* Setup key bindings */
+
+    kb-cancel: "Escape";
+
+    kb-row-select: "Tab";
+
+    kb-accept-entry: "Return";
+    kb-accept-custom: "Control+Return";
+
+    kb-move-front: "Control+a";
+    kb-move-end: "Control+e";
 
     kb-row-up: "Up,Control+k";
     kb-row-down: "Down,Control+j";
