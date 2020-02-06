@@ -4,8 +4,8 @@ configuration {
     kb-row-tab: "";
     kb-row-select: "Tab";
 
-    kb-move-front: "Control+e";
-    kb-move-end: "Control+a";
+    kb-move-front: "Control+a";
+    kb-move-end: "Control+e";
 
     kb-accept-entry: "Return,KP_Enter";
 
