@@ -9,8 +9,16 @@ configuration {
 
     kb-accept-entry: "Return,KP_Enter";
 
+    kb-remove-word-back: "";
+    kb-remove-word-forward: "";
+    kb-remove-char-forward: "";
+    kb-remove-char-back: "";
     kb-remove-to-eol: "";
     kb-remove-to-sol: "";
+
     kb-row-up: "Up,Control+k";
     kb-row-down: "Down,Control+j";
+
+    kb-page-prev: "Control+u";
+    kb-page-next: "Control+d";
 }
