@@ -210,3 +210,4 @@ bar {
 # Startup Applications
 exec nm-applet
 exec insync start
+exec /home/aviau/git/dotfiles/bin/homescreensetup-sway

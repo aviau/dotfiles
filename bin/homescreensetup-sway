@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+number_of_displays=$(swaymsg -t get_outputs | jq '. | length')
+first_display_name=$(swaymsg -t get_outputs | jq '.[0]["name"]' --raw-output)
+
+if [[ $number_of_displays == "1" && $first_display_name == "eDP-1" ]]; then
+    echo "Using 1-screen configuraiton (laptop)"
+    swaymsg output eDP-1 pos 0 0 resolution 2560x1440
+    swaymsg output eDP-1 scale 1
+fi
