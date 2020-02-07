@@ -207,4 +207,6 @@ bar {
 #    tray_padding 0
 #}
 
-include /etc/sway/config.d/*
+# Startup Applications
+exec nm-applet
+exec insync start
