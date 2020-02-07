@@ -13,33 +13,32 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term x-terminal-emulator
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+# General config
+gaps inner 5
+gaps outer 5
 
 ### Output configuration
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output DP-3 resolution 1920x1080 position 0,0
-output DP-4 resolution 1920x1080 position 1920,0
-output eDP-1 disable
+output * bg #006A56 solid_color
+#output DP-3 resolution 1920x1080 position 0,0
+#output DP-4 resolution 1920x1080 position 1920,0
+#output eDP-1 disable
 
 ### Input configuration
 input * {
     xkb_layout us,ca
     xkb_options caps:swapescape,grp:shift_caps_toggle
 }
+
 ### Key bindings
 #
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec gnome-terminal
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+c kill
 
     # Start your launcher
     bindsym $mod+r exec rofi -show run
@@ -65,7 +64,7 @@ input * {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
