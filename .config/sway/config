@@ -25,6 +25,7 @@ output * bg #006A56 solid_color
 input * {
     xkb_layout us,ca
     xkb_options caps:swapescape,grp:shift_caps_toggle
+    tap enabled
 }
 
 ### Key bindings
