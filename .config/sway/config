@@ -43,8 +43,9 @@ input * {
     bindsym $mod+p exec ~/bin/passmenu
 
     # Dropdown terminal
-    bindsym $mod+z exec guake -t
-    for_window [instance="guake"] floating enable
+    for_window [app_id="guake"] floating enable, \
+                                move position -8px -33px
+    bindsym $mod+z exec guake
 
     # Lock screen
     bindsym $mod+l exec swaylock --ignore-empty-password --color 000000
@@ -137,18 +138,6 @@ input * {
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
