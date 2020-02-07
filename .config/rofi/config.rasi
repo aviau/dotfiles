@@ -75,6 +75,9 @@ configuration {
 
     kb-row-select: "Tab";
 
+    kb-remove-char-back: "BackSpace";
+    kb-remove-char-forward: "Delete";
+
     kb-accept-entry: "Return";
     kb-accept-custom: "Control+Return";
 
