@@ -49,7 +49,7 @@ input * {
     for_window [instance="guake"] floating enable
 
     # Lock screen
-    bindsym $mod+l exec swaylock
+    bindsym $mod+l exec swaylock --ignore-empty-password --color 000000
 
     # switch keyboard map
     bindsym Shift+Tab exec ~/bin/swapkbmap
