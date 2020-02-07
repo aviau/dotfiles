@@ -193,12 +193,17 @@ bar {
     }
 }
 
-#bar {
-#    position top
-#    status_command i3blocks -c ~/.config/sway/status_top.conf
-#    font pango:monospace Bold 12
-#    tray_padding 0
-#}
+bar {
+    position bottom
+
+    status_command while ~/.config/sway/sway_bar_bottom.sh; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
 
 # Startup Applications
 exec nm-applet
