@@ -75,6 +75,9 @@ configuration {
 
     kb-row-select: "Tab";
 
+    kb-move-char-back: "Left";
+    kb-move-char-forward: "Right";
+
     kb-remove-char-back: "BackSpace";
     kb-remove-char-forward: "Delete";
 
