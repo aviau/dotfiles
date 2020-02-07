@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+current_layout=$(swaymsg -t get_inputs | jq '.[0]["xkb_active_layout_name"]' --raw-output)
+
+if [[ ${current_layout} == "English (US)" ]]; then
+    swaymsg "input * xkb_layout ca"
+else
+    swaymsg "input * xkb_layout us"
+fi
+
+pkill -RTMIN+2 i3blocks
