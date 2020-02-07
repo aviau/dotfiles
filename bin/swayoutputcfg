@@ -6,9 +6,29 @@ number_of_displays=$(swaymsg -t get_outputs | jq '. | length')
 first_display_name=$(swaymsg -t get_outputs | jq '.[0]["name"]' --raw-output)
 
 if [[ $number_of_displays == "1" && $first_display_name == "eDP-1" ]]; then
+
     echo "Using 1-screen configuraiton (laptop)"
     swaymsg output eDP-1 pos 0 0 resolution 2560x1440
     swaymsg output eDP-1 scale 1
+
+elif [[ $number_of_displays == "3" ]]; then
+
+    model_of_second_screen=$(swaymsg -t get_outputs | jq '.[1]["model"]' --raw-output)
+
+    if [[ $model_of_second_screen == "BenQ XL2420T" \
+       || $model_of_second_screen == "VP2650wb" ]]; then
+
+		echo "Using Flare Systems Configuration"
+		swaymsg output DP-3 pos 0 0 resolution 1920x1080
+		swaymsg output DP-3 scale 1
+
+		swaymsg output DP-4 pos 1920 0 resolution 1920x1080
+		swaymsg output DP-4 scale 1
+
+		swaymsg output eDP-1 disable
+
+    fi
+
 fi
 
 swaymsg "output * bg #006A56 solid_color"
