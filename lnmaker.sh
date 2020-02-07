@@ -49,6 +49,10 @@ ln -sf ${DOTFILES_DIR}/.config/awesome ~/.config/awesome
 rm -rf ~/.config/redshift.conf
 ln -sf ${DOTFILES_DIR}/.config/redshift.conf ~/.config/redshift.conf
 
+# sway
+rm -rf ~/.config/sway
+ln -sf ${DOTFILES_DIR}/.config/sway ~/.config/sway
+
 # i3
 rm -rf ~/.config/i3
 ln -sf ${DOTFILES_DIR}/.config/i3 ~/.config/i3
