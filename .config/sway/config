@@ -20,9 +20,6 @@ gaps outer 5
 
 ### Output configuration
 output * bg #006A56 solid_color
-#output DP-3 resolution 1920x1080 position 0,0
-#output DP-4 resolution 1920x1080 position 1920,0
-#output eDP-1 disable
 
 ### Input configuration
 input * {
