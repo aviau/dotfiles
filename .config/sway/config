@@ -173,32 +173,19 @@ mode "resize" {
 }
 #bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+
 bar {
-    position top
-
-    status_command while ~/.config/sway/sway_bar_top.sh; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+        position top
+#       status_command while ~/.config/sway/sway_bar_top.sh; do sleep 1; done
+        status_command i3blocks -c ~/.config/sway/status_top.conf
+        font pango:monospace Bold 12
 }
 
 bar {
-    position bottom
-
-    status_command while ~/.config/sway/sway_bar_bottom.sh; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+        position bottom
+#       status_command while ~/.config/sway/sway_bar_bottom.sh; do sleep 1; done
+        status_command i3blocks -c ~/.config/sway/status_bottom.conf
+        font pango:monospace Bold 12
 }
 
 # Startup Applications
