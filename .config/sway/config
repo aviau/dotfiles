@@ -17,6 +17,7 @@ set $right l
 # General config
 gaps inner 5
 gaps outer 5
+default_border none
 
 ### Input configuration
 input * {
