@@ -49,7 +49,7 @@ input * {
     bindsym $mod+l exec swaylock --ignore-empty-password --color 000000
 
     # switch keyboard map
-    bindsym Shift+Tab exec ~/bin/swapkbmap
+    # bindsym Shift+Tab exec ~/bin/swapkbmap
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
