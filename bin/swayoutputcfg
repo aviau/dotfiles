@@ -10,3 +10,5 @@ if [[ $number_of_displays == "1" && $first_display_name == "eDP-1" ]]; then
     swaymsg output eDP-1 pos 0 0 resolution 2560x1440
     swaymsg output eDP-1 scale 1
 fi
+
+swaymsg "output * bg #006A56 solid_color"

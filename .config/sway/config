@@ -18,9 +18,6 @@ set $right l
 gaps inner 5
 gaps outer 5
 
-### Output configuration
-output * bg #006A56 solid_color
-
 ### Input configuration
 input * {
     xkb_layout us,ca
@@ -62,7 +59,8 @@ input * {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+r reload; \
+        exec /home/aviau/git/dotfiles/bin/swayoutputcfg
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -205,4 +203,4 @@ bar {
 # Startup Applications
 exec nm-applet
 exec insync start
-exec /home/aviau/git/dotfiles/bin/homescreensetup-sway
+exec /home/aviau/git/dotfiles/bin/swayoutputcfg
