@@ -18,8 +18,8 @@ elif [[ $first_display_model == "LG HDR 4K" ]]; then
     swaymsg output DP-1 pos 0 0 resolution 3840x2160
     swaymsg output DP-1 scale 2
 
-    swaymsg output DP-1 pos 3840 0 resolution 3840x2160
-    swaymsg output DP-1 scale 2
+    swaymsg output DP-2 pos 1920 0 resolution 3840x2160
+    swaymsg output DP-2 scale 2
 
     swaymsg output HDMI-A-2 disable
 
