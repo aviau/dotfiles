@@ -145,6 +145,8 @@ mode "resize" {
 ## Bars ##
 ##########
 
+# exec_always ~/.config/waybar/waybar.sh
+
 bar {
         position top
 #       status_command while ~/.config/sway/sway_bar_top.sh; do sleep 1; done
