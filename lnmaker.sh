@@ -53,6 +53,10 @@ ln -sf ${DOTFILES_DIR}/.config/redshift.conf ~/.config/redshift.conf
 rm -rf ~/.config/sway
 ln -sf ${DOTFILES_DIR}/.config/sway ~/.config/sway
 
+# waybar
+rm -rf ~/.config/waybar
+ln -sf ${DOTFILES_DIR}/.config/waybar ~/.config/waybar
+
 # i3
 rm -rf ~/.config/i3
 ln -sf ${DOTFILES_DIR}/.config/i3 ~/.config/i3

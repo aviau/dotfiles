@@ -1,0 +1,43 @@
+[
+	{
+
+		"position": "top",
+		"layer": "top",
+		"modules-left": ["sway/workspaces", "sway/mode"],
+		"modules-center": ["sway/window"],
+		"modules-right": ["battery", "clock"],
+		"sway/window": {
+			"max-length": 50
+		},
+
+		"battery": {
+			"format": "{capacity}% {icon}",
+			"format-icons": ["", "", "", "", ""]
+		},
+		"clock": {
+			"format-alt": "{:%a, %d. %b  %H:%M}"
+		}
+
+	},
+    {
+
+        "position": "bottom",
+        "layer": "top",
+		"modules-right": ["custom/bloodglucose", "cpu", "clock#day", "clock#time"],
+
+        "custom/bloodglucose": {
+            "exec": "/home/aviau/bin/bloodglucose",
+            "interval": 30,
+            "format": "💧 {} mmol/L"
+        },
+
+		"clock#day": {
+            "format": "{:%d %b}"
+        },
+
+		"clock#time": {
+			"format": "{:%H:%M}"
+		}
+
+    }
+]
