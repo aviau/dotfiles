@@ -15,8 +15,8 @@ set $up k
 set $right l
 
 # General config
-gaps inner 5
-gaps outer 5
+gaps inner 8
+gaps outer 0
 default_border none
 
 ### Input configuration
