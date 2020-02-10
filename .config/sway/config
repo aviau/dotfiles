@@ -83,32 +83,32 @@ bindsym $mod+down exec pactl set-sink-volume @DEFAULT_SINK@ -5% \
 ################
 
 # Switch to workspace
-bindsym $mod+1 workspace 1 WEB
-bindsym $mod+2 workspace 2 TERMINAL
-bindsym $mod+3 workspace 3 FILES
-bindsym $mod+4 workspace 4 CHAT
-#bindsym $mod+1 exec ~/bin/swayworkspace navigate 1
-#bindsym $mod+2 exec ~/bin/swayworkspace navigate 2
-#bindsym $mod+3 exec ~/bin/swayworkspace navigate 3
-#bindsym $mod+4 exec ~/bin/swayworkspace navigate 4
+#bindsym $mod+1 workspace 1 WEB
+#bindsym $mod+2 workspace 2 TERMINAL
+#bindsym $mod+3 workspace 3 FILES
+#bindsym $mod+4 workspace 4 CHAT
+bindsym $mod+1 exec ~/bin/swayworkspace navigate 1
+bindsym $mod+2 exec ~/bin/swayworkspace navigate 2
+bindsym $mod+3 exec ~/bin/swayworkspace navigate 3
+bindsym $mod+4 exec ~/bin/swayworkspace navigate 4
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1 WEB
-bindsym $mod+Shift+2 move container to workspace 2 TERMINAL
-bindsym $mod+Shift+3 move container to workspace 3 FILES
-bindsym $mod+Shift+4 move container to workspace 4 CHAT
-#bindsym $mod+Shift+1 exec ~/bin/swayworkspace move 1
-#bindsym $mod+Shift+2 exec ~/bin/swayworkspace move 2
-#bindsym $mod+Shift+3 exec ~/bin/swayworkspace move 3
-#bindsym $mod+Shift+4 exec ~/bin/swayworkspace move 4
+#bindsym $mod+Shift+1 move container to workspace 1 WEB
+#bindsym $mod+Shift+2 move container to workspace 2 TERMINAL
+#bindsym $mod+Shift+3 move container to workspace 3 FILES
+#bindsym $mod+Shift+4 move container to workspace 4 CHAT
+bindsym $mod+Shift+1 exec ~/bin/swayworkspace move 1
+bindsym $mod+Shift+2 exec ~/bin/swayworkspace move 2
+bindsym $mod+Shift+3 exec ~/bin/swayworkspace move 3
+bindsym $mod+Shift+4 exec ~/bin/swayworkspace move 4
 
 # Move to next and previous workspace on output
 #bindsym $mod+right workspace next_on_output
 #bindsym $mod+left workspace prev_on_output
-bindsym $mod+right exec ~/bin/swaymoveworkspace next
-bindsym $mod+left exec ~/bin/swaymoveworkspace previous
-#bindsym $mod+right exec ~/bin/swayworkspace navigate next
-#bindsym $mod+left exec ~/bin/swayworkspace navigate previous
+#bindsym $mod+right exec ~/bin/swaymoveworkspace next
+#bindsym $mod+left exec ~/bin/swaymoveworkspace previous
+bindsym $mod+right exec ~/bin/swayworkspace navigate next
+bindsym $mod+left exec ~/bin/swayworkspace navigate previous
 
 ##################
 ## Layout stuff ##
@@ -183,4 +183,4 @@ bar {
 exec nm-applet
 exec insync start
 exec_always /home/aviau/git/dotfiles/bin/swayoutputcfg
-#exec_always ~/bin/swayworkspace navigate 1
+exec_always ~/bin/swayworkspace navigate 1

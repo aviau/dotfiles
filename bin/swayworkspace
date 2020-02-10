@@ -10,9 +10,7 @@ WORKSPACE_NAMES=(
 if [[ $1 == "navigate" ]]; then
     # Navitage to another workspace
 
-    FOCUSED_WORKSPACE_NAME=$(swaymsg -t get_workspaces | jq '.[] | select(.focused == true).name')
-    FOCUSED_WORKSPACE_NUM=$(echo "${FOCUSED_WORKSPACE_NAME}" | awk '{print $1}' | cut -d _ -f 2)
-
+    FOCUSED_WORKSPACE_NUM=$(swaymsg -t get_workspaces | jq --raw-output '.[] | select(.focused == true).name' | awk '{print $1}')
     FOCUSED_OUTPUT_NUM=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).id')
 
     # Find the next workspace number
@@ -32,7 +30,7 @@ if [[ $1 == "navigate" ]]; then
 
     TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[TARGET_WORKSPACE_NUM]}
 
-    swaymsg "workspace ${FOCUSED_OUTPUT_NUM}_${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"
+    swaymsg "workspace ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME} (${FOCUSED_OUTPUT_NUM})"
 
 elif [[ $1 == "move" ]]; then
     # Move the focused container to another workspace
@@ -41,6 +39,6 @@ elif [[ $1 == "move" ]]; then
     TARGET_WORKSPACE_NUM=$2
     TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[$2]}
 
-    swaymsg  "move container to workspace ${FOCUSED_OUTPUT_NUM}_${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"
+    swaymsg  "move container to workspace ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME} (${FOCUSED_OUTPUT_NUM})"
 
 fi
