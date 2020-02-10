@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+# swayworkspace provides custom workspace management for sway.
+# 
+# Navigating to the previous/next workspace of the current output:
+#   ./swayworkspace navigate [previous|next]
+#
+# Navigating to a specific workspace of the current output:
+#   ./swayworkspace navigate <workspace_number>
+#
+# Moving the currently focused container to a worksapce of the current output:
+#   ./swayworkspace move <workspace_number>
+#
+#
+# The program does yet support moving containes from one screen to another.
+#
+#
+# Example Sway configuration:
+# 
+#   exec_always ./swayworkspace 1
+#   bindsym $mod+1 exec ~/bin/swayworkspace navigate 1
+#
+#   bindsym $mod+Shift+1 exec ~/bin/swayworkspace move 1
+# 
+#   bindsym $mod+right exec ~/bin/swayworkspace navigate next
+#   bindsym $mod+left exec ~/bin/swayworkspace navigate previous
+
+
 WORKSPACE_NAMES=(
     ["1"]="WEB"
     ["2"]="TERMINAL"
