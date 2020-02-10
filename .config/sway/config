@@ -182,6 +182,7 @@ bar {
     font pango:monospace Bold 12
     strip_workspace_numbers yes
     tray_output none
+    workspace_buttons no
 }
 
 #############
