@@ -2,9 +2,11 @@
 
 set -e
 
-number_of_displays=$(swaymsg -t get_outputs | jq '. | length')
-first_display_name=$(swaymsg -t get_outputs | jq '.[0]["name"]' --raw-output)
-first_display_model=$(swaymsg -t get_outputs | jq '.[0]["model"]' --raw-output)
+OUTPUTS=$(swaymsg -t get_outputs | jq '.')
+
+number_of_displays=$(echo ${OUTPUTS} | jq '. | length')
+first_display_name=$(echo ${OUTPUTS} | jq '.[0]["name"]' --raw-output)
+first_display_model=$(echo ${OUTPUTS} | jq '.[0]["model"]' --raw-output)
 
 if [[ $number_of_displays == "1" && $first_display_name == "eDP-1" ]]; then
 
@@ -25,7 +27,7 @@ elif [[ $first_display_model == "LG HDR 4K" ]]; then
 
 elif [[ $number_of_displays == "3" ]]; then
 
-    second_display_model=$(swaymsg -t get_outputs | jq '.[1]["model"]' --raw-output)
+    second_display_model=$(echo ${OUTPUTS} | jq '.[1]["model"]' --raw-output)
 
     if [[ $first_display_model == "BenQ XL2420T" \
        || $second_display_model == "VP2650wb" ]]; then
