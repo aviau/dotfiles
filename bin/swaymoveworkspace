@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+WORKSPACE_NAMES=(
+    ["1"]="WEB"
+    ["2"]="TERMINAL"
+    ["3"]="FILES"
+    ["4"]="CHAT"
+)
+
 WORKSPACES=$(swaymsg -t get_workspaces | jq '.')
 
 FOCUSED_WORKSPACE=$(echo "${WORKSPACES}" | jq '.[] | select(.focused == true)')
@@ -21,4 +28,6 @@ elif [[ ${TARGET_WORKSPACE_NUM} -lt 1 ]]; then
     TARGET_WORKSPACE_NUM="4"
 fi
 
-swaymsg "workspace ${TARGET_WORKSPACE_NUM}"
+TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[TARGET_WORKSPACE_NUM]}
+
+swaymsg "workspace ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"
