@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 current_layout=$(swaymsg -t get_inputs | jq '.[0]["xkb_active_layout_name"]' --raw-output)
 
 if [[ ${current_layout} == "English (US)" ]]; then
