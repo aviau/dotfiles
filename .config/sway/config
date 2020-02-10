@@ -156,14 +156,12 @@ mode "resize" {
 
 bar {
         position top
-#       status_command while ~/.config/sway/sway_bar_top.sh; do sleep 1; done
         status_command i3blocks -c ~/.config/sway/status_top.conf
         font pango:monospace Bold 12
 }
 
 bar {
         position bottom
-#       status_command while ~/.config/sway/sway_bar_bottom.sh; do sleep 1; done
         status_command i3blocks -c ~/.config/sway/status_bottom.conf
         font pango:monospace Bold 12
 }
