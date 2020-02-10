@@ -165,15 +165,15 @@ mode "resize" {
 # exec_always ~/.config/waybar/waybar.sh
 
 bar {
-        position top
-        status_command i3blocks -c ~/.config/sway/status_top.conf
-        font pango:monospace Bold 12
+    position top
+    status_command i3blocks -c ~/.config/sway/status_top.conf
+    font pango:monospace Bold 12
 }
 
 bar {
-        position bottom
-        status_command i3blocks -c ~/.config/sway/status_bottom.conf
-        font pango:monospace Bold 12
+    position bottom
+    status_command i3blocks -c ~/.config/sway/status_bottom.conf
+    font pango:monospace Bold 12
 }
 
 #############
