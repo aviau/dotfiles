@@ -85,13 +85,16 @@ bindsym $mod+3 workspace 3 FILES
 bindsym $mod+4 workspace 4 CHAT
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace 1 WEB
+bindsym $mod+Shift+2 move container to workspace 2 TERMINAL
+bindsym $mod+Shift+3 move container to workspace 3 FILES
+bindsym $mod+Shift+4 move container to workspace 4 CHAT
 
+# Move to next and previous workspace on output
 bindsym $mod+right workspace next_on_output
 bindsym $mod+left workspace prev_on_output
+# bindsym $mod+right exec ~/bin/swaymoveworkspace next
+# bindsym $mod+left exec ~/bin/swaymoveworkspace previous
 
 ##################
 ## Layout stuff ##
