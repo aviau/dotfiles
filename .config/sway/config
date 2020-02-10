@@ -50,6 +50,10 @@ bindsym $mod+z exec guake
 # Lock screen
 bindsym $mod+l exec swaylock --ignore-empty-password --color 000000
 
+# Screenshot
+bindsym Print exec ~/bin/wayshot
+bindsym Shift+Print exec ~/bin/wayshot -a
+
 # switch keyboard map
 # bindsym Shift+Tab exec ~/bin/swaykbtoggle
 

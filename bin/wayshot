@@ -2,4 +2,12 @@
 
 set -e
 
-grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+DESTINATION_FILE="$(xdg-user-dir PICTURES)/screenshot_$(date +'%Y-%m-%d_%H-%M-%S-%3N').png"
+
+AREA_SELECTION=""
+if [[ $1 == "-a" ]]; then
+    AREA_SELECTION=$(slurp)
+    AREA_SELECTION="-g \"${AREA_SELECTION}\""
+fi
+
+eval grim ${AREA_SELECTION} ${DESTINATION_FILE}
