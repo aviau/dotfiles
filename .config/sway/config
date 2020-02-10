@@ -4,22 +4,27 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-#
+###############
+## Variables ##
+###############
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 
-# General config
+#############
+## General ##
+#############
+
 gaps inner 8
 gaps outer 0
 default_border none
 
-### Input configuration
 input * {
     xkb_layout us,ca
     xkb_options caps:swapescape,grp:shift_caps_toggle
