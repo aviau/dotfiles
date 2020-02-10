@@ -181,6 +181,7 @@ bar {
     status_command i3blocks -c ~/.config/sway/status_bottom.conf
     font pango:monospace Bold 12
     strip_workspace_numbers yes
+    tray_output none
 }
 
 #############
