@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+# swayworkspace provides custom workspace management for sway.
+# 
+# Navigating to the previous/next workspace of the current output:
+#   swayworkspace navigate [previous|next]
+#
+# Navigating to a specific workspace of the current output:
+#   swayworkspace navigate <workspace_number>
+#
+# Moving the currently focused container to a workspace of the current output:
+#   swayworkspace move <workspace_number>
+#
+#
+# The program does yet support moving containes from one screen to another.
+#
+#
+# Example Sway configuration:
+# 
+#   exec_always swayworkspace navigate 1
+#   bindsym $mod+1 exec swayworkspace navigate 1
+#
+#   bindsym $mod+Shift+1 exec swayworkspace move 1
+# 
+#   bindsym $mod+right exec swayworkspace navigate next
+#   bindsym $mod+left exec swayworkspace navigate previous
+
+
+WORKSPACE_NAMES=(
+    ["1"]="WEB"
+    ["2"]="TERMINAL"
+    ["3"]="FILES"
+    ["4"]="CHAT"
+)
+
+if [[ $1 == "navigate" ]]; then
+    # Navitage to another workspace
+
+    FOCUSED_WORKSPACE_NUM=$(swaymsg -t get_workspaces | jq --raw-output '.[] | select(.focused == true).name' | awk '{print $1}')
+    FOCUSED_OUTPUT_NUM=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).id')
+    FOCUSED_WORKSPACE_NUM=$(expr ${FOCUSED_WORKSPACE_NUM} - ${FOCUSED_OUTPUT_NUM} \* 100)
+
+    # Find the next workspace number
+    if [[ $2 == "next" ]]; then
+        TARGET_WORKSPACE_NUM=$(expr ${FOCUSED_WORKSPACE_NUM} + 1)
+    elif [[ $2 == "previous" ]]; then
+        TARGET_WORKSPACE_NUM=$(expr ${FOCUSED_WORKSPACE_NUM} - 1)
+    else
+        TARGET_WORKSPACE_NUM=$2
+    fi
+
+    if [[ ${TARGET_WORKSPACE_NUM} -gt 4 ]]; then
+        TARGET_WORKSPACE_NUM="1"
+    elif [[ ${TARGET_WORKSPACE_NUM} -lt 1 ]]; then
+        TARGET_WORKSPACE_NUM="4"
+    fi
+
+    OUTPUT_AND_WORKSPACE_NUM=$(expr ${FOCUSED_OUTPUT_NUM} \* 100 + ${TARGET_WORKSPACE_NUM})
+    TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[TARGET_WORKSPACE_NUM]}
+
+    swaymsg "workspace ${OUTPUT_AND_WORKSPACE_NUM} ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"
+
+elif [[ $1 == "move" ]]; then
+    # Move the focused container to another workspace
+
+    FOCUSED_OUTPUT_NUM=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).id')
+    TARGET_WORKSPACE_NUM=$2
+    TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[$2]}
+    OUTPUT_AND_WORKSPACE_NUM=$(expr ${FOCUSED_OUTPUT_NUM} \* 100 + ${TARGET_WORKSPACE_NUM})
+
+    swaymsg  "move container to workspace ${OUTPUT_AND_WORKSPACE_NUM} ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"
+
+fi

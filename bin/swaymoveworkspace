@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+WORKSPACE_NAMES=(
+    ["1"]="WEB"
+    ["2"]="TERMINAL"
+    ["3"]="FILES"
+    ["4"]="CHAT"
+)
+
+WORKSPACES=$(swaymsg -t get_workspaces | jq '.')
+
+FOCUSED_WORKSPACE=$(echo "${WORKSPACES}" | jq '.[] | select(.focused == true)')
+FOCUSED_WORKSPACE_NUM=$(echo "${FOCUSED_WORKSPACE}" | jq '.num')
+
+# Find the next workspace number
+if [[ $1 == "next" ]]; then
+    TARGET_WORKSPACE_NUM=$(expr ${FOCUSED_WORKSPACE_NUM} + 1)
+elif [[ $1 == "previous" ]]; then
+    TARGET_WORKSPACE_NUM=$(expr ${FOCUSED_WORKSPACE_NUM} - 1)
+else
+    echo "You must speficy a direction."
+    exit 1
+fi
+
+if [[ ${TARGET_WORKSPACE_NUM} -gt 4 ]]; then
+    TARGET_WORKSPACE_NUM="1"
+elif [[ ${TARGET_WORKSPACE_NUM} -lt 1 ]]; then
+    TARGET_WORKSPACE_NUM="4"
+fi
+
+TARGET_WORKSPACE_NAME=${WORKSPACE_NAMES[TARGET_WORKSPACE_NUM]}
+
+swaymsg "workspace ${TARGET_WORKSPACE_NUM} ${TARGET_WORKSPACE_NAME}"

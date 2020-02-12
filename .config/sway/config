@@ -4,22 +4,27 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-#
+###############
+## Variables ##
+###############
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 
-# General config
-gaps inner 5
-gaps outer 5
+#############
+## General ##
+#############
+
+gaps inner 8
+gaps outer 0
 default_border none
 
-### Input configuration
 input * {
     xkb_layout us,ca
     xkb_options caps:swapescape,grp:shift_caps_toggle
@@ -50,6 +55,10 @@ bindsym $mod+z exec guake
 # Lock screen
 bindsym $mod+l exec swaylock --ignore-empty-password --color 000000
 
+# Screenshot
+bindsym Print exec ~/bin/wayshot
+bindsym Shift+Print exec ~/bin/wayshot -a
+
 # switch keyboard map
 # bindsym Shift+Tab exec ~/bin/swaykbtoggle
 
@@ -79,19 +88,32 @@ bindsym $mod+down exec pactl set-sink-volume @DEFAULT_SINK@ -5% \
 ################
 
 # Switch to workspace
-bindsym $mod+1 workspace 1 WEB
-bindsym $mod+2 workspace 2 TERMINAL
-bindsym $mod+3 workspace 3 FILES
-bindsym $mod+4 workspace 4 CHAT
+#bindsym $mod+1 workspace 1 WEB
+#bindsym $mod+2 workspace 2 TERMINAL
+#bindsym $mod+3 workspace 3 FILES
+#bindsym $mod+4 workspace 4 CHAT
+bindsym $mod+1 exec ~/bin/swayworkspace navigate 1
+bindsym $mod+2 exec ~/bin/swayworkspace navigate 2
+bindsym $mod+3 exec ~/bin/swayworkspace navigate 3
+bindsym $mod+4 exec ~/bin/swayworkspace navigate 4
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+#bindsym $mod+Shift+1 move container to workspace 1 WEB
+#bindsym $mod+Shift+2 move container to workspace 2 TERMINAL
+#bindsym $mod+Shift+3 move container to workspace 3 FILES
+#bindsym $mod+Shift+4 move container to workspace 4 CHAT
+bindsym $mod+Shift+1 exec ~/bin/swayworkspace move 1
+bindsym $mod+Shift+2 exec ~/bin/swayworkspace move 2
+bindsym $mod+Shift+3 exec ~/bin/swayworkspace move 3
+bindsym $mod+Shift+4 exec ~/bin/swayworkspace move 4
 
-bindsym $mod+right workspace next_on_output
-bindsym $mod+left workspace prev_on_output
+# Move to next and previous workspace on output
+#bindsym $mod+right workspace next_on_output
+#bindsym $mod+left workspace prev_on_output
+#bindsym $mod+right exec ~/bin/swaymoveworkspace next
+#bindsym $mod+left exec ~/bin/swaymoveworkspace previous
+bindsym $mod+right exec ~/bin/swayworkspace navigate next
+bindsym $mod+left exec ~/bin/swayworkspace navigate previous
 
 ##################
 ## Layout stuff ##
@@ -148,17 +170,19 @@ mode "resize" {
 # exec_always ~/.config/waybar/waybar.sh
 
 bar {
-        position top
-#       status_command while ~/.config/sway/sway_bar_top.sh; do sleep 1; done
-        status_command i3blocks -c ~/.config/sway/status_top.conf
-        font pango:monospace Bold 12
+    position top
+    status_command i3blocks -c ~/.config/sway/status_top.conf
+    font pango:monospace Bold 12
+    strip_workspace_numbers yes
 }
 
 bar {
-        position bottom
-#       status_command while ~/.config/sway/sway_bar_bottom.sh; do sleep 1; done
-        status_command i3blocks -c ~/.config/sway/status_bottom.conf
-        font pango:monospace Bold 12
+    position bottom
+    status_command i3blocks -c ~/.config/sway/status_bottom.conf
+    font pango:monospace Bold 12
+    strip_workspace_numbers yes
+    tray_output none
+    workspace_buttons no
 }
 
 #############
@@ -168,3 +192,4 @@ bar {
 exec nm-applet
 exec insync start
 exec_always /home/aviau/git/dotfiles/bin/swayoutputcfg
+exec_always ~/bin/swayworkspace navigate 1
