@@ -45,7 +45,7 @@ bindsym $mod+Shift+c kill
 bindsym $mod+r exec rofi -show run
 
 # Password manager
-bindsym $mod+p exec ~/bin/passmenu --type -l 15
+bindsym $mod+p exec ~/bin/passmenu -l 15
 
 # Dropdown terminal
 for_window [app_id="guake"] floating enable, \
