@@ -2,12 +2,14 @@
 
 set -e
 
-current_layout=$(swaymsg -t get_inputs | jq '.[0]["xkb_active_layout_name"]' --raw-output)
+CURRENT_INDEX=$(swaymsg -t get_inputs | jq '. | map(select(.type == "keyboard")) | .[0].xkb_active_layout_index')
 
-if [[ ${current_layout} == "English (US)" ]]; then
-    swaymsg "input * xkb_layout ca"
+if [[ ${CURRENT_INDEX} == "1" ]]; then
+    NEW_INDEX="0"
 else
-    swaymsg "input * xkb_layout us"
+    NEW_INDEX="1"
 fi
+
+swaymsg "input * xkb_switch_layout ${NEW_INDEX}"
 
 pkill -RTMIN+2 i3blocks
