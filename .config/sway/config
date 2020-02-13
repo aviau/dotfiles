@@ -27,7 +27,7 @@ default_border none
 
 input * {
     xkb_layout us,ca
-    xkb_options caps:swapescape,grp:shift_caps_toggle
+    xkb_options caps:swapescape
     tap enabled
 }
 
@@ -60,7 +60,7 @@ bindsym Print exec ~/bin/wayshot
 bindsym Shift+Print exec ~/bin/wayshot -a
 
 # switch keyboard map
-# bindsym Shift+Tab exec ~/bin/swaykbtoggle
+bindsym Shift+Tab exec ~/bin/swaykbtoggle
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
