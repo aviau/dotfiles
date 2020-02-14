@@ -17,7 +17,7 @@
 #
 # Example Sway configuration:
 # 
-#   exec_always swayworkspace navigate 1
+#   exec_always swayworkspace startup
 #   bindsym $mod+1 exec swayworkspace navigate 1
 #
 #   bindsym $mod+Shift+1 exec swayworkspace move 1
