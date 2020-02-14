@@ -93,4 +93,7 @@ elif [[ $1 == "move" ]]; then
     move $2
 elif [[ $1 == "startup" ]]; then
     startup
+else
+    echo "unknown command"
+    exit 1
 fi
