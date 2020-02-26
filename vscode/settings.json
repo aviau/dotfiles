@@ -55,7 +55,7 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.vue": "html"
+        "*.vue": "vue"
     },
     "python.linting.mypyEnabled": true,
     "html.mirrorCursorOnMatchingTag": false
