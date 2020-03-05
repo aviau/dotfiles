@@ -58,5 +58,6 @@
         "*.vue": "vue"
     },
     "python.linting.mypyEnabled": true,
-    "html.mirrorCursorOnMatchingTag": false
+    "html.mirrorCursorOnMatchingTag": false,
+    "python.linting.pylintEnabled": false
 }
