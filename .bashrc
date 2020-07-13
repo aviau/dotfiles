@@ -17,6 +17,11 @@ if [ -d "$GOPATH/bin" ] ; then
     export PATH="$GOPATH/bin:$PATH"
 fi
 
+# set PATH to include rust stuff
+if [ -d "$HOME/.cargo/bin" ] ; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # set path to include flare stuff
 if [ -d "$HOME/git/flare/flare-tools/bin" ] ; then
     export PATH="$HOME/git/flare/flare-tools/bin:$PATH"
@@ -38,7 +43,6 @@ fi
 if [ -d "$HOME/.pyenv/bin" ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 fi
 
 # Personnal Aliases
