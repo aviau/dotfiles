@@ -59,5 +59,18 @@
     },
     "python.linting.mypyEnabled": true,
     "html.mirrorCursorOnMatchingTag": false,
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "enabled": true,
+        "args": []
+    }
 }
