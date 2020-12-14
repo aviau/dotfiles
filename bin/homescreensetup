@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 # Creating a new mode:
 # 1. Generate the modeline
@@ -23,7 +23,8 @@ then
            --output eDP-1 --off
 elif xrandr -q | grep -q "DP-2-2 connected";
 then
-    xrandr --output DP-2-1 --mode 1920x1080 \
-           --output DP-2-2 --mode 1920x1200 --right-of DP-2-1 \
-           --output eDP-1 --off
+    xrandr \
+        --output DP-2-1 --mode 1920x1080 \
+        --output DP-2-2 --mode 1920x1200 --right-of DP-2-1 \
+        --output eDP-1 --off
 fi
