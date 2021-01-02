@@ -1,0 +1,11 @@
+[Unit]
+Description=Perkeep server
+After=network.target
+
+[Service]
+ExecStart=/home/aviau/go/bin/perkeepd
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target

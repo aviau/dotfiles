@@ -9,3 +9,6 @@ ycm/**/compile_commands.json
 
 # setxdpi changes this all the time
 /.Xresources
+
+# per-system systemd config
+/.config/systemd/user/*.wants

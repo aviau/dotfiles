@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-set -e
+set -eo pipefail
 
-DOTFILES_DIR=$(dirname $(readlink -f $0))
+DOTFILES_DIR=$(realpath $(dirname $0))
 
 git submodule update --init --recursive
 
@@ -76,6 +76,7 @@ rm -rf ~/.config/ranger
 ln -sf ${DOTFILES_DIR}/.config/ranger ~/.config/ranger
 
 # .gconf/apps/guake
+mkdir -p ~/.gconf/apps
 ln -sf ${DOTFILES_DIR}/.gconf/apps/guake ~/.gconf/apps/guake
 
 # .gitconfig
@@ -110,7 +111,11 @@ mkdir -p ~/.gnupg
 ln -sf ${DOTFILES_DIR}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
 ln -sf ${DOTFILES_DIR}/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ln -sf ${DOTFILES_DIR}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
-chmod -R 700 ~/.gnupg
+chmod -R 700 ~/.gnupg || true
 
 # .caffrc
 ln -sf ${DOTFILES_DIR}/.caffrc ~/.caffrc
+
+# systemd
+rm -rf ~/.config/systemd
+ln -sf ${DOTFILES_DIR}/.config/systemd ~/.config/systemd
