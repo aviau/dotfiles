@@ -5,6 +5,8 @@
 #  - xdotool
 #  - gopass (or pass)
 
+set -eo pipefail
+
 shopt -s nullglob globstar
 
 typeit=0
