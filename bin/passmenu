@@ -29,10 +29,14 @@ do
 done
 
 
-prefix=${PASSWORD_STORE_DIR-~/.password-store}
-password_files=( "${prefix}"/**/*.gpg )
+prefix=${PASSWORD_STORE_DIR-${HOME}/.password-store}
+pass_history_file="${prefix}/.history"
+
+password_files=( `tac ${pass_history_file}` )
+password_files+=( "${prefix}"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
+password_files=( `echo ${password_files[@]} | tr ' ' '\n' | awk '!seen[$0]++'` )
 
 password=$(printf '%s\n' "${password_files[@]}" | rofi -p "passwords" -dmenu "$@")
 
@@ -52,3 +56,8 @@ case "${typeit}${WAYLAND_DISPLAY+w}" in
         pass show ${pass_opts} "${password}" | awk 'BEGIN{ORS=""} {print; exit}' | sudo ydotool type --file -
         ;;
 esac
+
+# Add the password to the history
+touch ${pass_history_file}
+echo "${password}" >> ${pass_history_file}
+echo "$(tail -30 ${pass_history_file})" > ${pass_history_file}
