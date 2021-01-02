@@ -12,6 +12,11 @@ export NVIM_HOME=$HOME/viau.alexandre@gmail.com/notes
 export DEBSIGN_PROGRAM=gpg
 export SSH_AUTH_SOCK=/run/user/$( id -u)/gnupg/S.gpg-agent.ssh
 
+# set PATH to include local go install
+if [ -d "/usr/local/go/bin" ] ; then
+    export PATH="/usr/local/go/bin:$PATH"
+fi
+
 # set PATH to include golang stuff
 if [ -d "$GOPATH/bin" ] ; then
     export PATH="$GOPATH/bin:$PATH"
