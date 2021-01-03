@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+export CAMLI_SERVER=http://localhost:8080
+
+devcam tool $@

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+cd ~/go/src/perkeep.org
+
+devcam server -port=8080
