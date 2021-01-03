@@ -119,3 +119,7 @@ ln -sf ${DOTFILES_DIR}/.caffrc ~/.caffrc
 # systemd
 rm -rf ~/.config/systemd
 ln -sf ${DOTFILES_DIR}/.config/systemd ~/.config/systemd
+
+# perkeep
+mkdir -p ~/.perkeepfs
+ln -nsf ~/.perkeepfs/roots/root ~/perkeep
