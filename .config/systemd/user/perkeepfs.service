@@ -1,0 +1,12 @@
+[Unit]
+Description=PerkeepFS
+After=network.target
+
+[Service]
+ExecStartPre=mkdir -p /home/aviau/.perkeepfs
+ExecStart=/home/aviau/go/bin/pk-mount /home/aviau/.perkeepfs
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target
