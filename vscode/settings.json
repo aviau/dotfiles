@@ -72,5 +72,8 @@
     "terraform.languageServer": {
         "enabled": true,
         "args": []
+    },
+    "search.exclude": {
+        "**/vendor/**": true
     }
 }
