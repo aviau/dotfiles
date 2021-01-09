@@ -20,7 +20,7 @@
     "editor.minimap.renderCharacters": true,
     "workbench.colorTheme": "One Dark Pro",
     "go.testFlags": [
-        "-v",
+        "-v"
     ],
     "go.useLanguageServer": true,
     "editor.autoClosingBrackets": false,
