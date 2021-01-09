@@ -30,7 +30,9 @@ done
 
 
 prefix=${PASSWORD_STORE_DIR-${HOME}/.password-store}
+
 pass_history_file="${prefix}/.history"
+touch ${pass_history_file}
 
 password_files=( `tac ${pass_history_file}` )
 password_files+=( "${prefix}"/**/*.gpg )
@@ -58,6 +60,5 @@ case "${typeit}${WAYLAND_DISPLAY+w}" in
 esac
 
 # Add the password to the history
-touch ${pass_history_file}
 echo "${password}" >> ${pass_history_file}
 echo "$(tail -30 ${pass_history_file})" > ${pass_history_file}
