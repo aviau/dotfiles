@@ -22,7 +22,7 @@
     "go.testFlags": [
         "-v",
     ],
-    "go.useLanguageServer": false,
+    "go.useLanguageServer": true,
     "editor.autoClosingBrackets": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
