@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -ex
+set -eox pipefail
 
 # Creating a new mode:
 # 1. Generate the modeline
@@ -17,12 +17,19 @@ xset -display :0.0 s noblank
 
 if xrandr -q | grep -q "3840x2160" && xrandr -q | grep -q "DP-2-3 connected";
 then
+#
+# Example:
 #    xrandr --newmode "3840x2160_30.00"  338.75  3840 4080 4488 5136  2160 2163 2168 2200 -hsync +vsync || true
 #    xrandr --verbose --addmode DP-2-2 "3840x2160_30.00" || true
 #    xrandr --verbose --addmode DP-2-3 "3840x2160_30.00" || true
 #    xrandr --output DP-2-2 --mode "3840x2160_30.00" \
 #           --output DP-2-3 --mode "3840x2160_30.00" --right-of DP-2-2 \
 #           --output eDP-1 --off
+#
+
+if xrandr -q | grep -q "3840x2160" && xrandr -q | grep -q "DP-2-3 connected";
+then
+
     xrandr --output DP-2-2 --mode "1920x1080" \
            --output DP-2-3 --mode "1920x1080" --right-of DP-2-2 \
            --output eDP-1 --off
@@ -32,4 +39,9 @@ then
         --output DP-2-1 --mode 1920x1080 \
         --output DP-2-2 --mode 1920x1200 --right-of DP-2-1 \
         --output eDP-1 --off
+elif xrandr -q | grep "HDMI-2 connected";
+then
+    # Sophie's place
+    xrandr --output HDMI-2 --mode "1920x1080" \
+           --output eDP-1 --off
 fi
