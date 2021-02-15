@@ -10,6 +10,11 @@ set -ex
 # 3. Add the mode to the output:
 #     - xrandr --verbose --addmode VGA-0  "1600x900_75.00"
 
+# Disable screen blank
+xset -display :0.0 -dpms
+xset -display :0.0 s off
+xset -display :0.0 s noblank
+
 if xrandr -q | grep -q "3840x2160" && xrandr -q | grep -q "DP-2-3 connected";
 then
 #    xrandr --newmode "3840x2160_30.00"  338.75  3840 4080 4488 5136  2160 2163 2168 2200 -hsync +vsync || true
