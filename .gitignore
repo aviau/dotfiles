@@ -12,3 +12,6 @@ ycm/**/compile_commands.json
 
 # per-system systemd config
 /.config/systemd/user/*.wants
+
+# fonts
+/fonts/.uuid
