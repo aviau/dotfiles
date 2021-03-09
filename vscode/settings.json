@@ -76,5 +76,8 @@
     "search.exclude": {
         "**/vendor/**": true
     },
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "workbench.editorAssociations": [],
+    "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
+    "editor.fontLigatures": false
 }
