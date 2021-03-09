@@ -123,3 +123,11 @@ ln -sf ${DOTFILES_DIR}/.config/systemd ~/.config/systemd
 # perkeep
 mkdir -p ~/.perkeepfs
 ln -nsf ~/.perkeepfs/roots/root ~/perkeep
+
+# fonts
+rm -rf ~/.local/share/fonts
+ln -nsf ${DOTFILES_DIR}/fonts ~/.local/share/fonts
+
+# font configuration
+mkdir -p ~/.config/fontconfig
+ln -nsf ${DOTFILES_DIR}/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
