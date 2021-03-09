@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+wine explorer /desktop=shell,1920x1080
