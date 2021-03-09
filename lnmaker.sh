@@ -131,3 +131,17 @@ ln -nsf ${DOTFILES_DIR}/fonts ~/.local/share/fonts
 # font configuration
 mkdir -p ~/.config/fontconfig
 ln -nsf ${DOTFILES_DIR}/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+
+# Download some fonts
+if [[ ! -f fonts/Menlo-Regular.ttf ]]; then
+    curl https://download.alexandreviau.net/fonts/Menlo-Regular.ttf -o fonts/Menlo-Regular.ttf
+fi
+if [[ ! -f fonts/Menlo-Bold.ttf ]]; then
+    curl https://download.alexandreviau.net/fonts/Menlo-Bold.ttf -o fonts/Menlo-Bold.ttf
+fi
+if [[ ! -f fonts/Menlo-Italic.ttf ]]; then
+    curl https://download.alexandreviau.net/fonts/Menlo-Italic.ttf -o fonts/Menlo-Italic.ttf
+fi
+if [[ ! -f fonts/Menlo-Bold-Italic.ttf ]]; then
+    curl https://download.alexandreviau.net/fonts/Menlo-Bold-Italic.ttf -o fonts/Menlo-Bold-Italic.ttf
+fi
