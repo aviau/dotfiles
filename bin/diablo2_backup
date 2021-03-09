@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+current_date=$(date '+%Y-%m-%d')
+
+zip -j -r diablo2_${current_date} ~/.wine/drive_c/users/aviau/Saved\ Games/Diablo\ II/
