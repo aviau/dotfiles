@@ -77,7 +77,12 @@
         "**/vendor/**": true
     },
     "terminal.integrated.shell.linux": "/bin/bash",
-    "workbench.editorAssociations": [],
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
     "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false
 }
