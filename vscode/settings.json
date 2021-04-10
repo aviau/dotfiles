@@ -86,5 +86,6 @@
     "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     "go.toolsManagement.autoUpdate": true,
-    "python.experiments.enabled": false
+    "python.experiments.enabled": false,
+    "python.showStartPage": false
 }
