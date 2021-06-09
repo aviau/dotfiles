@@ -23,6 +23,10 @@ do
         pass_opts+=("--username")
         shift
         ;;
+        --2fa)
+        pass_opts+=("--2fa")
+        shift
+        ;;
         *)
         ;;
     esac

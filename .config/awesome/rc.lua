@@ -428,6 +428,7 @@ globalkeys = my_table.join(
     awful.key({ modkey, }, "z", function () os.execute("guake &") end),
     awful.key({ modkey, }, "p", function () os.execute("/home/aviau/bin/passmenu --type -l 15 &") end),
     awful.key({ modkey, }, "u", function () os.execute("/home/aviau/bin/passmenu --type --username -l 15 &") end),
+    awful.key({ modkey, "Shift" }, "f", function () os.execute("/home/aviau/bin/passmenu --type --2fa -l 15 &") end),
     awful.key({ "Shift" }, "Tab", function () kbdcfg.switch() end),
 
     -- Dropdown application
