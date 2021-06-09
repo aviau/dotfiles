@@ -87,5 +87,11 @@
     "editor.fontLigatures": false,
     "go.toolsManagement.autoUpdate": true,
     "python.experiments.enabled": false,
-    "python.showStartPage": false
+    "python.showStartPage": false,
+    "editor.tabSize": 8,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off"
 }
