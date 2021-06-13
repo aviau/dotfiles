@@ -77,12 +77,9 @@
         "**/vendor/**": true
     },
     "terminal.integrated.shell.linux": "/bin/bash",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     "go.toolsManagement.autoUpdate": true,
