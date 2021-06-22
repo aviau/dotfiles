@@ -78,7 +78,7 @@
     },
     "terminal.integrated.shell.linux": "/bin/bash",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
     "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
@@ -87,8 +87,11 @@
     "python.showStartPage": false,
     "editor.tabSize": 8,
     "editor.cursorStyle": "line",
-    "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    }
 }
