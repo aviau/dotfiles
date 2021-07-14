@@ -78,7 +78,7 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 #complete -F _quilt_completion $_quilt_complete_opt dquilt
 
 # Show exit codes
-export PROMPT_COMMAND=set_prompt
+PROMPT_COMMAND=set_prompt
 set_prompt() {
   # Capture exit code of last command
   local ex=$?
