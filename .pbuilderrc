@@ -1,4 +1,7 @@
-PBUILDERSATISFYDEPENDSCMD="/usr/lib/pbuilder/pbuilder-satisfydepends-gdebi"
+# Created with:
+# sudo cowbuilder --create --basepath /var/cache/pbuilder/base-debian_sid.cow --distribution=unstable --components=main --mirror=http://deb.debian.org/debian
+#PBUILDERSATISFYDEPENDSCMD="/usr/lib/pbuilder/pbuilder-satisfydepends-gdebi"
+BASEPATH="/var/cache/pbuilder/base-debian_sid.cow"
 
 # http://www.enricozini.org/blog/2006/tips/pbuilder-tips/
 # guide:
