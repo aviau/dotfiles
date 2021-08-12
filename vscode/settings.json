@@ -22,7 +22,6 @@
     "go.testFlags": [
         "-v"
     ],
-    "go.useLanguageServer": true,
     "editor.autoClosingBrackets": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
@@ -85,7 +84,6 @@
     "go.toolsManagement.autoUpdate": true,
     "python.experiments.enabled": false,
     "python.showStartPage": false,
-    "editor.tabSize": 8,
     "editor.cursorStyle": "line",
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
