@@ -25,9 +25,13 @@ xset -display :0.0 s noblank
 #           --output eDP-1 --off
 #
 
-if xrandr -q | grep -q "3840x2160" && xrandr -q | grep -q "DP-2-3 connected";
+if xrandr -q | grep -q "DP-2-1 connected 1920x1080" && xrandr -q | grep -q "DP-2-2 connected 1920x1080";
 then
-
+    xrandr --output DP-2-1 --mode "1920x1080" \
+           --output DP-2-2 --mode "1920x1080" --left-of DP-2-1 \
+           --output eDP-1 --off
+elif xrandr -q | grep -q "3840x2160" && xrandr -q | grep -q "DP-2-3 connected";
+then
     xrandr --output DP-2-2 --mode "1920x1080" \
            --output DP-2-3 --mode "1920x1080" --right-of DP-2-2 \
            --output eDP-1 --off
