@@ -38,3 +38,5 @@
 	pushInsteadOf = https://github.com/
 [http]
 	cookiefile = /home/aviau/.gitcookies
+[pull]
+	rebase = true
