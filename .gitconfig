@@ -39,4 +39,4 @@
 [http]
 	cookiefile = /home/aviau/.gitcookies
 [pull]
-	rebase = true
+	rebase = false
