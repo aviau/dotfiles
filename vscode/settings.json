@@ -91,5 +91,8 @@
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
+    },
+    "gopls": {
+        "experimentalWorkspaceModule": true
     }
 }
