@@ -107,6 +107,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Poetry
-if [ -d ${HOME}/.poetry/env ]; then
+if [ -f ${HOME}/.poetry/env ]; then
 	source ${HOME}/.poetry/env
 fi
