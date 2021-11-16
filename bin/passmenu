@@ -32,7 +32,7 @@ do
     esac
 done
 
-pass=gopass
+pass=~/bin/pass
 prefix=${PASSWORD_STORE_DIR-${HOME}/.password-store}
 
 pass_history_file="${prefix}/.history"
