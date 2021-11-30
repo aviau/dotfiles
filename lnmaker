@@ -120,6 +120,10 @@ chmod -R 700 ~/.gnupg || true
 # .caffrc
 ln -sf ${DOTFILES_DIR}/.caffrc ~/.caffrc
 
+# autorandr
+rm -rf ~/.config/autorandr
+ln -sf ${DOTFILES_DIR}/.config/autorandr ~/.config/autorandr
+
 # systemd
 rm -rf ~/.config/systemd
 ln -sf ${DOTFILES_DIR}/.config/systemd ~/.config/systemd
