@@ -12,7 +12,7 @@
 #   swayworkspace move <workspace_number>
 #
 #
-# The program does yet support moving containes from one screen to another.
+# The program does yet support moving containers from one screen to another.
 #
 #
 # Example Sway configuration:
