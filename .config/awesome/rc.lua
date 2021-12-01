@@ -64,6 +64,7 @@ run_once(
         "xscreensaver -no-splash",
         "nm-applet",
         "insync start",
+        "blueman-tray",
         "guake",
         "redshift-gtk",
         "xset r rate 200 20",
