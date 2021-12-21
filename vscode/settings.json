@@ -77,7 +77,8 @@
     },
     "terminal.integrated.shell.linux": "/bin/bash",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+        "*.ipynb": "jupyter-notebook",
+        "*.gz": "default"
     },
     "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
