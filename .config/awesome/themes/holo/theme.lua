@@ -56,7 +56,6 @@ theme.play                                      = theme.icon_dir .. "/play.png"
 theme.clock                                     = theme.icon_dir .. "/clock.png"
 theme.calendar                                  = theme.icon_dir .. "/cal.png"
 theme.cpu                                       = theme.icon_dir .. "/cpu.png"
-theme.tint                                      = theme.icon_dir .. "/tint.png"
 theme.net_up                                    = theme.icon_dir .. "/net_up.png"
 theme.net_down                                  = theme.icon_dir .. "/net_down.png"
 theme.layout_tile                               = theme.icon_dir .. "/tile.png"
@@ -124,7 +123,7 @@ theme.cal = lain.widget.cal({
 })
 
 -- Mail IMAP check
---[[ commented because it needs to be set before use
+--[[ to be set before use
 theme.mail = lain.widget.imap({
     timeout  = 180,
     server   = "server",
@@ -286,10 +285,13 @@ kbdcfg.switch = function ()
 end
 
 -- Weather
+--[[ to be set before use
 theme.weather = lain.widget.weather({
+    --APPID =
     city_id = 2643743, -- placeholder (London)
     notification_preset = { font = "Monospace 9", position = "bottom_right" },
 })
+--]]
 
 -- Launcher
 local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })

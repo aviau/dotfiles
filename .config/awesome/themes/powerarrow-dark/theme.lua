@@ -91,6 +91,8 @@ theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/
 local markup = lain.util.markup
 local separators = lain.util.separators
 
+local keyboardlayout = awful.widget.keyboardlayout:new()
+
 -- Textclock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
@@ -132,10 +134,10 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- MPD
-local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+local musicplr = awful.util.terminal .. " -title Music -e ncmpcpp"
 local mpdicon = wibox.widget.imagebox(theme.widget_music)
 mpdicon:buttons(my_table.join(
-    awful.button({ modkey }, 1, function () awful.spawn.with_shell(musicplr) end),
+    awful.button({ "Mod4" }, 1, function () awful.spawn(musicplr) end),
     awful.button({ }, 1, function ()
         os.execute("mpc prev")
         theme.mpd.update()
@@ -241,15 +243,25 @@ theme.volume = lain.widget.alsa({
         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
     end
 })
+theme.volume.widget:buttons(awful.util.table.join(
+                               awful.button({}, 4, function ()
+                                     awful.util.spawn("amixer set Master 1%+")
+                                     theme.volume.update()
+                               end),
+                               awful.button({}, 5, function ()
+                                     awful.util.spawn("amixer set Master 1%-")
+                                     theme.volume.update()
+                               end)
+))
 
 -- Net
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
     settings = function()
         widget:set_markup(markup.font(theme.font,
-                          markup("#7AC82E", " " .. net_now.received)
+                          markup("#7AC82E", " " .. string.format("%06.1f", net_now.received))
                           .. " " ..
-                          markup("#46A8C3", " " .. net_now.sent .. " ")))
+                          markup("#46A8C3", " " .. string.format("%06.1f", net_now.sent) .. " ")))
     end
 })
 
@@ -306,6 +318,7 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
+            keyboardlayout,
             spr,
             arrl_ld,
             wibox.container.background(mpdicon, theme.bg_focus),

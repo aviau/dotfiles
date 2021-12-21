@@ -1,8 +1,8 @@
 package = "awesome-freedesktop"
 version = "scm-1"
 source = {
-   url = "https://github.com/lcpz/awesome-freedesktop",
-   tag = "scm-1`"
+   url = "git://github.com/lcpz/awesome-freedesktop",
+   tag = "master",
 }
 description = {
    summary = "Freedesktop.org menu and desktop icons support for Awesome WM",

@@ -10,14 +10,14 @@ local helpers  = require("lain.helpers")
 local wibox    = require("wibox")
 local math     = math
 local string   = string
-local tostring = tostring
 
 -- CPU usage
 -- lain.widget.cpu
 
 local function factory(args)
-    local cpu      = { core = {}, widget = wibox.widget.textbox() }
-    local args     = args or {}
+    args           = args or {}
+
+    local cpu      = { core = {}, widget = args.widget or wibox.widget.textbox() }
     local timeout  = args.timeout or 2
     local settings = args.settings or function() end
 
@@ -49,7 +49,7 @@ local function factory(args)
                 -- Read current data and calculate relative values.
                 local dactive = active - core.last_active
                 local dtotal  = total - core.last_total
-                local usage   = math.ceil((dactive / dtotal) * 100)
+                local usage   = math.ceil(math.abs((dactive / dtotal) * 100))
 
                 core.last_active = active
                 core.last_total  = total
