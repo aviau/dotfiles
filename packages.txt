@@ -13,3 +13,4 @@ autorandr
 
 # Bluetooth
 blueman
+ofono
