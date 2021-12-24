@@ -4,6 +4,7 @@ git
 wget
 bash-completion
 scdaemon
+pavucontrol
 
 # Window manager / Graphical tools
 awesome
