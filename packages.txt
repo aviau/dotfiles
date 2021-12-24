@@ -6,3 +6,4 @@ xdotool
 wget
 blueman
 autorandr
+bash-completion
