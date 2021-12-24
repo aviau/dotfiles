@@ -3,3 +3,5 @@ gpg
 git
 rofi
 xdotool
+wget
+blueman
