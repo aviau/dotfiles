@@ -1,9 +1,14 @@
-awesome
+# Generic tools
 gpg
 git
+wget
+bash-completion
+
+# Window manager / Graphical tools
+awesome
 rofi
 xdotool
-wget
-blueman
 autorandr
-bash-completion
+
+# Bluetooth
+blueman
