@@ -5,3 +5,4 @@ rofi
 xdotool
 wget
 blueman
+autorandr
