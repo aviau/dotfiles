@@ -3,6 +3,7 @@ gpg
 git
 wget
 bash-completion
+scdaemon
 
 # Window manager / Graphical tools
 awesome
