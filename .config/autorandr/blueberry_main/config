@@ -3,12 +3,12 @@ off
 output HDMI-A-1
 off
 output DisplayPort-1
-gamma 1.0:0.714:0.526
+gamma 1.0:1.0:1.0
 mode 3840x2160
 pos 0x0
 rate 60.00
 output DisplayPort-0
-gamma 1.0:0.714:0.526
+gamma 1.0:1.0:1.0
 mode 3840x2160
 pos 3840x0
 primary
