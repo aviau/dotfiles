@@ -6,6 +6,7 @@ bash-completion
 scdaemon
 pavucontrol
 htop
+pwgen
 
 # Window manager / Graphical tools
 awesome
