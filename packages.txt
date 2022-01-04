@@ -5,6 +5,7 @@ wget
 bash-completion
 scdaemon
 pavucontrol
+htop
 
 # Window manager / Graphical tools
 awesome
