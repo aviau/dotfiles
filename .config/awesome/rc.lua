@@ -81,10 +81,7 @@ run_once(
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
         "gnome-keyring-daemon -r -d",
-
-        -- try to setup the screens as if we were docked
-        "/home/aviau/bin/homescreensetup",
-        "sleep 5 && /home/aviau/bin/homescreensetup",
+        "autorandr --change",
     }
 ) -- entries must be separated by commas
 

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-setxdpi 130
-
-pkill x
