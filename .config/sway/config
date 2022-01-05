@@ -179,5 +179,4 @@ bar {
 
 exec nm-applet
 exec insync start
-exec_always ~/bin/swayoutputcfg \
-            && ~/bin/swayworkspace startup
+exec_always ~/bin/swayworkspace startup
