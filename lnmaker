@@ -4,8 +4,6 @@ set -eo pipefail
 
 DOTFILES_DIR=$(realpath $(dirname $0))
 
-git submodule update --init --recursive
-
 # vscode
 mkdir -p ~/.config/Code/User
 ln -sf ${DOTFILES_DIR}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
@@ -72,8 +70,8 @@ ln -sf ${DOTFILES_DIR}/.profile ~/.profile
 ln -sf ${DOTFILES_DIR}/.bashrc ~/.bashrc
 
 # .config/autostart
-mv ~/.config/autostart ~/.config/autostart.bak
-ln -s ${DOTFILES_DIR}/.config/autostart ~/.config/autostart
+#mv ~/.config/autostart ~/.config/autostart.bak
+#ln -s ${DOTFILES_DIR}/.config/autostart ~/.config/autostart
 
 # ranger config
 rm -rf ~/.config/ranger
