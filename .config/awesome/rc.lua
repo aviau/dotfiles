@@ -77,7 +77,6 @@ run_once(
         "insync start",
         "blueman-tray",
         "guake",
-        "redshift-gtk",
         "xset r rate 200 20",
         "setxkbmap -option 'caps:swapescape'",
         "gnome-keyring-daemon -r -d",
