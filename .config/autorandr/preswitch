@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+AUTORANDR_CONFIGURATION_DIRECTORY="$(dirname "${BASH_SOURCE[0]}")"
+
+PROFILE_DIRECTORY="${AUTORANDR_CONFIGURATION_DIRECTORY}/${AUTORANDR_CURRENT_PROFILE}"
+PROFILE_XRESOURCES="${PROFILE_DIRECTORY}/.Xresources"
+
+if [[ -f "${PROFILE_XRESOURCES}" ]]; then
+    echo "Loading profile's .Xresources"
+    xrdb -merge "${PROFILE_XRESOURCES}"
+fi
+
+# TODO: check if awesome is running?
+echo "awesome.restart()" | awesome-client
