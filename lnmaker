@@ -22,9 +22,6 @@ ln -sf ${DOTFILES_DIR}/.sbuildrc ~/.sbuildrc
 # .devscripts
 ln -sf ${DOTFILES_DIR}/.devscripts ~/.devscripts
 
-# .Xresources
-ln -sf ${DOTFILES_DIR}/.Xresources ~/.Xresources
-
 # .vimrc
 ln -sf ${DOTFILES_DIR}/.vimrc ~/.vimrc
 

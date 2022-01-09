@@ -10,6 +10,7 @@ PROFILE_XRESOURCES="${PROFILE_DIRECTORY}/.Xresources"
 if [[ -f "${PROFILE_XRESOURCES}" ]]; then
     echo "Loading profile's .Xresources"
     xrdb -merge "${PROFILE_XRESOURCES}"
+    xrdb -q > ~/.Xresources
 fi
 
 # TODO: check if awesome is running?
