@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
+
+# .gitconfig
+ln -sf ${DOTFILES_DIR}/.gitconfig ~/.gitconfig
+
+# iterm
+rm -rf ~/.iterm
+ln -sf ${DOTFILES_DIR}/macos/.iterm ~/.iterm

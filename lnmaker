@@ -2,7 +2,13 @@
 
 set -eo pipefail
 
-DOTFILES_DIR=$(realpath $(dirname $0))
+DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+    echo 'macOS detected'
+    ${DOTFILES_DIR}/lnmaker_macos
+    exit 0
+fi
 
 # vscode
 mkdir -p ~/.config/Code/User
