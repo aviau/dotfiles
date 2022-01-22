@@ -1,2 +1,4 @@
 brew install iterm2
 brew install --cask docker
+brew install kubectl
+brew install awscli
