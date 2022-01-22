@@ -1,1 +1,2 @@
-iterm2
+brew install iterm2
+brew install --cask docker
