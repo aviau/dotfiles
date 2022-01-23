@@ -224,11 +224,6 @@
         "when": "isMacNative && openFolderWorkspaceSupport"
     },
     {
-        "key": "cmd+o",
-        "command": "-workbench.action.files.openFile",
-        "when": "false"
-    },
-    {
         "key": "cmd+p",
         "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
