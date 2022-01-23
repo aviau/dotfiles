@@ -1,7 +1,7 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "command+j",
+        "key": "cmd+j",
         "command": "list.focusDown",
         "when": "listFocus && !inputFocus"
     },
@@ -11,7 +11,7 @@
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "command+k",
+        "key": "cmd+k",
         "command": "list.focusUp",
         "when": "listFocus && !inputFocus"
     },
@@ -21,81 +21,81 @@
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "command+e",
+        "key": "cmd+e",
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "command+j",
+        "key": "cmd+j",
         "command": "workbench.action.quickOpenSelectNext"
     },
     {
-        "key": "command+k",
+        "key": "cmd+k",
         "command": "workbench.action.quickOpenSelectPrevious"
     },
     {
-        "key": "command+j",
+        "key": "cmd+j",
         "command": "selectNextSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "command+down",
+        "key": "cmd+down",
         "command": "-selectNextSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "command+k",
+        "key": "cmd+k",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "command+up",
+        "key": "cmd+up",
         "command": "-selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "command+tab",
+        "key": "cmd+tab",
         "command": "-workbench.action.openNextRecentlyUsedEditorInGroup"
     },
     {
-        "key": "command+shift+tab",
+        "key": "cmd+shift+tab",
         "command": "-workbench.action.openPreviousRecentlyUsedEditorInGroup"
     },
     {
-        "key": "command+tab",
+        "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
     },
     {
-        "key": "command+pagedown",
-        "command": "-workbench.action.nextEditor"
-    },
-    {
-        "key": "command+shift+tab",
+        "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditor"
     },
     {
-        "key": "command+pageup",
+        "key": "cmd+pagedown",
+        "command": "-workbench.action.nextEditor"
+    },
+    {
+        "key": "cmd+pageup",
         "command": "-workbench.action.previousEditor"
     },
     {
-        "key": "command+`",
+        "key": "cmd+`",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": "command+`",
+        "key": "cmd+`",
         "command": "-workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": "command+d",
+        "key": "cmd+d",
         "command": "-editor.action.addSelectionToNextFindMatch",
         "when": "editorFocus"
     },
     {
-        "key": "command+d",
+        "key": "cmd+d",
         "command": "-list.focusPageDown",
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "command+u",
+        "key": "cmd+u",
         "command": "-cursorUndo",
         "when": "textInputFocus"
     },
@@ -110,7 +110,7 @@
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "command+u",
+        "key": "cmd+u",
         "command": "-list.focusPageUp",
         "when": "listFocus && !inputFocus"
     },
@@ -125,7 +125,7 @@
         "when": "interactivePlaygroundFocus && !editorTextFocus"
     },
     {
-        "key": "command+u",
+        "key": "cmd+u",
         "command": "cursorPageUp",
         "when": "textInputFocus"
     },
@@ -135,7 +135,7 @@
         "when": "textInputFocus"
     },
     {
-        "key": "command+d",
+        "key": "cmd+d",
         "command": "cursorPageDown",
         "when": "textInputFocus"
     },
@@ -145,29 +145,29 @@
         "when": "textInputFocus"
     },
     {
-        "key": "command+s",
+        "key": "cmd+s",
         "command": "-workbench.action.files.save"
     },
     {
-        "key": "command+s",
+        "key": "cmd+s",
         "command": "workbench.action.gotoSymbol"
     },
     {
-        "key": "command+shift+o",
+        "key": "cmd+shift+o",
         "command": "-workbench.action.gotoSymbol"
     },
     {
-        "key": "command+shift+enter",
+        "key": "cmd+shift+enter",
         "command": "-editor.action.insertLineBefore",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "command+enter",
+        "key": "cmd+enter",
         "command": "-editor.action.insertLineAfter",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "command+enter",
+        "key": "cmd+enter",
         "command": "editor.action.goToDeclaration",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
@@ -177,45 +177,45 @@
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
-        "key": "command+r",
+        "key": "cmd+r",
         "command": "-workbench.action.openRecent"
     },
     {
-        "key": "command+shift+space",
+        "key": "cmd+shift+space",
         "command": "editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
     {
-        "key": "command+shift+space",
+        "key": "cmd+shift+space",
         "command": "-editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
     {
-        "key": "command+=",
+        "key": "cmd+=",
         "command": "-workbench.action.zoomIn"
     },
     {
-        "key": "command+shift+=",
+        "key": "cmd+shift+=",
         "command": "-workbench.action.zoomIn"
     },
     {
-        "key": "command+numpad_subtract",
+        "key": "cmd+numpad_subtract",
         "command": "-workbench.action.zoomOut"
     },
     {
-        "key": "command+-",
+        "key": "cmd+-",
         "command": "-workbench.action.zoomOut"
     },
     {
-        "key": "command+numpad_add",
+        "key": "cmd+numpad_add",
         "command": "-workbench.action.zoomIn"
     },
     {
-        "key": "command+numpad0",
+        "key": "cmd+numpad0",
         "command": "-workbench.action.zoomReset"
     },
     {
-        "key": "command+b",
+        "key": "cmd+b",
         "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
