@@ -21,10 +21,6 @@
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "cmd+e",
-        "command": "-workbench.action.quickOpen"
-    },
-    {
         "key": "cmd+j",
         "command": "workbench.action.quickOpenSelectNext"
     },
