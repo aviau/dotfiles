@@ -7,6 +7,9 @@ DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
 # .gitconfig
 ln -sf ${DOTFILES_DIR}/.gitconfig ~/.gitconfig
 
+# .gitignore_global
+ln -sf ${DOTFILES_DIR}/.gitignore_global ~/.gitignore_global
+
 # iterm
 rm -rf ~/.iterm
 ln -sf ${DOTFILES_DIR}/macos/.iterm ~/.iterm
