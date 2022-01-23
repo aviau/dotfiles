@@ -1,18 +1,15 @@
     {
-        "title": "Swap 'command + tab' with 'control + tab'",
-        "maintainers": [
-            "Radllaufer"
-        ],
+        "title": "Swap command+tab with control+tab",
         "rules": [
             {
-                "description": "Swap 'command + tab' with 'control + tab'",
+                "description": "Swap command+tab with control+tab",
                 "manipulators": [
                     {
                         "from": {
                             "key_code": "tab",
                             "modifiers": {
                                 "mandatory": [
-                                    "control"
+                                    "command"
                                 ],
                                 "optional": [
                                     "shift"
@@ -23,7 +20,7 @@
                             {
                                 "key_code": "tab",
                                 "modifiers": [
-                                    "option"
+                                    "control"
                                 ]
                             }
                         ],
@@ -34,7 +31,7 @@
                             "key_code": "tab",
                             "modifiers": {
                                 "mandatory": [
-                                    "option"
+                                    "control"
                                 ],
                                 "optional": [
                                     "shift"
@@ -45,7 +42,7 @@
                             {
                                 "key_code": "tab",
                                 "modifiers": [
-                                    "control"
+                                    "command"
                                 ]
                             }
                         ],
