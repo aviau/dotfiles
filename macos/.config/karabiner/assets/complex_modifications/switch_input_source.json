@@ -1,8 +1,8 @@
 {
-  "title": "Toggle Input Source",
+  "title": "Toggle input source",
   "rules": [
     {
-      "description": "Toggle Input Source",
+      "description": "Toggle input source",
       "manipulators": [
         {
           "conditions": [
