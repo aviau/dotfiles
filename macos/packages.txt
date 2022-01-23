@@ -3,3 +3,4 @@ brew install --cask docker
 brew install kubectl
 brew install awscli
 brew install pyenv
+brew install karabiner-elements
