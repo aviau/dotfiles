@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+
+set -eo pipefail
+
 brew install iterm2
 brew install --cask docker
 brew install kubectl
@@ -5,3 +9,4 @@ brew install awscli
 brew install pyenv
 brew install karabiner-elements
 brew install --cask discord
+brew install --cask visual-studio-code
