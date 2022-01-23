@@ -17,6 +17,13 @@ ln -sf ${DOTFILES_DIR}/macos/.iterm ~/.iterm
 # bashrc
 ln -sf ${DOTFILES_DIR}/macos/.bashrc ~/.bashrc
 
+# .vimrc
+ln -sf ${DOTFILES_DIR}/.vimrc ~/.vimrc
+
+# .vim
+rm -rf ~/.vim
+ln -sf ${DOTFILES_DIR}/.vim ~/.vim
+
 # karabiner
 rm -rf ~/.config/karabiner
 ln -sf ${DOTFILES_DIR}/macos/.config/karabiner ~/.config/karabiner
