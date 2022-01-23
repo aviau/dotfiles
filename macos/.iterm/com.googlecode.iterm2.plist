@@ -352,7 +352,7 @@
 	<string>07B3CA8C-71C1-462B-8201-0050C2BF99E9</string>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x74-0x40000-0x11</key>
+		<key>0x74-0x100000-0x11</key>
 		<dict>
 			<key>Action</key>
 			<integer>61</integer>
@@ -363,7 +363,7 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<key>0xf702-0x240000-0x7b</key>
+		<key>0xf702-0x300000-0x7b</key>
 		<dict>
 			<key>Action</key>
 			<integer>2</integer>
@@ -374,7 +374,7 @@
 			<key>Version</key>
 			<integer>0</integer>
 		</dict>
-		<key>0xf703-0x240000-0x7c</key>
+		<key>0xf703-0x300000-0x7c</key>
 		<dict>
 			<key>Action</key>
 			<integer>0</integer>
