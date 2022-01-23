@@ -10,3 +10,10 @@ ln -sf ${DOTFILES_DIR}/.gitconfig ~/.gitconfig
 # iterm
 rm -rf ~/.iterm
 ln -sf ${DOTFILES_DIR}/macos/.iterm ~/.iterm
+
+# bashrc
+ln -sf ${DOTFILES_DIR}/macos/.bashrc ~/.bashrc
+
+# karabiner
+rm -rf ~/.config/karabiner
+ln -sf ${DOTFILES_DIR}/macos/.config/karabiner ~/.config/karabiner
