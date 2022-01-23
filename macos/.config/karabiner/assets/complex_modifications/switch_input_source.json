@@ -1,0 +1,66 @@
+{
+  "title": "Toggle Input Source",
+  "rules": [
+    {
+      "description": "Toggle Input Source",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "^en$"
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                  "language": "^fr$"
+              }
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "^fr$"
+                }
+              ]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                  "language": "^en$"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
