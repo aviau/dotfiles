@@ -12,7 +12,7 @@ defaults write com.google.Chrome NSUserKeyEquivalents ' {
 }'
 
 # This fails :(
-defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "<string>com.googlecode.iterm2</string>"
+# defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "<string>com.googlecode.iterm2</string>"
 
 defaults write "com.googlecode.iterm2" NSUserKeyEquivalents '{
     Copy = "@$c";
