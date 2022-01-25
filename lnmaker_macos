@@ -14,7 +14,10 @@ ln -sf ${DOTFILES_DIR}/.gitignore_global ~/.gitignore_global
 rm -rf ~/.iterm
 ln -sf ${DOTFILES_DIR}/macos/.iterm ~/.iterm
 
-# bashrc
+# .bash_profile
+ln -sf ${DOTFILES_DIR}/macos/.bash_profile ~/.bash_profile
+
+# .bashrc
 ln -sf ${DOTFILES_DIR}/macos/.bashrc ~/.bashrc
 
 # .vimrc
