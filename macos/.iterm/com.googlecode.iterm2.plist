@@ -888,17 +888,6 @@
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
-				<key>0x74-0x100000-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>27</integer>
-					<key>Label</key>
-					<string></string>
-					<key>Text</key>
-					<string>D657F0A6-929E-463C-92F2-ADF7E6A17DD3</string>
-					<key>Version</key>
-					<integer>1</integer>
-				</dict>
 				<key>0x75-0x100000-0x20</key>
 				<dict>
 					<key>Action</key>
@@ -1825,17 +1814,6 @@
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
-				<key>0x74-0x100000-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>27</integer>
-					<key>Label</key>
-					<string></string>
-					<key>Text</key>
-					<string>D657F0A6-929E-463C-92F2-ADF7E6A17DD3</string>
-					<key>Version</key>
-					<integer>1</integer>
-				</dict>
 				<key>0x75-0x100000-0x20</key>
 				<dict>
 					<key>Action</key>
@@ -2195,7 +2173,7 @@
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SwitchWindowModifier</key>
