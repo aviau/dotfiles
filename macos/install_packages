@@ -8,5 +8,6 @@ brew install kubectl
 brew install awscli
 brew install pyenv
 brew install karabiner-elements
+brew install golang
 brew install --cask discord
 brew install --cask visual-studio-code
