@@ -32,7 +32,6 @@ if [ -d "$HOME/git/flare/flare-tools/bin" ] ; then
     export PATH="$HOME/git/flare/flare-tools/bin:$PATH"
 fi
 
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
@@ -42,7 +41,6 @@ fi
 if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
-
 
 # pyenv
 if [ -d "$HOME/.pyenv/bin" ]; then

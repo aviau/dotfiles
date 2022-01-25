@@ -1,6 +1,11 @@
 #Set variables
 export EDITOR="vim"
 
+# set PATH to include golang stuff
+if [ -d "$GOPATH/bin" ] ; then
+    export PATH="$GOPATH/bin:$PATH"
+fi
+
 # set path to include flare stuff
 if [ -d "$HOME/git/flare/flare-tools/bin" ] ; then
     export PATH="$HOME/git/flare/flare-tools/bin:$PATH"
