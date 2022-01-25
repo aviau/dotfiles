@@ -80,7 +80,7 @@
         "*.ipynb": "jupyter-notebook",
         "*.gz": "default"
     },
-    "editor.fontFamily": "'monospace', 'Droid Sans Fallback'",
+    "editor.fontFamily": "'menlo', 'monospace', 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     "go.toolsManagement.autoUpdate": true,
     "python.experiments.enabled": false,
