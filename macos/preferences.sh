@@ -2,13 +2,20 @@
 
 set -eo pipefail
 
-# Find hotkeys with: 'defaults find NSUserKeyEquivalents'
+echo "Restoring system preferences..."
+
+########################
+## Keyboard Shortcuts ##
+########################
 
 echo "Restoring keyboard shortcuts..."
+
+# Find hotkeys with: 'defaults find NSUserKeyEquivalents'
 
 defaults write com.google.Chrome NSUserKeyEquivalents ' {
     Back = "^\U2190";
     Forward = "^\U2192";
+    "Reload This Page" = "\\Uf708";
 }'
 
 # This fails :(
