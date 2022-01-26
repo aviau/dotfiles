@@ -10,6 +10,7 @@ fi
 export SSH_AUTH_SOCK="${HOME}/.ssh-agent.sock"
 if [[ ! -S ${SSH_AUTH_SOCK} ]]; then
     eval $(ssh-agent -s -a ${SSH_AUTH_SOCK})
+    ssh-add --apple-load-keychain
 fi
 
 if [[ -f ~/.bashrc ]]; then
