@@ -5,7 +5,7 @@ set -eo pipefail
 DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
 
 if [[ $OSTYPE == 'darwin'* ]]; then
-    echo 'MacOS detected.'
+    echo 'macOS detected.'
     ${DOTFILES_DIR}/lnmaker_macos
     exit 0
 fi
