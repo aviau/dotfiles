@@ -1,6 +1,7 @@
 #Set variables
 export EDITOR="vim"
 export GOPATH=$HOME/go
+export GPG_TTY=$(tty)
 
 # set PATH to include golang stuff
 if [ -d "$GOPATH/bin" ] ; then
