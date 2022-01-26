@@ -34,6 +34,10 @@ ln -sf ${DOTFILES_DIR}/.vim ~/.vim
 rm -rf ~/.config/karabiner
 ln -sf ${DOTFILES_DIR}/macos/.config/karabiner ~/.config/karabiner
 
+# ssh
+mkdir -p ~/.ssh
+ln -sf ${DOTFILES_DIR}/macos/.ssh/config ~/.ssh/config
+
 # vscode
 mkdir -p ~/Library/Application\ Support/Code/User
 ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
