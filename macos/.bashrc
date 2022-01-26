@@ -2,6 +2,7 @@
 export EDITOR="vim"
 export GOPATH=$HOME/go
 export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
 
 # set PATH to include golang stuff
 if [ -d "$GOPATH/bin" ] ; then

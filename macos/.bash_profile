@@ -7,10 +7,8 @@ if [[ -f ${BREW_PREFIX}/etc/bash_completion ]]; then
     . /usr/local/etc/bash_completion
 fi
 
-export SSH_AUTH_SOCK="${HOME}/.ssh-agent.sock"
-if [[ ! -S ${SSH_AUTH_SOCK} ]]; then
-    eval $(ssh-agent -s -a ${SSH_AUTH_SOCK})
-    ssh-add --apple-load-keychain
+if [[ ! -S ${HOME}/.gnupg/S.gpg-agent ]]; then
+    eval $(keychain --quiet --eval --agents gpg --inherit any)
 fi
 
 if [[ -f ~/.bashrc ]]; then
