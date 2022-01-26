@@ -39,7 +39,7 @@ ln -sf ${DOTFILES_DIR}/.vim ~/.vim
 rm -rf ~/.atom
 ln -sf ${DOTFILES_DIR}/.atom ~/.atom
 
-# .bin
+# bin
 ln -nsf ${DOTFILES_DIR}/bin ~/bin
 
 # awesome

@@ -4,6 +4,9 @@ set -eo pipefail
 
 DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
 
+# bin
+ln -nsf ${DOTFILES_DIR}/bin ~/bin
+
 # .gitconfig
 ln -sf ${DOTFILES_DIR}/.gitconfig ~/.gitconfig
 
