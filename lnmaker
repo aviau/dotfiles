@@ -67,10 +67,10 @@ rm -rf ~/.config/i3
 ln -sf ${DOTFILES_DIR}/.config/i3 ~/.config/i3
 
 # .profile
-ln -sf ${DOTFILES_DIR}/.profile ~/.profile
+ln -sf ${DOTFILES_DIR}/linux/.profile ~/.profile
 
 # .bashrc
-ln -sf ${DOTFILES_DIR}/.bashrc ~/.bashrc
+ln -sf ${DOTFILES_DIR}/linux/.bashrc ~/.bashrc
 
 # .config/autostart
 #mv ~/.config/autostart ~/.config/autostart.bak
