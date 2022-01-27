@@ -394,6 +394,10 @@
 	<true/>
 	<key>LeftCommand</key>
 	<integer>7</integer>
+	<key>NeverWarnAboutShortLivedSessions_07B3CA8C-71C1-462B-8201-0050C2BF99E9</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_07B3CA8C-71C1-462B-8201-0050C2BF99E9_selection</key>
+	<integer>0</integer>
 	<key>NeverWarnAboutShortLivedSessions_D657F0A6-929E-463C-92F2-ADF7E6A17DD3</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D657F0A6-929E-463C-92F2-ADF7E6A17DD3_selection</key>
