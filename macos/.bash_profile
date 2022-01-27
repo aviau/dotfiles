@@ -8,7 +8,7 @@ if [[ -f ${BREW_PREFIX}/etc/bash_completion ]]; then
 fi
 
 if [[ ! -S ${HOME}/.gnupg/S.gpg-agent ]]; then
-    eval $(keychain --quiet --eval --agents gpg --inherit any)
+    gpg-agent --daemon --quiet > /dev/null
 fi
 
 if [[ -f ~/.bashrc ]]; then

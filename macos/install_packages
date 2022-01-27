@@ -17,4 +17,3 @@ brew install --cask visual-studio-code
 # GPG tools
 brew install gpg
 brew install pinentry-mac
-brew install keychain
