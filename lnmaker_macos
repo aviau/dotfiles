@@ -50,5 +50,9 @@ ln -sf ${DOTFILES_DIR}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
 ln -sf ${DOTFILES_DIR}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
 chmod -R 700 ~/.gnupg || true
 
+# KeyBindings
+mkdir -p ~/Library/KeyBindings
+ln -sf ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
+
 # MacOS Preferences
 ${DOTFILES_DIR}/macos/preferences.sh

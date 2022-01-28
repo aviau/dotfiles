@@ -1,0 +1,4 @@
+{
+    /* Default key bindings can be found in /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict */
+    /* https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html */
+}
