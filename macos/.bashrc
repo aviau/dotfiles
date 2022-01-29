@@ -3,6 +3,13 @@ export EDITOR="vim"
 export GOPATH=$HOME/go
 export GPG_TTY=$(tty)
 
+# Enable completion
+BREW_PREFIX=$(brew --prefix)
+if [[ -f ${BREW_PREFIX}/etc/bash_completion ]]; then
+    export BASH_COMPLETION_COMPAT_DIR="${BREW_PREFIX}/etc/bash_completion.d"
+    . /usr/local/etc/bash_completion
+fi
+
 # GPG+SSH Agent
 export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
 if [[ ! -S ${HOME}/.gnupg/S.gpg-agent ]]; then
