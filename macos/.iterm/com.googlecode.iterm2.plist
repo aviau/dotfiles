@@ -389,9 +389,9 @@
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
-	<true/>
-	<key>HideMenuBarInFullscreen</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -2214,6 +2214,8 @@
 	<integer>6</integer>
 	<key>TabViewType</key>
 	<integer>1</integer>
+	<key>UIElementRequiresHotkeys</key>
+	<true/>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
