@@ -13,6 +13,7 @@ brew install karabiner-elements
 brew install golang
 brew install --cask discord
 brew install --cask visual-studio-code
+brew install --cask alfred
 
 # GPG tools
 brew install gpg
