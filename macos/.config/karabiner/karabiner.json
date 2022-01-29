@@ -16,56 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Swap command+tab with control+tab",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Toggle input source",
+                        "description": "toggle input source using shift+tab",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -119,6 +70,76 @@
                                         "select_input_source": {
                                             "language": "^en$"
                                         }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "swap command+tab with control+tab",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "shift+delete to delete_forward",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward"
                                     }
                                 ],
                                 "type": "basic"

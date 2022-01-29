@@ -1,8 +1,8 @@
 {
-  "title": "Toggle input source",
+  "title": "toggle input source using shift+tab",
   "rules": [
     {
-      "description": "Toggle input source",
+      "description": "toggle input source using shift+tab",
       "manipulators": [
         {
           "conditions": [

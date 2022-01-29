@@ -1,0 +1,26 @@
+{
+  "title": "shift+delete to delete_forward",
+  "rules": [
+    {
+      "description": "shift+delete to delete_forward",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "delete_or_backspace"
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
