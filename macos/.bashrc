@@ -53,3 +53,7 @@ if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
+
+function title {
+	echo -ne "\033]0;"$*"\007"
+}
