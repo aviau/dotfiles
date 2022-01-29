@@ -20,7 +20,7 @@ echo "Restoring keyboard shortcuts..."
 defaults write com.google.Chrome NSUserKeyEquivalents ' {
     Back = "^\U2190";
     Forward = "^\U2192";
-    "Reload This Page" = "\\Uf708";
+    "Reload This Page" = "\Uf708";
 }'
 
 # This fails :(
