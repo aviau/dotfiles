@@ -4,6 +4,11 @@ set -eo pipefail
 
 echo "Restoring system preferences..."
 
+# Disable entering accents by holding a character. This would interfere
+# with workflows like holding  down the 'j' key to scroll down multiple
+# lines in vscode.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 ########################
 ## Keyboard Shortcuts ##
 ########################
