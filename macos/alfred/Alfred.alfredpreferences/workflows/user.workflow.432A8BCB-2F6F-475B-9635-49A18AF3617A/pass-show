@@ -4,6 +4,35 @@ set -eo pipefail
 
 export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 
-pass show "$@" | awk 'BEGIN{ORS=""} {print; exit}'
+typeit=0
 
-osascript -e "display notification \"Copied password ${1} to clipboard\" with title \"Unix pass\""
+for arg in "$@"
+do
+    case $arg in
+        --type)
+        typeit=1
+        shift
+        ;;
+        *)
+        ;;
+    esac
+done
+
+PASSWORD=$(pass show ${pass_opts} "$@" | awk 'BEGIN{ORS=""} {print; exit}')
+
+case "${typeit}" in
+    0)
+        echo -n "${PASSWORD}" | pbcopy
+        osascript <<EOF
+            display notification "Copied password ${@: -1} to clipboard." with title "Alfred pass"
+EOF
+        ;;
+    1)
+		osascript <<EOF
+		    tell application "System Events"
+				keystroke "${PASSWORD}"
+			end tell
+EOF
+        ;;
+esac
+

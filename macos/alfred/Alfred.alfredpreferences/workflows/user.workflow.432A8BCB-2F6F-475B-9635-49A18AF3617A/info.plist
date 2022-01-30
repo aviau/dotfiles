@@ -33,18 +33,7 @@
 			</dict>
 		</array>
 		<key>BAE78B1C-79A4-41F8-B890-5FFA42F4A790</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>0D6F51AA-4BE9-498D-A105-3058FF138BDE</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>Alexandre Viau</string>
@@ -78,25 +67,6 @@
 			<string>BAE78B1C-79A4-41F8-B890-5FFA42F4A790</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>0D6F51AA-4BE9-498D-A105-3058FF138BDE</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -183,33 +153,26 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>0D6F51AA-4BE9-498D-A105-3058FF138BDE</key>
-		<dict>
-			<key>xpos</key>
-			<integer>635</integer>
-			<key>ypos</key>
-			<integer>90</integer>
-		</dict>
 		<key>4A28C731-79E5-40B5-B5E3-2FE9DCD55864</key>
 		<dict>
 			<key>xpos</key>
 			<integer>295</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>45</integer>
 		</dict>
 		<key>945B00D1-715B-4942-8DD0-DD61200D7933</key>
 		<dict>
 			<key>xpos</key>
 			<integer>125</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>45</integer>
 		</dict>
 		<key>BAE78B1C-79A4-41F8-B890-5FFA42F4A790</key>
 		<dict>
 			<key>xpos</key>
-			<integer>465</integer>
+			<integer>545</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>45</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
