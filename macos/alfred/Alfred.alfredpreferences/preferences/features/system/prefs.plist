@@ -28,8 +28,6 @@
 	<false/>
 	<key>volumedownKeywordEnabled</key>
 	<false/>
-	<key>volumemuteKeywordEnabled</key>
-	<false/>
 	<key>volumeupKeywordEnabled</key>
 	<false/>
 </dict>
