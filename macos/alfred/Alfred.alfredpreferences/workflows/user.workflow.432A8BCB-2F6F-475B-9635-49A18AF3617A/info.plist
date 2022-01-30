@@ -44,6 +44,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C9A3D3DB-7D19-40E4-97B4-D05B6D0541BA</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Type username</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>4A28C731-79E5-40B5-B5E3-2FE9DCD55864</key>
 		<array>
@@ -57,6 +67,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE2FB4D9-93AE-47E9-855D-AE493D1ECB00</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Type password</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>8C07786F-1EB9-43BC-9017-11C9C52ABF43</key>
 		<array>
@@ -67,6 +87,16 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D7E1675F-8606-4BF9-8AD9-D6B65683F0C5</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Type passcode</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -92,60 +122,11 @@
 	<key>description</key>
 	<string></string>
 	<key>disabled</key>
-	<true/>
+	<false/>
 	<key>name</key>
 	<string>pass</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>1</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>pass</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>./pass-filter "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>pass-filter</string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>Get passwords from pass</string>
-				<key>type</key>
-				<integer>8</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>4A28C731-79E5-40B5-B5E3-2FE9DCD55864</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -203,37 +184,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>32</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>U</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>0C1C435F-DF83-4E35-83EE-7CE76D319087</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -267,7 +217,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Get usernames from pass</string>
+				<string>Get passwords from pass</string>
 				<key>type</key>
 				<integer>8</integer>
 				<key>withspace</key>
@@ -276,9 +226,63 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>291B7A7A-5024-459B-87E7-E9F300919E65</string>
+			<string>4A28C731-79E5-40B5-B5E3-2FE9DCD55864</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./pass-show --type "${@}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>pass-show</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>DE2FB4D9-93AE-47E9-855D-AE493D1ECB00</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>32</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>U</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>0C1C435F-DF83-4E35-83EE-7CE76D319087</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -339,7 +343,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Get one-time passcodes from pass</string>
+				<string>Get usernames from pass</string>
 				<key>type</key>
 				<integer>8</integer>
 				<key>withspace</key>
@@ -348,9 +352,32 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>8C07786F-1EB9-43BC-9017-11C9C52ABF43</string>
+			<string>291B7A7A-5024-459B-87E7-E9F300919E65</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./pass-show --type --username "${@}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>pass-show</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C9A3D3DB-7D19-40E4-97B4-D05B6D0541BA</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -374,6 +401,55 @@
 			<string>5DE92DFC-26FB-47E1-9107-B276FF6F5F33</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>1</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>pass</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./pass-filter "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>pass-filter</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Get one-time passcodes from pass</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>8C07786F-1EB9-43BC-9017-11C9C52ABF43</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -406,6 +482,29 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./pass-show --type --2fa "${@}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>pass-show</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D7E1675F-8606-4BF9-8AD9-D6B65683F0C5</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -416,21 +515,21 @@
 			<key>xpos</key>
 			<integer>150</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>530</integer>
 		</dict>
 		<key>0C1C435F-DF83-4E35-83EE-7CE76D319087</key>
 		<dict>
 			<key>xpos</key>
 			<integer>150</integer>
 			<key>ypos</key>
-			<integer>180</integer>
+			<integer>285</integer>
 		</dict>
 		<key>291B7A7A-5024-459B-87E7-E9F300919E65</key>
 		<dict>
 			<key>xpos</key>
 			<integer>330</integer>
 			<key>ypos</key>
-			<integer>180</integer>
+			<integer>285</integer>
 		</dict>
 		<key>4A28C731-79E5-40B5-B5E3-2FE9DCD55864</key>
 		<dict>
@@ -444,14 +543,14 @@
 			<key>xpos</key>
 			<integer>520</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>530</integer>
 		</dict>
 		<key>8C07786F-1EB9-43BC-9017-11C9C52ABF43</key>
 		<dict>
 			<key>xpos</key>
 			<integer>330</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>530</integer>
 		</dict>
 		<key>945B00D1-715B-4942-8DD0-DD61200D7933</key>
 		<dict>
@@ -465,7 +564,7 @@
 			<key>xpos</key>
 			<integer>520</integer>
 			<key>ypos</key>
-			<integer>180</integer>
+			<integer>285</integer>
 		</dict>
 		<key>BAE78B1C-79A4-41F8-B890-5FFA42F4A790</key>
 		<dict>
@@ -473,6 +572,27 @@
 			<integer>520</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>C9A3D3DB-7D19-40E4-97B4-D05B6D0541BA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>400</integer>
+		</dict>
+		<key>D7E1675F-8606-4BF9-8AD9-D6B65683F0C5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>645</integer>
+		</dict>
+		<key>DE2FB4D9-93AE-47E9-855D-AE493D1ECB00</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>160</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
