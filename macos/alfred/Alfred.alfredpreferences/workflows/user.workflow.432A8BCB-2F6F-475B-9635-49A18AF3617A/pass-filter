@@ -2,8 +2,6 @@
 
 set -eo pipefail
 
-BREW_PATH=/usr/local/bin
+export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 
-export PATH=${BREW_PATH}:${PATH}
-
-./pass-filter.py "$1"
+pass alfred "$@"
