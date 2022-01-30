@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+BREW_PATH=/usr/local/bin
+
+export PATH=${BREW_PATH}:${PATH}
+
+./pass-filter.py "$1"

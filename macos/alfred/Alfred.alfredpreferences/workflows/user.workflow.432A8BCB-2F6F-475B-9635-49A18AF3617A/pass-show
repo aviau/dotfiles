@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+BREW_PATH=/usr/local/bin
+
+export PATH=${BREW_PATH}:${PATH}
+
+pass show "${1}" | awk 'BEGIN{ORS=""} {print; exit}'
+
+osascript -e "display notification \"Copied password ${1} to clipboard\" with title \"Unix pass\""
