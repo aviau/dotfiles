@@ -28,10 +28,10 @@ case "${typeit}" in
 EOF
         ;;
     1)
-		osascript <<EOF
-		    tell application "System Events"
-				keystroke "${PASSWORD}"
-			end tell
+        osascript <<EOF
+            tell application "System Events"
+                keystroke "${PASSWORD}"
+            end tell
 EOF
         ;;
 esac
