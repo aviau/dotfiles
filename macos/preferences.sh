@@ -30,6 +30,12 @@ defaults write "Apple Global Domain" NSUserKeyEquivalents ' {
     "Close Window" = "@q";
 }'
 
+defaults write "com.apple.finder" NSUserKeyEquivalents ' {
+        Back = "^\U2190";
+        Forward = "^\U2192";
+        "Enclosing Folder" = "^\U2191";
+}'
+
 defaults write com.google.Chrome NSUserKeyEquivalents ' {
     Back = "^\U2190";
     Forward = "^\U2192";
