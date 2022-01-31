@@ -17,6 +17,19 @@ echo "Restoring keyboard shortcuts..."
 
 # Find hotkeys with: 'defaults find NSUserKeyEquivalents'
 
+# Until the following command works, restoring the shortcuts
+# requires adding at least one shortcut per app manually in the
+# preferences settings.
+#
+# defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "<string>com.googlecode.iterm2</string>"
+
+defaults write "Apple Global Domain" NSUserKeyEquivalents ' {
+    "Enter Full Screen" = "~f";
+    "Exit Full Screen" = "~f";
+    "Toggle Full Screen" = "~f";
+    "Close Window" = "@q";
+}'
+
 defaults write com.google.Chrome NSUserKeyEquivalents ' {
     Back = "^\U2190";
     Forward = "^\U2192";
@@ -24,13 +37,8 @@ defaults write com.google.Chrome NSUserKeyEquivalents ' {
     "Force Reload This Page" = "@\Uf708";
 }'
 
-# This fails :(
-# defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "<string>com.googlecode.iterm2</string>"
-
 defaults write "com.googlecode.iterm2" NSUserKeyEquivalents '{
     Copy = "@$c";
     Paste = "@$v";
 }'
 
-#killall Finder
-#killall cfprefsd
