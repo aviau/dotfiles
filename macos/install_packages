@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set -eo pipefail
 
@@ -7,14 +7,17 @@ brew install bash-completion
 brew install htop
 brew install iterm2
 brew install --cask docker
-brew install kubectl
-brew install awscli
 brew install pyenv
 brew install karabiner-elements
 brew install golang
 brew install --cask discord
 brew install --cask visual-studio-code
 brew install --cask alfred
+
+# Cloud tools
+brew install kubectl
+brew install awscli
+brew install terraform
 
 # GPG tools
 brew install gpg
