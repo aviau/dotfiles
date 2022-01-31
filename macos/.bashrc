@@ -2,6 +2,7 @@
 export EDITOR="vim"
 export GOPATH=$HOME/go
 export GPG_TTY=$(tty)
+export PINENTRY_USER_DATA="USE_TTY=1"
 
 # Enable completion
 BREW_PREFIX=$(brew --prefix)
