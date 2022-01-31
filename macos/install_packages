@@ -4,6 +4,7 @@ set -eo pipefail
 
 brew install bash
 brew install bash-completion
+brew install htop
 brew install iterm2
 brew install --cask docker
 brew install kubectl
