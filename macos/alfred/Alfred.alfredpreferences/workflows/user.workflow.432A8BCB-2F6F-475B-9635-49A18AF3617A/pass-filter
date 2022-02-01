@@ -8,11 +8,11 @@ QUERY=$1
 
 if [[ -z "${QUERY}" ]]; then
     # Read passwords from history
-	HISTORY_FILE="$(dirname ${BASH_SOURCE})/.history"
+    HISTORY_FILE="$(dirname ${BASH_SOURCE})/.history"
     PASSWORDS=( `tac ${HISTORY_FILE}` )
     echo "{\"items\":["
     for PASSWORD in ${PASSWORDS[@]}; do
-	    echo "{\"title\":\"${PASSWORD}\",\"arg\":\"${PASSWORD}\"},"
+        echo "{\"title\":\"${PASSWORD}\",\"arg\":\"${PASSWORD}\"},"
     done
     echo "]}"
 else
