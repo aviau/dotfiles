@@ -7,14 +7,21 @@ export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 QUERY=$1
 
 if [[ -z "${QUERY}" ]]; then
+
     # Read passwords from history
-    HISTORY_FILE="$(dirname ${BASH_SOURCE})/.history"
-    PASSWORDS=( `tac ${HISTORY_FILE}` )
-    echo "{\"items\":["
-    for PASSWORD in ${PASSWORDS[@]}; do
-        echo "{\"title\":\"${PASSWORD}\",\"arg\":\"${PASSWORD}\"},"
-    done
-    echo "]}"
+    CURRENT_DIR=$(dirname ${BASH_SOURCE})
+    ${CURRENT_DIR}/pass-filter-history
+
+    # Older pure-bash version
+
+    #HISTORY_FILE="${CURRENT_DIR}/.history"
+    #PASSWORDS=( `tac ${HISTORY_FILE}` )
+    #echo "{\"items\":["
+    #for PASSWORD in ${PASSWORDS[@]}; do
+    #    echo "{\"title\":\"${PASSWORD}\",\"arg\":\"${PASSWORD}\"},"
+    #done
+    #echo "]}"
+
 else
     pass alfred "$@"
 fi
