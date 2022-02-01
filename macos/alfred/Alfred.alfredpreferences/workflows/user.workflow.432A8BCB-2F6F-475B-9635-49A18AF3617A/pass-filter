@@ -4,4 +4,17 @@ set -eo pipefail
 
 export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 
-pass alfred "$@"
+QUERY=$1
+
+if [[ -z "${QUERY}" ]]; then
+    # Read passwords from history
+	HISTORY_FILE="$(dirname ${BASH_SOURCE})/.history"
+    PASSWORDS=( `tac ${HISTORY_FILE}` )
+    echo "{\"items\":["
+    for PASSWORD in ${PASSWORDS[@]}; do
+	    echo "{\"title\":\"${PASSWORD}\",\"arg\":\"${PASSWORD}\"},"
+    done
+    echo "]}"
+else
+    pass alfred "$@"
+fi
