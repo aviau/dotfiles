@@ -1,0 +1,38 @@
+{
+	"title": "cmd+j and cmd+k to up_arrow and down_arrow",
+	"rules": [{
+			"description": "cmd+j to down_arrow",
+			"manipulators": [{
+				"type": "basic",
+				"from": {
+					"modifiers": {
+						"mandatory": [
+							"command"
+						]
+					},
+					"key_code": "j"
+				},
+				"to": [{
+					"key_code": "down_arrow"
+				}]
+			}]
+		},
+		{
+			"description": "cmd+k to up_arrow",
+			"manipulators": [{
+				"type": "basic",
+				"from": {
+					"modifiers": {
+						"mandatory": [
+							"command"
+						]
+					},
+					"key_code": "k"
+				},
+				"to": [{
+					"key_code": "up_arrow"
+				}]
+			}]
+		}
+	]
+}

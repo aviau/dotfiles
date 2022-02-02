@@ -147,17 +147,9 @@
                         ]
                     },
                     {
-                        "description": "alfred: cmd+j to down_arrow",
+                        "description": "cmd+j to down_arrow",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.runningwithcrayons.Alfred"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -176,17 +168,9 @@
                         ]
                     },
                     {
-                        "description": "alfred: cmd+k to up_arrow",
+                        "description": "cmd+k to up_arrow",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com.runningwithcrayons.Alfred"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
