@@ -31,6 +31,5 @@ brew install pinentry-mac
 
 # Desktop utilities
 brew install --cask hammerspoon
-brew install --cask unnaturalscrollwheels
 brew install --cask karabiner-elements
 brew install --cask discord
