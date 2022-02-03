@@ -13,10 +13,12 @@ end)
 local scrollWatcher = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, function(event)
     -- Similar to unnaturalscrollwheels's discrete scrolling.
     local verticalScroll = event:getProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1)
+
     if verticalScroll > 0 then
         event:setProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1, 3)
-    else
+    elseif verticalScroll < 1 then
         event:setProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1, -3)
     end
+
 end)
 scrollWatcher:start()
