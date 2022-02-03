@@ -16,7 +16,7 @@ local scrollWatcher = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, fun
 
     if verticalScroll > 0 then
         event:setProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1, 3)
-    elseif verticalScroll < 1 then
+    elseif verticalScroll < 0 then
         event:setProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1, -3)
     end
 
