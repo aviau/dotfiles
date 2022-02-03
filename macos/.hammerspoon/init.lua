@@ -10,7 +10,7 @@ end)
 ------------------------------
 -- Discrete Mouse Scrolling --
 ------------------------------
-local scrollWatcher = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, function(event)
+scrollWatcher = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, function(event)
     -- Similar to unnaturalscrollwheels's discrete scrolling.
     local verticalScroll = event:getProperty(hs.eventtap.event.properties.scrollWheelEventDeltaAxis1)
 
