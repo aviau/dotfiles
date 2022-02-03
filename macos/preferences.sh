@@ -4,6 +4,13 @@ set -eo pipefail
 
 echo "Restoring system preferences..."
 
+############
+## Finder ##
+############
+
+# Show Hidden Folders
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+
 #####################
 ## Mission Control ##
 #####################
