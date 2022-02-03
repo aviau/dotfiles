@@ -57,6 +57,8 @@ cp ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/Ke
 
 # Hammerspoon
 mkdir -p ~/.hammerspoon
+rm -rf ~/.hammerspoon/Spoons
+ln -sf ${DOTFILES_DIR}/macos/.hammerspoon/Spoons ~/.hammerspoon/Spoons
 ln -sf ${DOTFILES_DIR}/macos/.hammerspoon/init.lua ~/.hammerspoon/init.lua
 
 # MacOS Preferences
