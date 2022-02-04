@@ -65,3 +65,6 @@ fi
 function title {
 	echo -ne "\033]0;"$*"\007"
 }
+
+# direnv
+eval "$(direnv hook bash)"

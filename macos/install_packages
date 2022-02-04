@@ -15,6 +15,7 @@ brew install --cask alfred
 # Dev tools
 brew install golang
 brew install pyenv
+brew install direnv
 brew install black
 brew install --cask docker
 brew install --cask iterm2
