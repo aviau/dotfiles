@@ -3,7 +3,7 @@
 --- Disable mouse scrolling acceleration.
 ---
 
-local obj={}
+local obj = {}
 obj.__index = obj
 
 -- Metadata
