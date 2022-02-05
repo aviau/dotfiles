@@ -53,11 +53,6 @@ function obj:stop()
     return self
 end
 
---- Creates a new scroll wheel watcher.
-function obj:getScrollWatcher()
-    return 
-end
-
 --- Handle a scrolling event.
 function obj:onScroll(event)
     --- Similar to unnaturalscrollwheels's discrete scrolling.
