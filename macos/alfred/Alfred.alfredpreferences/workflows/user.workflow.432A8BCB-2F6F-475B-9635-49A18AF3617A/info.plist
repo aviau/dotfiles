@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.alexandreviau.gopass.alfred</string>
+	<string>net.alexandreviau.alfred.gopass</string>
 	<key>connections</key>
 	<dict>
 		<key>01A05888-4887-4050-9D4F-B59721A0DF82</key>
