@@ -11,10 +11,27 @@ end)
 -- Discrete Mouse Scrolling --
 ------------------------------
 hs.loadSpoon("DiscreteMouseScrolling")
-if hs.mouse.count() > 1 then
-    print("Enabling DiscreteMouseScrolling...")
-    spoon.DiscreteMouseScrolling:start()
+
+function setDiscreteMouseScrolling()
+    if hs.mouse.count() > 1 then
+        print("Enabling DiscreteMouseScrolling...")
+        spoon.DiscreteMouseScrolling:start()
+    else
+        print("Disabling DiscreteMouseScrolling...")
+        spoon.DiscreteMouseScrolling:stop()
+    end
 end
+
+setDiscreteMouseScrolling()
+
+---------------------
+-- Battery Watcher --
+---------------------
+batteryWatcher = hs.battery.watcher.new(function()
+    print("Battery state changed.")
+    setDiscreteMouseScrolling()
+end)
+batteryWatcher:start()
 
 ---------------------------
 -- Reload from URL event --
