@@ -11,4 +11,15 @@ end)
 -- Discrete Mouse Scrolling --
 ------------------------------
 hs.loadSpoon("DiscreteMouseScrolling")
-spoon.DiscreteMouseScrolling:start()
+if hs.mouse.count() > 1 then
+    print("Enabling DiscreteMouseScrolling...")
+    spoon.DiscreteMouseScrolling:start()
+end
+
+---------------------------
+-- Reload from URL event --
+---------------------------
+hs.urlevent.bind("reload", function()
+    print("Reloading...")
+    hs.reload()
+end)
