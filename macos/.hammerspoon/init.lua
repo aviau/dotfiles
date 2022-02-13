@@ -29,8 +29,15 @@ setDiscreteMouseScrolling()
 ---------------------
 batteryWatcher = hs.battery.watcher.new(function()
     print("Battery state changed.")
+
+    -- Update DiscreteMouseScrolling.
+    -- Immediately and in 30 seconds.
     setDiscreteMouseScrolling()
+    hs.timer.doAfter(30, function()
+        setDiscreteMouseScrolling()
+    end)
 end)
+
 batteryWatcher:start()
 
 ---------------------------
