@@ -95,5 +95,6 @@
     },
     "gopls": {
         "experimentalWorkspaceModule": true
-    }
+    },
+    "keyboard.touchbar.enabled": false
 }
