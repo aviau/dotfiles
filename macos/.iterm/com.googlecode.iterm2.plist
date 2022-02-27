@@ -361,6 +361,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>Default Arrangement Name</key>
+	<string>No Windows</string>
 	<key>Default Bookmark Guid</key>
 	<string>07B3CA8C-71C1-462B-8201-0050C2BF99E9</string>
 	<key>GlobalKeyMap</key>
@@ -2220,9 +2222,9 @@
 		</dict>
 	</array>
 	<key>OpenArrangementAtStartup</key>
-	<false/>
-	<key>OpenNoWindowsAtStartup</key>
 	<true/>
+	<key>OpenNoWindowsAtStartup</key>
+	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
@@ -2263,7 +2265,7 @@
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>StatusBarPosition</key>
@@ -2280,6 +2282,11 @@
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>Window Arrangements</key>
+	<dict>
+		<key>No Windows</key>
+		<array/>
+	</dict>
 	<key>WindowNumber</key>
 	<true/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
