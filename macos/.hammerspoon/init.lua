@@ -13,7 +13,7 @@ end)
 hs.loadSpoon("DiscreteMouseScrolling")
 
 function setDiscreteMouseScrolling()
-    if hs.mouse.count() > 1 then
+    if hs.mouse.count(true) > 1 then
         print("Enabling DiscreteMouseScrolling...")
         spoon.DiscreteMouseScrolling:start()
     else
