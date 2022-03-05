@@ -2268,6 +2268,8 @@
 	<true/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>StatusBarIcon</key>
+	<false/>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
 	<key>SuppressRestartAnnouncement</key>
