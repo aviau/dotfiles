@@ -59,5 +59,9 @@ cp ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/Ke
 rm -rf ~/.hammerspoon
 ln -sf ${DOTFILES_DIR}/macos/.hammerspoon ~/.hammerspoon
 
+# LaunchAgents
+#mkdir -p ~/Library/LaunchAgents
+#ln -sf ${DOTFILES_DIR}/macos/Library/LaunchAgents/net.alexandreviau.perkeep.plist ~/Library/LaunchAgents/net.alexandreviau.perkeep.plist
+
 # MacOS Preferences
 ${DOTFILES_DIR}/macos/preferences.sh
