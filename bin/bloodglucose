@@ -8,7 +8,7 @@ def main():
         api_token = f.read().strip()
 
     resp = requests.get(
-        url="https://cgm.alexandreviau.net/api/v1/entries/svg",
+        url="https://cgm.alexandreviau.ca/api/v1/entries/svg",
         params={
             "count": "1",
             "token": api_token,
