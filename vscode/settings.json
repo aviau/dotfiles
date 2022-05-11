@@ -22,7 +22,7 @@
     "go.testFlags": [
         "-v"
     ],
-    "editor.autoClosingBrackets": false,
+    "editor.autoClosingBrackets": "never",
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
     "vim.cmdLineInitialColon": true,
@@ -96,5 +96,8 @@
     "gopls": {
         "experimentalWorkspaceModule": true
     },
-    "keyboard.touchbar.enabled": false
+    "keyboard.touchbar.enabled": false,
+    "editor.autoClosingQuotes": "never",
+    "editor.autoSurround": "never",
+    "editor.bracketPairColorization.enabled": false
 }
