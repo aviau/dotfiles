@@ -143,14 +143,14 @@ ln -nsf ${DOTFILES_DIR}/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts
 
 # Download some fonts
 if [[ ! -f fonts/Menlo-Regular.ttf ]]; then
-    curl https://download.alexandreviau.net/fonts/Menlo-Regular.ttf -o fonts/Menlo-Regular.ttf
+    curl https://download.alexandreviau.ca/fonts/Menlo-Regular.ttf -o fonts/Menlo-Regular.ttf
 fi
 if [[ ! -f fonts/Menlo-Bold.ttf ]]; then
-    curl https://download.alexandreviau.net/fonts/Menlo-Bold.ttf -o fonts/Menlo-Bold.ttf
+    curl https://download.alexandreviau.ca/fonts/Menlo-Bold.ttf -o fonts/Menlo-Bold.ttf
 fi
 if [[ ! -f fonts/Menlo-Italic.ttf ]]; then
-    curl https://download.alexandreviau.net/fonts/Menlo-Italic.ttf -o fonts/Menlo-Italic.ttf
+    curl https://download.alexandreviau.ca/fonts/Menlo-Italic.ttf -o fonts/Menlo-Italic.ttf
 fi
 if [[ ! -f fonts/Menlo-Bold-Italic.ttf ]]; then
-    curl https://download.alexandreviau.net/fonts/Menlo-Bold-Italic.ttf -o fonts/Menlo-Bold-Italic.ttf
+    curl https://download.alexandreviau.ca/fonts/Menlo-Bold-Italic.ttf -o fonts/Menlo-Bold-Italic.ttf
 fi

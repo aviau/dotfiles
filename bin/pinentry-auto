@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+# GnuPG 2.08 and later pass the PINENTRY_USER_DATA environment
+# variable from the calling environment to gpg-agent to pinentry.
+
+# Use pinentry-tty if $PINENTRY_USER_DATA contains USE_TTY=1
+case "${PINENTRY_USER_DATA-}" in
+*USE_TTY=1*)
+	# Note: Change to pinentry-curses if a Curses UI is preferred.
+	exec pinentry-tty "$@"
+	;;
+esac
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    exec pinentry-mac "$@"
+fi
+
+exec pinentry-x11 "$@"

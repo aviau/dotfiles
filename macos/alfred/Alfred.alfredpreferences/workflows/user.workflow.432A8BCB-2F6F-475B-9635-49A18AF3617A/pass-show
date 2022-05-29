@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
+
+typeit=0
+
+for arg in "$@"
+do
+    case $arg in
+        --type)
+        typeit=1
+        shift
+        ;;
+        *)
+        ;;
+    esac
+done
+
+PASSWORD_NAME="${@: -1}"
+
+DECRYPTED_PASSWORD=$(pass show ${pass_opts} "$@" | awk 'BEGIN{ORS=""} {print; exit}')
+
+case "${typeit}" in
+    0)
+        echo -n "${DECRYPTED_PASSWORD}" | pbcopy
+        osascript <<EOF
+            display notification "Copied password ${PASSWORD_NAME} to clipboard." with title "Alfred pass"
+EOF
+        ;;
+    1)
+        osascript <<EOF
+            tell application "System Events"
+                keystroke "${DECRYPTED_PASSWORD}"
+            end tell
+EOF
+        ;;
+esac
+
+# Add the password to the history
+HISTORY_FILE="$(dirname ${BASH_SOURCE})/.history"
+echo "${PASSWORD_NAME}" >> ${HISTORY_FILE}
+echo "$(tac ${HISTORY_FILE} | awk '!x[$0]++' | tac | tail -30)" > ${HISTORY_FILE}

@@ -50,5 +50,18 @@ ln -sf ${DOTFILES_DIR}/.gnupg/gpg.conf ~/.gnupg/gpg.conf
 ln -sf ${DOTFILES_DIR}/.gnupg/sshcontrol ~/.gnupg/sshcontrol
 chmod -R 700 ~/.gnupg || true
 
+# KeyBindings (Cannot be symlinked!)
+rm -rf ~/Library/KeyBindings
+mkdir -p ~/Library/KeyBindings
+cp ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
+
+# Hammerspoon
+rm -rf ~/.hammerspoon
+ln -sf ${DOTFILES_DIR}/macos/.hammerspoon ~/.hammerspoon
+
+# LaunchAgents
+#mkdir -p ~/Library/LaunchAgents
+#ln -sf ${DOTFILES_DIR}/macos/Library/LaunchAgents/net.alexandreviau.perkeep.plist ~/Library/LaunchAgents/net.alexandreviau.perkeep.plist
+
 # MacOS Preferences
 ${DOTFILES_DIR}/macos/preferences.sh

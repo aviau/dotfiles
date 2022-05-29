@@ -1,0 +1,16 @@
+/* Default key bindings can be found in /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict */
+/* https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html */
+
+{
+    /* Cmd + Left */
+    "@\UF702"  = "moveWordLeft:";
+
+    /* Cmd + Right */
+    "@\UF703"  = "moveWordRight:";
+
+    /* Cmd + Shift + Left */
+    "@$\UF702" = "moveWordLeftAndModifySelection:";
+
+    /* Cmd + Shift + Right */
+    "@$\UF703" = "moveWordRightAndModifySelection:";
+}

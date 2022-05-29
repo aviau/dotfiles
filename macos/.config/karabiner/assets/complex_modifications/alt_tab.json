@@ -1,8 +1,8 @@
     {
-        "title": "Swap command+tab with control+tab",
+        "title": "swap command+tab with control+tab",
         "rules": [
             {
-                "description": "Swap command+tab with control+tab",
+                "description": "swap command+tab with control+tab",
                 "manipulators": [
                     {
                         "from": {

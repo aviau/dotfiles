@@ -40,3 +40,5 @@
 	cookiefile = /home/aviau/.gitcookies
 [pull]
 	rebase = false
+[diff "gpg"]
+	textconv = gpg --no-tty --decrypt

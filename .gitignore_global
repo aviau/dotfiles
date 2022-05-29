@@ -2,3 +2,5 @@
 /.vscode
 /.ycm_extra_conf.py*
 .DS_Store
+/.envrc
+/.python-version
