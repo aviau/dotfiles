@@ -1,11 +1,14 @@
-output eDP-1
-off
 output HDMI-1
 off
 output DP-1
 off
 output DP-2
 off
+output eDP-1
+crtc 1
+mode 3840x2160
+pos 0x0
+rate 60.00
 output DP-4
 crtc 2
 mode 3840x2160
