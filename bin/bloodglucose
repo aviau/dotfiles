@@ -13,6 +13,9 @@ def main():
             "count": "1",
             "token": api_token,
         },
+        headers={
+            "Accept": "application/json",
+        },
     )
 
     resp_json = resp.json()
