@@ -109,3 +109,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f ${HOME}/.poetry/env ]; then
 	source ${HOME}/.poetry/env
 fi
+
+# Direnv
+eval "$(direnv hook bash)"
