@@ -1,0 +1,22 @@
+{
+  "theme": {
+    "name": "Laurel theme",
+    "url": "assets:///home/aviau/.logseq/plugins/logseq-laurel-theme/custom.css",
+    "description": "A custom theme forked from logseq-clean-themes",
+    "pid": "logseq-laurel-theme"
+  },
+  "themes": {
+    "mode": "light",
+    "light": null,
+    "dark": {
+      "name": "Default Dark Theme",
+      "url": null,
+      "description": "Logseq default dark theme.",
+      "mode": "dark",
+      "selected": false,
+      "group-first": true,
+      "group-desc": "dark themes"
+    }
+  },
+  "externals": []
+}

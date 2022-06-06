@@ -133,6 +133,10 @@ ln -sf ${DOTFILES_DIR}/.config/systemd ~/.config/systemd
 mkdir -p ~/.perkeepfs
 ln -nsf ~/.perkeepfs/roots/root ~/perkeep
 
+# logseq
+mkdir -p ~/.logseq
+ln -sf ${DOTFILES_DIR}/.logseq/preferences.json ~/.logseq/preferences.json
+
 # fonts
 rm -rf ~/.local/share/fonts
 ln -nsf ${DOTFILES_DIR}/fonts ~/.local/share/fonts
