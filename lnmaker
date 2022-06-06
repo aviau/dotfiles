@@ -136,7 +136,7 @@ ln -nsf ~/.perkeepfs/roots/root ~/perkeep
 # logseq
 mkdir -p ~/.logseq
 rm -rf ~/.logseq/plugins
-rm -rf ~/.logseq/settigns
+rm -rf ~/.logseq/settings
 ln -sf ${DOTFILES_DIR}/.logseq/plugins ~/.logseq/plugins
 ln -sf ${DOTFILES_DIR}/.logseq/settings ~/.logseq/settings
 ln -sf ${DOTFILES_DIR}/.logseq/preferences.json ~/.logseq/preferences.json
