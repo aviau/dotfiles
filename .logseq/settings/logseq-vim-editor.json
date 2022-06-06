@@ -1,0 +1,7 @@
+{
+  "disabled": false,
+  "keyBindings": {
+    "openVimEditor": "mod+shift+e"
+  },
+  "settingsVersion": "v1"
+}
