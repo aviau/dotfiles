@@ -5,7 +5,7 @@ export GPG_TTY=$(tty)
 export PINENTRY_USER_DATA="USE_TTY=1"
 
 # Enable completion
-BREW_PREFIX=$(brew --prefix)
+eval $(/opt/homebrew/bin/brew shellenv)
 if [[ -f ${BREW_PREFIX}/etc/bash_completion ]]; then
     export BASH_COMPLETION_COMPAT_DIR="${BREW_PREFIX}/etc/bash_completion.d"
     . /usr/local/etc/bash_completion
