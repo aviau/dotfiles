@@ -6,9 +6,8 @@ export PINENTRY_USER_DATA="USE_TTY=1"
 
 # Enable completion
 eval $(/opt/homebrew/bin/brew shellenv)
-if [[ -f ${BREW_PREFIX}/etc/bash_completion ]]; then
-    export BASH_COMPLETION_COMPAT_DIR="${BREW_PREFIX}/etc/bash_completion.d"
-    . /usr/local/etc/bash_completion
+if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]]; then
+    . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
 fi
 
 # GPG+SSH Agent
