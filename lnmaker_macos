@@ -4,6 +4,9 @@ set -eo pipefail
 
 DOTFILES_DIR=$(cd $(dirname $0) && pwd -P)
 
+# config folder
+mkdir -p ~/.config
+
 # bin
 ln -nsf ${DOTFILES_DIR}/bin ~/bin
 
