@@ -11,6 +11,7 @@ brew install htop
 
 # Productivity
 brew install --cask alfred
+brew install --cask obsidian
 
 # Dev tools
 brew install golang
