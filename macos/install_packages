@@ -8,6 +8,7 @@ brew install bash-completion
 
 # Utilities
 brew install htop
+brew install jq
 
 # Productivity
 brew install --cask alfred
