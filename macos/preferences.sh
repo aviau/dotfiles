@@ -38,9 +38,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "<string>com.googlecode.iterm2</string>"
 
 defaults write "Apple Global Domain" NSUserKeyEquivalents ' {
-    "Enter Full Screen" = "~f";
-    "Exit Full Screen" = "~f";
-    "Toggle Full Screen" = "~f";
     "Close Window" = "@q";
 }'
 
