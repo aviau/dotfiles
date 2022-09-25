@@ -99,5 +99,7 @@
     "keyboard.touchbar.enabled": false,
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
-    "editor.bracketPairColorization.enabled": false
+    "editor.bracketPairColorization.enabled": false,
+    "volar.icon.preview": false,
+    "volar.icon.splitEditors": false
 }
