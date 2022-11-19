@@ -27,6 +27,7 @@ brew install --cask visual-studio-code
 brew install kubectl
 brew install awscli
 brew install terraform
+brew install terraform-ls
 
 # GPG tools
 brew install gpg
