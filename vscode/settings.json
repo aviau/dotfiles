@@ -68,14 +68,6 @@
             "**/.terraform/**/*"
         ]
     },
-    "terraform.languageServer": {
-        "enabled": true,
-        "external": true,
-        "pathToBinary": "/opt/homebrew/bin/terraform-ls",
-        "args": [
-            "serve"
-        ]
-    },
     "search.exclude": {
         "**/vendor/**": true
     },
@@ -103,5 +95,7 @@
     "editor.autoSurround": "never",
     "editor.bracketPairColorization.enabled": false,
     "volar.icon.preview": false,
-    "volar.icon.splitEditors": false
+    "volar.icon.splitEditors": false,
+    "terraform.languageServer.enable": true,
+    "terraform.languageServer.path": "/opt/homebrew/bin/terraform-ls"
 }
