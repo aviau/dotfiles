@@ -70,7 +70,11 @@
     },
     "terraform.languageServer": {
         "enabled": true,
-        "args": []
+        "external": true,
+        "pathToBinary": "/opt/homebrew/bin/terraform-ls",
+        "args": [
+            "serve"
+        ]
     },
     "search.exclude": {
         "**/vendor/**": true
@@ -93,9 +97,7 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "gopls": {
-        "experimentalWorkspaceModule": true
-    },
+    "gopls": {},
     "keyboard.touchbar.enabled": false,
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
