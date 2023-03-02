@@ -97,5 +97,7 @@
     "volar.icon.preview": false,
     "volar.icon.splitEditors": false,
     "terraform.languageServer.enable": true,
-    "terraform.languageServer.path": "/opt/homebrew/bin/terraform-ls"
+    "terraform.languageServer.path": "/opt/homebrew/bin/terraform-ls",
+    "gitlens.codeLens.enabled": false,
+    "update.showReleaseNotes": false
 }
