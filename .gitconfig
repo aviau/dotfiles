@@ -1,7 +1,7 @@
 [user]
 	name = aviau
 	email = alexandre@alexandreviau.net
-	signingkey = 3CCC3A3A
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG7/FxW+mTqo4WhVGH882rhduZQ1VQTFBwhRbFsrXvBq
 [push]
 	default = simple
 [core]
@@ -29,7 +29,10 @@
 [commit]
 	gpgsign = true
 [gpg]
+    format = ssh
     program = gpg
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [apply]
 	whitespace = fix
 [url "git@salsa.debian.org:"]
