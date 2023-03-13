@@ -13,6 +13,7 @@ brew install jq
 # Productivity
 brew install --cask alfred
 brew install --cask obsidian
+brew install --cask 1password/tap/1password-cli
 
 # Dev tools
 brew install golang
