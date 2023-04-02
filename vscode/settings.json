@@ -99,5 +99,6 @@
     "terraform.languageServer.enable": true,
     "terraform.languageServer.path": "/opt/homebrew/bin/terraform-ls",
     "gitlens.codeLens.enabled": false,
-    "update.showReleaseNotes": false
+    "update.showReleaseNotes": false,
+    "editor.inlayHints.enabled": "offUnlessPressed"
 }
