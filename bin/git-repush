@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+git fetch --all
+git rebase --onto origin/master HEAD~1
+git push -u origin HEAD -f
