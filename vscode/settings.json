@@ -99,5 +99,6 @@
     "update.showReleaseNotes": false,
     "editor.inlayHints.enabled": "offUnlessPressed",
     "git.openRepositoryInParentFolders": "never",
-    "workbench.activityBar.location": "hidden"
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.tabActionLocation": "right"
 }
