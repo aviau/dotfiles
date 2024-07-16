@@ -47,15 +47,8 @@ defaults write "com.apple.finder" NSUserKeyEquivalents ' {
         "Enclosing Folder" = "^\U2191";
 }'
 
-defaults write com.google.Chrome NSUserKeyEquivalents ' {
-    Back = "^\U2190";
-    Forward = "^\U2192";
-    "Reload This Page" = "\Uf708";
-    "Force Reload This Page" = "@\Uf708";
-}'
-
-defaults write "com.googlecode.iterm2" NSUserKeyEquivalents '{
-    Copy = "@$c";
-    Paste = "@$v";
-}'
+#defaults write "com.googlecode.iterm2" NSUserKeyEquivalents '{
+#    Copy = "@$c";
+#    Paste = "@$v";
+#}'
 

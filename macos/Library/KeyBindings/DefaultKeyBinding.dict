@@ -9,8 +9,8 @@
     "@\UF703"  = "moveWordRight:";
 
     /* Cmd + Shift + Left */
-    "@$\UF702" = "moveWordLeftAndModifySelection:";
+    /* "@$\UF702" = "moveWordLeftAndModifySelection:"; */
 
     /* Cmd + Shift + Right */
-    "@$\UF703" = "moveWordRightAndModifySelection:";
+    /* "@$\UF703" = "moveWordRightAndModifySelection:"; */
 }
