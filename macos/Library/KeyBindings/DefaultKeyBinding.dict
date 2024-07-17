@@ -2,15 +2,15 @@
 /* https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html */
 
 {
-    /* Cmd + Left */
-    "@\UF702"  = "moveWordLeft:";
+    /* Move Left: ctrl + left */
+    "^\UF702"  = "moveWordLeft:";
 
-    /* Cmd + Right */
-    "@\UF703"  = "moveWordRight:";
+    /* Move Right: ctrl + right */
+    "^\UF703"  = "moveWordRight:";
 
-    /* Cmd + Shift + Left */
-    /* "@$\UF702" = "moveWordLeftAndModifySelection:"; */
+    /* Select Left: ctrl + shift + left */
+    "^$\UF702" = "moveWordLeftAndModifySelection:";
 
-    /* Cmd + Shift + Right */
-    /* "@$\UF703" = "moveWordRightAndModifySelection:"; */
+    /* Select Right: ctrl + shift + right */
+    "^$\UF703" = "moveWordRightAndModifySelection:";
 }
