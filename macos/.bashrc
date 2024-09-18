@@ -10,6 +10,9 @@ if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]]; then
     . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
 fi
 
+# Use Brew's make
+export PATH="${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:$PATH"
+
 # GPG+SSH Agent
 export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
 if [[ ! -S ${HOME}/.gnupg/S.gpg-agent ]]; then
