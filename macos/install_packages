@@ -16,11 +16,13 @@ brew install --cask obsidian
 brew install --cask 1password/tap/1password-cli
 
 # Dev tools
+brew install git
 brew install golang
 brew install pyenv
 brew install direnv
 brew install black
 brew install shellcheck
+brew install make
 brew install --cask docker
 brew install --cask iterm2
 brew install --cask visual-studio-code
@@ -30,6 +32,7 @@ brew install kubectl
 brew install awscli
 brew install terraform
 brew install terraform-ls
+brew install kubernetes-cli
 
 # GPG tools
 brew install gpg
