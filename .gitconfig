@@ -4,6 +4,7 @@
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG7/FxW+mTqo4WhVGH882rhduZQ1VQTFBwhRbFsrXvBq
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 [gitreview]
