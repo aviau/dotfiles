@@ -15,7 +15,6 @@
     "window.zoomLevel": 0,
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": true,
-    "workbench.colorTheme": "One Dark Pro",
     "go.testFlags": [
         "-v"
     ],
@@ -100,5 +99,6 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "git.openRepositoryInParentFolders": "never",
     "workbench.activityBar.location": "hidden",
-    "workbench.editor.tabActionLocation": "right"
+    "workbench.editor.tabActionLocation": "right",
+    "workbench.colorTheme": "Default Dark Modern"
 }
