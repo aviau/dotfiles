@@ -46,6 +46,11 @@ mkdir -p ~/Library/Application\ Support/Code/User
 ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -sf ${DOTFILES_DIR}/vscode/keybindings_macos.json ~/Library/Application\ Support/Code/User/keybindings.json
 
+# cursor
+mkdir -p ~/Library/Application\ Support/Code/User
+ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+ln -sf ${DOTFILES_DIR}/vscode/keybindings_macos.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+
 # gnupg files
 mkdir -p ~/.gnupg
 ln -sf ${DOTFILES_DIR}/macos/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
