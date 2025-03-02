@@ -269,4 +269,14 @@
         "key": "shift+cmd+p",
         "command": "-workbench.action.showCommands"
     },
+    {
+        "key": "cmd+enter",
+        "command": "editor.action.acceptCursorTabSuggestion",
+        "when": "cpp.shouldAcceptTab"
+    },
+    {
+        "key": "tab",
+        "command": "-editor.action.acceptCursorTabSuggestion",
+        "when": "cpp.shouldAcceptTab"
+    },
 ]
