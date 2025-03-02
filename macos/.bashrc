@@ -60,7 +60,6 @@ export -f set_prompt
 
 # pyenv
 if [ -d "$HOME/.pyenv" ]; then
-    eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
 
@@ -75,3 +74,9 @@ function title {
 
 # direnv
 eval "$(direnv hook bash)"
+
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+source /Users/alexandre.viau/.docker/init-bash.sh || true # Added by Docker Desktop
