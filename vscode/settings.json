@@ -9,8 +9,7 @@
     "window.enableMenuBarMnemonics": false,
     "keyboard.dispatch": "keyCode",
     "go.formatTool": "gofmt",
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel": "off",
     "vim.useCtrlKeys": false,
     "window.zoomLevel": 0,
     "editor.minimap.showSlider": "always",
@@ -34,7 +33,6 @@
     },
     "editor.parameterHints": false,
     "go.enableCodeLens": {
-        "references": false,
         "runtest": false
     },
     "editor.scrollBeyondLastLine": false,
@@ -52,9 +50,6 @@
     "files.associations": {
         "*.vue": "vue"
     },
-    "python.linting.mypyEnabled": true,
-    "html.mirrorCursorOnMatchingTag": false,
-    "python.linting.pylintEnabled": false,
     "terraform.indexing": {
         "enabled": false,
         "liveIndexing": false,
