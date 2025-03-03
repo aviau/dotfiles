@@ -3,7 +3,6 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showTabs": "multiple",
-    "workbench.editor.tabCloseButton": "right",
     "workbench.iconTheme": "vs-minimal",
     "workbench.statusBar.feedback.visible": false,
     "window.enableMenuBarMnemonics": false,
@@ -50,19 +49,9 @@
     "files.associations": {
         "*.vue": "vue"
     },
-    "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
-        "delay": 500,
-        "exclude": [
-            ".terraform/**/*",
-            "**/.terraform/**/*"
-        ]
-    },
     "search.exclude": {
         "**/vendor/**": true
     },
-    "terminal.integrated.shell.linux": "/bin/bash",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook",
         "*.gz": "default"
@@ -71,7 +60,6 @@
     "editor.fontLigatures": false,
     "go.toolsManagement.autoUpdate": true,
     "python.experiments.enabled": false,
-    "python.showStartPage": false,
     "editor.cursorStyle": "line",
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
@@ -85,8 +73,6 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
     "editor.bracketPairColorization.enabled": false,
-    "volar.icon.preview": false,
-    "volar.icon.splitEditors": false,
     "terraform.languageServer.enable": true,
     "terraform.languageServer.path": "/opt/homebrew/bin/terraform-ls",
     "gitlens.codeLens.enabled": false,
