@@ -30,7 +30,7 @@ brew install --cask visual-studio-code
 # Cloud tools
 brew install kubectl
 brew install awscli
-brew install terraform
+brew install opentofu
 brew install terraform-ls
 brew install kubernetes-cli
 
