@@ -42,6 +42,7 @@ brew install pinentry-mac
 brew install --cask hammerspoon
 brew install --cask karabiner-elements
 brew install --cask discord
+brew install --cask jordanbaird-ice
 
 # Cargo Addons
 cargo install cargo-edit
