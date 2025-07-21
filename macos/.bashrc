@@ -78,5 +78,3 @@ eval "$(direnv hook bash)"
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
-
-source /Users/alexandre.viau/.docker/init-bash.sh || true # Added by Docker Desktop
