@@ -45,4 +45,5 @@ brew install --cask discord
 brew install --cask jordanbaird-ice
 
 # Cargo Addons
+rustup toolchain install stable
 cargo install cargo-edit
