@@ -82,5 +82,8 @@
     "workbench.activityBar.location": "hidden",
     "workbench.editor.tabActionLocation": "right",
     "workbench.colorTheme": "Default Dark Modern",
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "window.commandCenter": true,
+    "cursorpyright.shouldImportPylanceSettings": "never",
+    "explorer.excludeGitIgnore": true
 }
