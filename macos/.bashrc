@@ -78,3 +78,6 @@ eval "$(direnv hook bash)"
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Terraform
+export TF_CLI_ARGS_apply="-parallelism=50"
