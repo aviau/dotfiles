@@ -19,6 +19,15 @@
     }
   },
   {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious",
+      "ctrl-d": "editor::ContextMenuLast",
+      "ctrl-u": "editor::ContextMenuFirst"
+    }
+  },
+  {
     "bindings": {
       "ctrl-p": "file_finder::Toggle",
       "ctrl-shift-p": "command_palette::Toggle",
