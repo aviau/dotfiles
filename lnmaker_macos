@@ -46,10 +46,10 @@ mkdir -p ~/Library/Application\ Support/Code/User
 ln -sf ${DOTFILES_DIR}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -sf ${DOTFILES_DIR}/vscode/keybindings_macos.json ~/Library/Application\ Support/Code/User/keybindings.json
 
-# vscode
+# zed
 mkdir -p ~/.config/zed
 ln -sf ${DOTFILES_DIR}/zed/settings.json ~/.config/zed/settings.json
-ln -sf ${DOTFILES_DIR}/zed/keybindings.json ~/.config/zed/keybindings.json
+ln -sf ${DOTFILES_DIR}/zed/keymap.json ~/.config/zed/keymap.json
 
 # cursor
 mkdir -p ~/Library/Application\ Support/Cursor/User

@@ -20,7 +20,8 @@
   },
   {
     "bindings": {
-      "ctrl-p": "command_palette::Toggle",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious"
     }
