@@ -14,7 +14,7 @@
     "mode": "eager"
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "theme": {
     "mode": "system",
