@@ -13,7 +13,9 @@
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
-      "cmd-l": "workspace::ToggleRightDock"
+      "cmd-l": "workspace::ToggleRightDock",
+      "cmd-shift-o": "outline_panel::ToggleFocus",
+      "cmd-shift-a": "agent::ToggleFocus"
     }
   },
   {
