@@ -12,7 +12,8 @@
       "ctrl-p": "file_finder::Toggle",
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrevious"
+      "ctrl-k": "menu::SelectPrevious",
+      "cmd-l": "workspace::ToggleRightDock"
     }
   },
   {
@@ -24,20 +25,6 @@
     }
   },
   {
-    // Workspace
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    }
-  },
-  {
-    // Insert Mode
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
-    }
-  },
-  {
     // Code Completion
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
@@ -46,5 +33,38 @@
       "ctrl-d": "editor::ContextMenuLast",
       "ctrl-u": "editor::ContextMenuFirst"
     }
+  },
+  // <EDIT PREDICTION: USE CTRL-ENTER>
+  // https://zed.dev/docs/ai/edit-prediction#keybinding-example-always-use-alt-tab
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "cmd-enter": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "tab": "editor::Tab"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ComposeCompletion"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || vim_mode == replace || vim_mode == waiting",
+    "bindings": {
+      "tab": "vim::Tab"
+    }
+  },
+  {
+    "context": "vim_mode == literal",
+    "bindings": {
+      "tab": ["vim::Literal", ["tab", "\u0009"]]
+    }
   }
+  // </EDIT PREDICTION>
 ]
