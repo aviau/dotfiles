@@ -34,6 +34,12 @@
       "ctrl-u": "editor::ContextMenuFirst"
     }
   },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-g": "editor::OpenPermalinkToLine"
+    }
+  },
   // <EDIT PREDICTION: USE CTRL-ENTER>
   // https://zed.dev/docs/ai/edit-prediction#keybinding-example-always-use-alt-tab
   {
