@@ -19,6 +19,13 @@
     }
   },
   {
+    // Workspace
+    "context": "Workspace",
+    "bindings": {
+      "cmd-w": null // Default is "workspace::CloseActiveDock"
+    }
+  },
+  {
     // Pane
     "context": "Pane",
     "bindings": {
