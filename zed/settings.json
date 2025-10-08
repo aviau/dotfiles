@@ -27,5 +27,10 @@
   "auto_install_extensions": {
     "vue": true,
     "opentofu": true
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty"]
+    }
   }
 }
