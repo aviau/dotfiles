@@ -32,5 +32,9 @@
     "Python": {
       "language_servers": ["ty"]
     }
+  },
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false
   }
 }
