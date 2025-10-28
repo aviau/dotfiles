@@ -30,7 +30,10 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["ty"]
+      "language_servers": [
+        "basedpyright"
+        // "ty",
+      ]
     }
   },
   "buffer_font_features": {
