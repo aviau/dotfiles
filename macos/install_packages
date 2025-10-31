@@ -18,6 +18,7 @@ brew install --cask obsidian
 brew install git
 brew install golang
 brew install pyenv
+brew install nvm
 brew install direnv
 brew install black
 brew install shellcheck
