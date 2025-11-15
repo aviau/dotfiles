@@ -32,9 +32,18 @@
   "languages": {
     "Python": {
       "language_servers": [
-        "basedpyright"
-        // "ty",
+        //"basedpyright"
+        "ty"
       ]
+    }
+  },
+  "lsp": {
+    "ty": {
+      "settings": {
+        "experimental": {
+          "rename": true
+        }
+      }
     }
   },
   "buffer_font_features": {
