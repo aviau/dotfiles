@@ -52,7 +52,7 @@
   // <EDIT PREDICTION: USE CTRL-ENTER>
   // https://zed.dev/docs/ai/edit-prediction#keybinding-example-always-use-alt-tab
   {
-    "context": "Editor && edit_prediction",
+    "context": "Editor && (edit_prediction || edit_prediction_conflict)",
     "bindings": {
       "cmd-enter": "editor::AcceptEditPrediction"
     }
