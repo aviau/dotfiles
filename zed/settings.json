@@ -37,8 +37,8 @@
   "languages": {
     "Python": {
       "language_servers": [
-        //"basedpyright"
-        "ty"
+        "basedpyright"
+        //"ty"
       ]
     }
   },
