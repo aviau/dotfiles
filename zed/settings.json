@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_whitespaces": "boundary",
+  "whitespace_map": {
+    "space": " ",
+    "tab": "→"
+  },
   "format_on_save": "off",
   "outline_panel": {
     "dock": "right"
