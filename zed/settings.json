@@ -20,10 +20,8 @@
   "ui_font_size": 16,
   "buffer_font_size": 12,
   "edit_predictions": {
+    "provider": "zed",
     "mode": "eager"
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
   },
   "theme": {
     "mode": "system",
