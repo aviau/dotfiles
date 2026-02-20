@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "show_whitespaces": "boundary",
   "whitespace_map": {
     "space": " ",
@@ -35,8 +39,8 @@
   "languages": {
     "Python": {
       "language_servers": [
-        "basedpyright"
-        //"ty"
+        "ty"
+        //"basedpyright"
       ]
     }
   },
