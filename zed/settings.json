@@ -56,5 +56,12 @@
   "buffer_font_features": {
     "calt": false,
     "liga": false
+  },
+  "vim": {
+    // Fixes an issue where:
+    // - Copying with CMD+C
+    // - Double-Click word, CMD+V: paste the right thing.
+    // - Double-Click word, CMD+V: paste the wrong thing. (only the second time)
+    "use_system_clipboard": "never",
   }
 }
