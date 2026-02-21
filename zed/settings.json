@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ensure_final_newline_on_save": true,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
