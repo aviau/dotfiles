@@ -2,3 +2,4 @@
 /.ycm_extra_conf.py*
 .DS_Store
 /.python-version
+/.claude/settings.local.json
