@@ -36,7 +36,8 @@
   },
   "auto_install_extensions": {
     "vue": true,
-    "opentofu": true
+    "opentofu": true,
+    "make": true
   },
   "languages": {
     "Python": {
@@ -44,6 +45,9 @@
         "ty"
         //"basedpyright"
       ]
+    },
+    "Make": {
+      "hard_tabs": true,
     }
   },
   "lsp": {
