@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+main() {
+    git add .
+    git commit --amend --no-edit
+    git-repush
+}
+
+main
