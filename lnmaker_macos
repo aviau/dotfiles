@@ -68,6 +68,10 @@ rm -rf ~/Library/KeyBindings
 mkdir -p ~/Library/KeyBindings
 cp ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
 
+# pi
+mkdir -p ~/.pi/agent
+ln -sf ${DOTFILES_DIR}/.pi/agent/settings.json ~/.pi/agent/settings.json
+
 # Hammerspoon
 rm -rf ~/.hammerspoon
 ln -sf ${DOTFILES_DIR}/macos/.hammerspoon ~/.hammerspoon
