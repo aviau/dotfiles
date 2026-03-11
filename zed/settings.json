@@ -53,7 +53,10 @@
     },
     "Make": {
       "hard_tabs": true,
-    }
+    },
+    "Go": {
+      "hard_tabs": true,
+    },
   },
   "lsp": {
     "ty": {
