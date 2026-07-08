@@ -81,7 +81,7 @@
     "git.openRepositoryInParentFolders": "never",
     "workbench.activityBar.location": "hidden",
     "workbench.editor.tabActionLocation": "right",
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Dark Modern",
     "python.analysis.typeCheckingMode": "standard",
     "window.commandCenter": true,
     "cursorpyright.shouldImportPylanceSettings": "never",
