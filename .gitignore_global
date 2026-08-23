@@ -3,3 +3,5 @@
 .DS_Store
 /.python-version
 /.claude/settings.local.json
+
+**/.claude/settings.local.json
