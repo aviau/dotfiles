@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+./run.sh website build
+
+# ./run.sh website build -g -u cassandra:$(pwd)/../cassandra -b cassandra:trunk

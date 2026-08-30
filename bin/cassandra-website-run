@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+# Serve content/, not site-content/build/html. content/ is the tree that
+# prepare_site_html_for_publication produces and that actually gets published, so bugs
+# introduced by the publication step (e.g. the sed that corrupts search-index.js) are only
+# visible here. site-content/build/html is the stage before that step.
+cd content
+
+echo "http://localhost:8000/doc/7.0/index.html"
+
+python3 -m http.server
