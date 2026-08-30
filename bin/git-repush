@@ -6,7 +6,7 @@ main() {
     local default_remote=
     default_remote=$(git rev-parse --abbrev-ref origin/HEAD)
     git fetch --all
-    git rebase --onto ${default_remote} HEAD~1
+    git rebase ${default_remote}
     git push -u origin HEAD -f
 }
 
