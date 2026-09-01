@@ -58,6 +58,10 @@ ln -sf ${DOTFILES_DIR}/.config/sway ~/.config/sway
 rm -rf ~/.config/waybar
 ln -sf ${DOTFILES_DIR}/.config/waybar ~/.config/waybar
 
+# herdr
+mkdir -p ~/.config/herdr
+ln -sf ${DOTFILES_DIR}/.config/herdr/config.toml ~/.config/herdr/config.toml
+
 # poetry
 rm -rf ~/.config/pypoetry
 ln -sf ${DOTFILES_DIR}/.config/pypoetry ~/.config/pypoetry
