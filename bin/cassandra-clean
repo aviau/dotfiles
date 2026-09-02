@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+# Removes generated/untracked build artifacts that git doesn't clean up on
+# checkout and can go stale across branches (e.g. src/gen-java left over
+# from a branch with a different codegen, or a mismatched modules/accord
+# checkout, or lib/ jars for a dependency the new branch doesn't use).
+#
+# Scoped to known generated paths only, so it won't touch untracked files
+# elsewhere in the tree (CLAUDE.local.md, .claude/settings.local.json, etc).
+git clean -fdx -- build src/gen-java src/resources/org/apache/cassandra/config lib modules
