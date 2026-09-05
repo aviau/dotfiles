@@ -15,6 +15,13 @@ main() {
     # run.sh (404.html, doc/, assets/, etc.) and leaves tracked files (.htaccess, robots.txt,
     # sitemap.xml) alone even if locally modified.
     git clean -fdx -- content site-content/build site-ui/build
+
+    # run.sh only rebuilds a container image when no image with that tag exists at all, so a
+    # locally cached image (including its baked-in docker-entrypoint.sh) can silently go stale
+    # once the Dockerfile or entrypoint script changes. Remove them so the next build is fresh.
+    local images
+    images="$(docker images -q apache/cassandra-website:latest apache/cassandra-website-ui:latest)"
+    [ -z "${images}" ] || docker rmi ${images}
 }
 
 main "$@"
