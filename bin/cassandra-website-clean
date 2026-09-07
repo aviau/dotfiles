@@ -20,7 +20,8 @@ main() {
     # locally cached image (including its baked-in docker-entrypoint.sh) can silently go stale
     # once the Dockerfile or entrypoint script changes. Remove them so the next build is fresh.
     local images
-    images="$(docker images -q apache/cassandra-website:latest apache/cassandra-website-ui:latest)"
+    images="$(docker images -q apache/cassandra-website:latest) $(docker images -q apache/cassandra-website-ui:latest)"
+    images="$(echo "${images}" | xargs)"
     [ -z "${images}" ] || docker rmi ${images}
 }
 
