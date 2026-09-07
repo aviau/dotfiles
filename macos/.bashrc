@@ -13,6 +13,10 @@ fi
 # Use Brew's make
 export PATH="${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:$PATH"
 
+# Use Brew's java
+export JAVA_HOME="${HOMEBREW_PREFIX}/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
+export PATH="${JAVA_HOME}/bin:$PATH"
+
 # GPG+SSH Agent
 export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
 if [[ ! -S ${HOME}/.gnupg/S.gpg-agent ]]; then
