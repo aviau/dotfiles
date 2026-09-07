@@ -85,3 +85,9 @@ fi
 
 # Terraform
 export TF_CLI_ARGS_apply="-parallelism=50"
+
+# Local Bins (required for uv)
+export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="~/.bun/bin:${PATH}"
+
+alias verify='$(git rev-parse --show-toplevel)/bin/verify.py'
