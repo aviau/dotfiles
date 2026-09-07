@@ -1,0 +1,52 @@
+{
+  "global" : {
+    "agentPresenceBadgesEnabled" : true,
+    "analyticsEnabled" : true,
+    "appVisibility" : "dockAndMenuBar",
+    "appearanceMode" : "dark",
+    "automatedActionPolicy" : "cliOnly",
+    "confirmCloseSurface" : true,
+    "confirmQuitMode" : "auto",
+    "copyIgnoredOnWorktreeCreate" : false,
+    "copyUntrackedOnWorktreeCreate" : false,
+    "crashReportsEnabled" : true,
+    "defaultEditorID" : "auto",
+    "deleteBranchOnDeleteWorktree" : true,
+    "fetchOriginBeforeWorktreeCreation" : true,
+    "githubIntegrationEnabled" : true,
+    "globalScripts" : [
+
+    ],
+    "inAppNotificationsEnabled" : true,
+    "moveNotifiedWorktreeToTop" : false,
+    "muteNotificationsForActiveSurface" : true,
+    "notificationRetentionLimit" : 200,
+    "notificationSound" : "hero",
+    "promptForWorktreeCreation" : true,
+    "pullRequestMergeStrategy" : "merge",
+    "remoteSessionPersistenceEnabled" : true,
+    "richAgentNotificationsEnabled" : true,
+    "shortcutOverrides" : {
+
+    },
+    "systemNotificationsEnabled" : false,
+    "terminalHibernationEnabled" : true,
+    "terminalThemeSyncEnabled" : true,
+    "terminateSessionsOnQuit" : false,
+    "updateChannel" : "stable",
+    "updatesAutomaticallyCheckForUpdates" : true,
+    "updatesAutomaticallyDownloadUpdates" : false
+  },
+  "pinnedWorktreeIDs" : [
+
+  ],
+  "remoteRepositoryRoots" : [
+
+  ],
+  "repositories" : {
+
+  },
+  "repositoryRoots" : [
+    "\/Users\/alexandre.viau\/git\/pyro\/"
+  ]
+}

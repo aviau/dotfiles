@@ -76,6 +76,10 @@ cp ${DOTFILES_DIR}/macos/Library/KeyBindings/DefaultKeyBinding.dict ~/Library/Ke
 mkdir -p ~/.pi/agent
 ln -sf ${DOTFILES_DIR}/.pi/agent/settings.json ~/.pi/agent/settings.json
 
+# supacode
+mkdir -p ~/.supacode
+ln -sf ${DOTFILES_DIR}/.supacode/settings.json ~/.supacode/settings.json
+
 # Hammerspoon
 rm -rf ~/.hammerspoon
 ln -sf ${DOTFILES_DIR}/macos/.hammerspoon ~/.hammerspoon
