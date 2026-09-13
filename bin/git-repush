@@ -2,12 +2,47 @@
 
 set -eo pipefail
 
+help() {
+    cat <<EOF
+Usage: git repush [--head]
+
+Rebase the current branch and force-push it to origin.
+
+Options:
+    --head    Drop all commits except the last one, rebasing it directly
+              onto the default remote branch
+    --help    Show this help message
+EOF
+}
+
 main() {
+    local head_only=false
+    for arg in "$@"; do
+        case "${arg}" in
+            --head)
+                head_only=true
+                ;;
+            --help)
+                help
+                exit 0
+                ;;
+            *)
+                echo "git-repush: unknown argument: ${arg}" >&2
+                exit 1
+                ;;
+        esac
+    done
+
     local default_remote=
     default_remote=$(git rev-parse --abbrev-ref origin/HEAD)
     git fetch --all
-    git rebase ${default_remote}
+
+    if [[ "${head_only}" == true ]]; then
+        git rebase --onto ${default_remote} HEAD~1
+    else
+        git rebase ${default_remote}
+    fi
     git push -u origin HEAD -f
 }
 
-main
+main "$@"

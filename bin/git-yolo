@@ -2,10 +2,28 @@
 
 set -eo pipefail
 
-main() {
-    git add .
-    git commit --amend --no-edit
-    git-repush
+help() {
+    cat <<EOF
+Usage: git yolo [--head]
+
+Amend the current commit with all working tree changes, then hand off to
+git-repush:
+
+EOF
+    git-repush --help
 }
 
-main
+main() {
+    for arg in "$@"; do
+        if [[ "${arg}" == "--help" ]]; then
+            help
+            exit 0
+        fi
+    done
+
+    git add .
+    git commit --amend --no-edit
+    git-repush "$@"
+}
+
+main "$@"
